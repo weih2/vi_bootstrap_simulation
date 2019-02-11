@@ -14,7 +14,6 @@ int main(){
 
   cavi_implementation sim0(sim1);
 
-  cout << sim0.data.x[0] << endl; 
   int n_steps = 1;
   sim0.cavi_update(n_steps);
   return 0;

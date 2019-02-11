@@ -1,8 +1,12 @@
 using namespace std;
 
-cavi_implementation::cavi_implementation(simulation_data& dat){
+cavi_implementation::cavi_implementation(simulation_data& dat,
+  int max_iter = 1000, double precision = 0.0001){
   data = dat;
   est = init_cavi(dat);
+
+  max_n_iter = max_iter;
+  epsilon = precision;
 }
 
 void cavi_implementation::cavi_estimate(){
@@ -44,8 +48,11 @@ void cavi_implementation::cavi_estimate(){
 }
 
 void cavi_implementation::cavi_update(int& n_steps){
-  for(int n_step = 0; n_step < n_steps; n_step++){
+  cavi_estimate();
+
+  for(int n_step = 1; n_step < n_steps; n_step++){
     double old_elbo = elbo;
     cavi_estimate();
+    if((old_elbo - elbo) < epsilon) break;
   }
 }

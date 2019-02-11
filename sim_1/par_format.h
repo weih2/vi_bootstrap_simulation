@@ -38,7 +38,7 @@ struct cavi_estimation{
 
 class cavi_implementation{
 public:
-  cavi_implementation(simulation_data&);
+  cavi_implementation(simulation_data&, int, double);
 
   simulation_data data;
   int max_n_iter;
