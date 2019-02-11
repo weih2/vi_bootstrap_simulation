@@ -47,8 +47,8 @@ public:
   cavi_estimation est;
   cavi_estimation weighted_est[];
 
-  void cal_elbo();
-  void cal_elbo_weighted();
+private:
+  // avoid infinite iterations
   void cavi_estimate();
   void cavi_estimate_weighted();
-}
+};
