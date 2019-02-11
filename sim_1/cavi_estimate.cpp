@@ -29,7 +29,6 @@ void cavi_implementation::cavi_estimate(){
     }
   }
 
-
   // update posterior of mu
   double product_x_phi;
   for(int k = 0; k < data.g_vars.K; k++){
@@ -50,9 +49,10 @@ void cavi_implementation::cavi_estimate(){
 void cavi_implementation::cavi_update(int& n_steps){
   cavi_estimate();
 
-  for(int n_step = 1; n_step < n_steps; n_step++){
+  for(int n_step = 1; n_step <= n_steps; n_step++){
+    cout << "current elbo: " << elbo << endl;
     double old_elbo = elbo;
     cavi_estimate();
-    if((old_elbo - elbo) < epsilon) break;
+    if((elbo - old_elbo) < epsilon) break;
   }
 }

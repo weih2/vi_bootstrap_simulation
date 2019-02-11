@@ -50,7 +50,7 @@ public:
   void cavi_update(int&);
 
 private:
-  // avoid infinite iterations
+  // protect from infinite iterations
   void cavi_estimate();
   void cavi_estimate_weighted();
 };
