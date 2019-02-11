@@ -47,6 +47,8 @@ public:
   cavi_estimation est;
   cavi_estimation weighted_est[];
 
+  void cavi_update(int&);
+
 private:
   // avoid infinite iterations
   void cavi_estimate();

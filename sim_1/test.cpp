@@ -12,7 +12,10 @@ int main(){
   generate_data(sim1);
   generate_weights(sim1);
 
-  for(int i = 0; i < 10; i++) cout << sim1.x[i] << endl;
-  for(int i = 0; i < 10; i++) cout << sim1.b_vars.weights[i] << endl;
+  cavi_implementation sim0(sim1);
+
+  cout << sim0.data.x[0] << endl; 
+  int n_steps = 1;
+  sim0.cavi_update(n_steps);
   return 0;
 }

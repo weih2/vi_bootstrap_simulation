@@ -32,7 +32,6 @@ void generate_weights(simulation_data& sim_data){
   }
 
   // generate exponential weigths only
-
   for(int i = 0; i < sim_data.g_vars.n_samples ; i++){
     sim_data.b_vars.weights[i] = - log(random_uniform());
   }

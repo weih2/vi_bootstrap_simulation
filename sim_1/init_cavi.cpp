@@ -9,4 +9,6 @@ cavi_estimation init_cavi(simulation_data& dat){
   for(int i = 0; i < dat.g_vars.n_samples; i++){
     est.phi[i] = new double[dat.g_vars.K]();
   }
+  
+  return est;
 }
