@@ -38,19 +38,23 @@ struct cavi_estimation{
 
 class cavi_implementation{
 public:
-  cavi_implementation(simulation_data&, int, double);
+  cavi_implementation(simulation_data&, int, int, double);
 
   simulation_data data;
   int max_n_iter;
   double epsilon;
   double elbo;
   cavi_estimation est;
-  cavi_estimation weighted_est[];
+
+  int n_bootstrap_samples;
+  cavi_estimation* weighted_est;
 
   void cavi_update(int&);
+  void cavi_bootstrap_update(int&);
 
 private:
   // protect from infinite iterations
   void cavi_estimate();
   void cavi_estimate_weighted();
+  void generate_weights();
 };

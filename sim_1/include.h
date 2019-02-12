@@ -9,3 +9,4 @@
 #include "init_cavi.cpp"
 
 #include "cavi_estimate.cpp"
+#include "cavi_estimate_weighted.cpp"

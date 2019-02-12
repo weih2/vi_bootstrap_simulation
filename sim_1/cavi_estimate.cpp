@@ -1,12 +1,17 @@
 using namespace std;
 
-cavi_implementation::cavi_implementation(simulation_data& dat,
+cavi_implementation::cavi_implementation(simulation_data& dat, int n_b_samples = 1000,
   int max_iter = 1000, double precision = 0.0001){
   data = dat;
   est = init_cavi(dat);
 
   max_n_iter = max_iter;
   epsilon = precision;
+
+  n_bootstrap_samples = n_b_samples;
+  weighted_est = new cavi_estimation[n_bootstrap_samples];
+  for(int b = 0; b < n_bootstrap_samples; b++)
+    weighted_est[b] = init_cavi(dat);
 }
 
 void cavi_implementation::cavi_estimate(){
@@ -42,7 +47,7 @@ void cavi_implementation::cavi_estimate(){
     est.s2[k] = 1 / (1/data.g_vars.sigma_2 + sum_phi);
     est.m[k] = product_x_phi * est.s2[k];
 
-    elbo += 1/(2 * product_x_phi) - log(est.s2[k])/2.;
+    elbo += (product_x_phi * product_x_phi - 1) * est.s2[k]/2. + log(est.s2[k])/2.;
   }
 }
 
@@ -54,5 +59,6 @@ void cavi_implementation::cavi_update(int& n_steps){
     double old_elbo = elbo;
     cavi_estimate();
     if((elbo - old_elbo) < epsilon) break;
+    if(n_step >= max_n_iter) break;
   }
 }
