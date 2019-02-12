@@ -52,6 +52,8 @@ public:
   void cavi_update(int&);
   void cavi_bootstrap_update(int&);
 
+  void save_result(const std::string&);
+
 private:
   // protect from infinite iterations
   void cavi_estimate();

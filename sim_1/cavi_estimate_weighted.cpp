@@ -54,9 +54,9 @@ void cavi_implementation::cavi_bootstrap_update(int& n_steps){
   cavi_estimation est_temp = est;
   for(int b = 0; b < n_bootstrap_samples; b++){
     generate_weights();
+    est = weighted_est[b];
     cavi_estimate_weighted();
 
-    est = weighted_est[b];
     for(int n_step = 1; n_step <= n_steps; n_step++){
       cout << "current elbo: " << elbo << endl;
       double old_elbo = elbo;
