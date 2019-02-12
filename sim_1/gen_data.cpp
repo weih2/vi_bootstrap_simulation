@@ -2,14 +2,14 @@ using namespace std;
 
 void generate_latent_pars(simulation_data& sim_data){
   sim_data.l_vars.mu = new double[sim_data.g_vars.K];
-  sim_data.l_vars.c = new double[sim_data.g_vars.n_samples];
+  sim_data.l_vars.c = new int[sim_data.g_vars.n_samples];
 
   for(int i = 0; i < sim_data.g_vars.K; i++){
     sim_data.l_vars.mu[i] = sqrt(sim_data.g_vars.sigma_2) * random_normal();
   }
 
   for(int i = 0; i < sim_data.g_vars.n_samples; i++){
-    sim_data.l_vars.c[i] = round(random_uniform() * sim_data.g_vars.K);
+    sim_data.l_vars.c[i] = floor(random_uniform() * sim_data.g_vars.K);
   }
   return;
 }

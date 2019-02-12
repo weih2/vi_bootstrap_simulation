@@ -11,7 +11,7 @@ struct latent_vars{
   // cluster centers
   double* mu;
   // categories of each sample
-  double* c;
+  int* c;
 };
 
 struct bootstrap_vars{
