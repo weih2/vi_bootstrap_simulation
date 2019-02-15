@@ -59,14 +59,12 @@ void cavi_implementation::cavi_estimate_weighted(){
 void cavi_implementation::cavi_bootstrap_update(int& n_steps){
   cavi_estimation est_temp = est;
   for(int b = 0; b < n_bootstrap_samples; b++){
-    if((b + 1) % 10 == 0)
-      cout << "working on " << b + 1 << "'s sample" << endl;
+    if( (b + 1)% 100 == 0) cout << "working on " << (b+1) << "th sample" << endl;
     generate_weights();
     est = weighted_est[b];
     cavi_estimate_weighted();
 
     for(int n_step = 1; n_step <= n_steps; n_step++){
-
       double old_elbo = elbo;
       cavi_estimate_weighted();
       if((elbo - old_elbo) < epsilon) break;

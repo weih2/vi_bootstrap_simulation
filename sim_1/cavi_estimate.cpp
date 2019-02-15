@@ -1,6 +1,6 @@
 using namespace std;
 
-cavi_implementation::cavi_implementation(simulation_data& dat, int n_b_samples = 1000,
+cavi_implementation::cavi_implementation(simulation_data& dat, int n_b_samples = 100,
   int max_iter = 1000, double precision = 0.01){
   data = dat;
   est = init_cavi(dat);

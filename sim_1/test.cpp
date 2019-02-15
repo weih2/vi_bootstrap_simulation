@@ -25,11 +25,12 @@ int main(){
   cout << "vb posterior means: " << sim0.est.m[0] << " and " << sim0.est.m[1] << endl;
   cout << "another vb posterior means: " << sim2.est.m[0] << " and " << sim2.est.m[1] << endl;
 
-  sim0.cavi_bootstrap_update(n_steps);
+  int n_b_steps = 10;
+  sim0.cavi_bootstrap_update(n_b_steps);
   sim0.ci_construct();
 
-  cout << "bootstrap_ci lower bound" << sim0.bootstrap_ci[0][0] << " " << endl;
-  cout << "bootstrap_ci upper bound" << sim0.bootstrap_ci[0][1] << " " << endl;
+  cout << "bootstrap_ci lower bound " << sim0.bootstrap_ci[0][0] << " " << endl;
+  cout << "bootstrap_ci upper bound " << sim0.bootstrap_ci[0][1] << " " << endl;
 
   return 0;
 }
