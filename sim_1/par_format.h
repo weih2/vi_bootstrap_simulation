@@ -49,8 +49,12 @@ public:
   int n_bootstrap_samples;
   cavi_estimation* weighted_est;
 
+  double** bootstrap_ci;
+
   void cavi_update(int&);
   void cavi_bootstrap_update(int&);
+
+  void ci_construct();
 
   void save_result(const std::string&);
 

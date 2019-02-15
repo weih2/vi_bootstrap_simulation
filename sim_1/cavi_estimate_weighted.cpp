@@ -7,10 +7,16 @@ void cavi_implementation::generate_weights(){
     allocated = 1;
   }
 
+  double sum_weights = 0;
   // generate exponential weigths only
   for(int i = 0; i < data.g_vars.n_samples ; i++){
     data.b_vars.weights[i] = - log(random_uniform());
+    sum_weights += data.b_vars.weights[i];
   }
+
+  // normalizing
+  for(int i = 0; i < data.g_vars.n_samples ; i++)
+    data.b_vars.weights[i] *= data.g_vars.n_samples/sum_weights;
 }
 
 void cavi_implementation::cavi_estimate_weighted(){
@@ -53,12 +59,14 @@ void cavi_implementation::cavi_estimate_weighted(){
 void cavi_implementation::cavi_bootstrap_update(int& n_steps){
   cavi_estimation est_temp = est;
   for(int b = 0; b < n_bootstrap_samples; b++){
+    if((b + 1) % 10 == 0)
+      cout << "working on " << b + 1 << "'s sample" << endl;
     generate_weights();
     est = weighted_est[b];
     cavi_estimate_weighted();
 
     for(int n_step = 1; n_step <= n_steps; n_step++){
-      cout << "current elbo: " << elbo << endl;
+
       double old_elbo = elbo;
       cavi_estimate_weighted();
       if((elbo - old_elbo) < epsilon) break;

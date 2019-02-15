@@ -4,6 +4,9 @@
 #include<iostream>
 #include<fstream>
 
+#include <gsl/gsl_sort_double.h>
+#include <gsl/gsl_statistics.h>
+
 #include "par_format.h"
 #include "random_pack.cpp"
 #include "gen_data.cpp"
@@ -11,3 +14,6 @@
 
 #include "cavi_estimate.cpp"
 #include "cavi_estimate_weighted.cpp"
+#include "ci_construct.cpp"
+
+#include "save_result.cpp"
