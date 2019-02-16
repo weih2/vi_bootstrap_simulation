@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
   simulation_data sim1;
-  sim1.g_vars.n_samples = 100;
+  sim1.g_vars.n_samples = 200;
   sim1.g_vars.K = 2;
   sim1.g_vars.sigma_2 = 9;
 
@@ -14,8 +14,8 @@ int main(){
   generate_data(sim1);
   generate_weights(sim1);
 
-  cavi_implementation sim0(sim1, 100);
-  cavi_implementation sim2(sim1, 100);
+  cavi_implementation sim0(sim1, 200);
+  cavi_implementation sim2(sim1, 200);
 
   int n_steps = 1000;
   sim0.cavi_update(n_steps);
@@ -29,6 +29,9 @@ int main(){
   int n_experiments = 100;
 
   for(int n_e = 0; n_e < n_experiments; n_e ++){
+    // regenerate data
+    generate_data(sim0.data);
+
     sim0.cavi_bootstrap_update(n_steps);
     sim0.ci_construct();
 

@@ -8,6 +8,7 @@ void cavi_implementation::ci_construct(){
   double** m_v = new double*[data.g_vars.K];
   bootstrap_ci = new double*[data.g_vars.K];
 
+  // rearrange estimates
   for(int k = 0; k < data.g_vars.K; k++){
     m_v[k] = new double[n_bootstrap_samples];
     bootstrap_ci[k] = new double[2];

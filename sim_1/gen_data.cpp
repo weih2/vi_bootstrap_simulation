@@ -7,6 +7,7 @@ void generate_latent_pars(simulation_data& sim_data){
   for(int i = 0; i < sim_data.g_vars.K; i++){
     sim_data.l_vars.mu[i] = sqrt(sim_data.g_vars.sigma_2) * random_normal();
   }
+  gsl_sort(sim_data.l_vars.mu, 1, sim_data.g_vars.K);
 
   for(int i = 0; i < sim_data.g_vars.n_samples; i++){
     sim_data.l_vars.c[i] = floor(random_uniform() * sim_data.g_vars.K);
