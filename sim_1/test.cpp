@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
   simulation_data sim1;
-  sim1.g_vars.n_samples = 10000;
+  sim1.g_vars.n_samples = 100;
   sim1.g_vars.K = 2;
   sim1.g_vars.sigma_2 = 9;
 
@@ -14,8 +14,8 @@ int main(){
   generate_data(sim1);
   generate_weights(sim1);
 
-  cavi_implementation sim0(sim1);
-  cavi_implementation sim2(sim1);
+  cavi_implementation sim0(sim1, 100);
+  cavi_implementation sim2(sim1, 100);
 
   int n_steps = 1000;
   sim0.cavi_update(n_steps);
@@ -25,12 +25,18 @@ int main(){
   cout << "vb posterior means: " << sim0.est.m[0] << " and " << sim0.est.m[1] << endl;
   cout << "another vb posterior means: " << sim2.est.m[0] << " and " << sim2.est.m[1] << endl;
 
-  int n_b_steps = 10;
-  sim0.cavi_bootstrap_update(n_b_steps);
-  sim0.ci_construct();
+  int n_covered = 0;
+  int n_experiments = 100;
 
-  cout << "bootstrap_ci lower bound " << sim0.bootstrap_ci[0][0] << " " << endl;
-  cout << "bootstrap_ci upper bound " << sim0.bootstrap_ci[0][1] << " " << endl;
+  for(int n_e = 0; n_e < n_experiments; n_e ++){
+    sim0.cavi_bootstrap_update(n_steps);
+    sim0.ci_construct();
+
+    if((sim0.bootstrap_ci[0][0] <= sim0.data.l_vars.mu[0]) && (sim0.data.l_vars.mu[0] <= sim0.bootstrap_ci[0][1]))
+      n_covered++;
+  }
+
+  cout << "coverage: " << n_covered << endl;
 
   return 0;
 }

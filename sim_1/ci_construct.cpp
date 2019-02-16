@@ -8,9 +8,6 @@ void cavi_implementation::ci_construct(){
   double** m_v = new double*[data.g_vars.K];
   bootstrap_ci = new double*[data.g_vars.K];
 
-  cout << "constructing ci [" << (1 - data.b_vars.confidence)/2. <<
-  "," << (1 + data.b_vars.confidence)/2. << "]" << endl;
-
   for(int k = 0; k < data.g_vars.K; k++){
     m_v[k] = new double[n_bootstrap_samples];
     bootstrap_ci[k] = new double[2];
@@ -31,5 +28,9 @@ void cavi_implementation::ci_construct(){
     );
 
     bootstrap_ci[k][1] = 2 * est.m[k] - bootstrap_ci[k][1];
+
+    cout << "constructing ci [" << bootstrap_ci[k][0] <<
+  "," << bootstrap_ci[k][1] << "]" << endl;
   }
+
 }

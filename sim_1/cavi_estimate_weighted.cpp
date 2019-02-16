@@ -46,8 +46,8 @@ void cavi_implementation::cavi_estimate_weighted(){
     product_x_phi = 0;
 
     for(int i = 0; i < data.g_vars.n_samples; i++){
-      sum_phi += est.phi[i][k] * data.b_vars.weights[i] * data.b_vars.weights[i];
-      product_x_phi += data.x[i] * est.phi[i][k] * data.b_vars.weights[i] * data.b_vars.weights[i];
+      sum_phi += est.phi[i][k] * data.b_vars.weights[i];
+      product_x_phi += data.x[i] * est.phi[i][k] * data.b_vars.weights[i];
     }
     est.s2[k] = 1 / (1/data.g_vars.sigma_2 + sum_phi);
     est.m[k] = product_x_phi * est.s2[k];
