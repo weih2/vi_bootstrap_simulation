@@ -24,7 +24,7 @@ void cavi_implementation::cavi_estimate_weighted(){
   elbo = 0;
   // update phi
   double sum_phi;
-  // /* using unweighted variational posterior
+  /* using unweighted variational posterior
   for(int i = 0; i < data.g_vars.n_samples; i++){
     sum_phi = 0;
     for(int k = 0; k < data.g_vars.K; k++){
@@ -41,7 +41,7 @@ void cavi_implementation::cavi_estimate_weighted(){
   }
   // */
 
-  /* using weighted variational posterior
+  // /* using weighted variational posterior
   for(int i = 0; i < data.g_vars.n_samples; i++){
     sum_phi = 0;
     for(int k = 0; k < data.g_vars.K; k++){
@@ -51,9 +51,7 @@ void cavi_implementation::cavi_estimate_weighted(){
     }
     for(int k = 0; k < data.g_vars.K; k++){
       est.phi[i][k] /= sum_phi;
-      elbo += est.phi[i][k] *
-        (data.x[i] * est.m[k] - (est.s2[k] + est.m[k]*est.m[k])/2.);
-      elbo -= est.phi[i][k] * log(est.phi[i][k]);
+      elbo -= est.phi[i][k] * data.b_vars.weights[i] * log(est.phi[i][k]);
     }
   }
   // */
@@ -71,7 +69,11 @@ void cavi_implementation::cavi_estimate_weighted(){
     est.s2[k] = 1 / (1/data.g_vars.sigma_2 + sum_phi);
     est.m[k] = product_x_phi * est.s2[k];
 
-    elbo += (product_x_phi * product_x_phi - 1) * est.s2[k]/2. + log(est.s2[k])/2.;
+    elbo += - (product_x_phi * product_x_phi + 1) * est.s2[k]/(2*data.g_vars.sigma_2) + log(est.s2[k])/2.;
+    for(int i = 0; i < data.g_vars.n_samples; i++){
+      elbo += est.phi[i][k] * data.b_vars.weights[i] *
+        (data.x[i] * (-data.x[i]/2. + est.m[k]) - (est.s2[k] + est.m[k]*est.m[k])/2.);
+    }
   }
 }
 
