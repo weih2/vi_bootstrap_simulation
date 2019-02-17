@@ -50,13 +50,20 @@ public:
   cavi_estimation* weighted_est;
 
   double** bootstrap_ci;
+  double** credit_set;
 
   void cavi_update(int&);
   void cavi_bootstrap_update(int&);
 
   void ci_construct();
+  void cs_construct();
 
-  void save_result(const std::string&);
+  int ci_covered;
+  int cs_covered;
+  int n_experiments;
+  void check_covered();
+
+  void save_result(std::ostream&);
 
 private:
   // protect from infinite iterations

@@ -1,5 +1,5 @@
 void cavi_implementation::ci_construct(){
-  gsl_sort(est.m, 1, data.g_vars.K);
+  gsl_sort2(est.m, 1, est.s2, 1, data.g_vars.K);
   // order the bootstrap means
   for(int b = 0; b < n_bootstrap_samples; b++){
     gsl_sort(weighted_est[b].m, 1, data.g_vars.K);
@@ -29,9 +29,6 @@ void cavi_implementation::ci_construct(){
     );
 
     bootstrap_ci[k][1] = 2 * est.m[k] - bootstrap_ci[k][1];
-
-    cout << "constructing ci [" << bootstrap_ci[k][0] <<
-  "," << bootstrap_ci[k][1] << "]" << endl;
   }
 
 }

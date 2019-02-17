@@ -80,7 +80,6 @@ void cavi_implementation::cavi_estimate_weighted(){
 void cavi_implementation::cavi_bootstrap_update(int& n_steps){
   cavi_estimation est_temp = est;
   for(int b = 0; b < n_bootstrap_samples; b++){
-    if( (b + 1)% 100 == 0) cout << "working on " << (b+1) << "th sample" << endl;
     generate_weights();
     est = weighted_est[b];
     cavi_estimate_weighted();

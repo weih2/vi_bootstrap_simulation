@@ -12,6 +12,10 @@ cavi_implementation::cavi_implementation(simulation_data& dat, int n_b_samples =
   weighted_est = new cavi_estimation[n_bootstrap_samples];
   for(int b = 0; b < n_bootstrap_samples; b++)
     weighted_est[b] = init_cavi(dat);
+
+  ci_covered = 0;
+  cs_covered = 0;
+  n_experiments = 0;
 }
 
 void cavi_implementation::cavi_estimate(){
@@ -57,7 +61,6 @@ void cavi_implementation::cavi_update(int& n_steps){
   cavi_estimate();
 
   for(int n_step = 1; n_step <= n_steps; n_step++){
-    cout << "current elbo: " << elbo << endl;
     double old_elbo = elbo;
     cavi_estimate();
     if((elbo - old_elbo) < epsilon) break;

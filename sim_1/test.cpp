@@ -25,6 +25,10 @@ int main(){
   cout << "vb posterior means: " << sim0.est.m[0] << " and " << sim0.est.m[1] << endl;
   cout << "another vb posterior means: " << sim2.est.m[0] << " and " << sim2.est.m[1] << endl;
 
+  sim0.cs_construct();
+
+  /*
+
   int n_covered = 0;
   int n_experiments = 200;
 
@@ -40,6 +44,6 @@ int main(){
   }
 
   cout << "coverage: " << n_covered << endl;
-
+  */
   return 0;
 }

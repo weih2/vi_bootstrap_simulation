@@ -1,0 +1,11 @@
+# categories: 2
+variance of cluster center: 9
+# samples: 200
+# bootstrap samples: 200
+
+true mu's are:
+-6.61818 -0.625194 
+confidence level: 0.95
+number of experiments: 200
+ci coverage: 172
+cs coverage: 176
