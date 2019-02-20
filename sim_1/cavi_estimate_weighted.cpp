@@ -34,8 +34,6 @@ void cavi_implementation::cavi_estimate_weighted(){
     }
     for(int k = 0; k < data.g_vars.K; k++){
       est.phi[i][k] /= sum_phi;
-      elbo += est.phi[i][k] * data.b_vars.weights[i] *
-        (data.x[i] * est.m[k] - (est.s2[k] + est.m[k]*est.m[k])/2.);
       elbo -= est.phi[i][k] * log(est.phi[i][k]);
     }
   }
@@ -89,6 +87,7 @@ void cavi_implementation::cavi_bootstrap_update(int& n_steps){
       cavi_estimate_weighted();
       if((elbo - old_elbo) < epsilon) break;
     }
+    gsl_sort2(est.m, 1, est.s2, 1, data.g_vars.K);
   }
   est = est_temp;
 }

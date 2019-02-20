@@ -1,7 +1,9 @@
 using namespace std;
 
 cavi_implementation::cavi_implementation(simulation_data& dat, int n_b_samples = 100,
-  int max_iter = 1000, double precision = 0.01){
+  int max_iter = 1000, double precision = 0.01)
+  : history_est()
+  {
   data = dat;
   est = init_cavi(dat);
 
@@ -15,6 +17,9 @@ cavi_implementation::cavi_implementation(simulation_data& dat, int n_b_samples =
 
   ci_covered = 0;
   cs_covered = 0;
+  ci_covered_each = new int[data.g_vars.K]();
+  cs_covered_each = new int[data.g_vars.K]();
+
   n_experiments = 0;
 }
 
@@ -66,4 +71,6 @@ void cavi_implementation::cavi_update(int& n_steps){
     if((elbo - old_elbo) < epsilon) break;
     if(n_step >= max_n_iter) break;
   }
+  gsl_sort2(est.m, 1, est.s2, 1, data.g_vars.K);
+  history_est.push(est);
 }

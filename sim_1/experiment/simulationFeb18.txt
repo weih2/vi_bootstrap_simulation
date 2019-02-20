@@ -1,0 +1,44 @@
+# categories: 3
+variance of cluster center: 9
+# samples: 1000
+# bootstrap samples: 1000
+
+true mu's are:
+-2.87293 2.68873 5.42839 
+confidence level: 0.983333
+number of experiments: 1000
+ci coverage: 963
+cs coverage: 930
+# categories: 3
+variance of cluster center: 9
+# samples: 1000
+# bootstrap samples: 1000
+
+true mu's are:
+-2.98245 -2.94486 -0.891266 
+confidence level: 0.983333
+number of experiments: 1000
+ci coverage: 970
+cs coverage: 959
+# categories: 3
+variance of cluster center: 9
+# samples: 1000
+# bootstrap samples: 1000
+
+true mu's are:
+-2.55589 -0.881066 0.377652 
+confidence level: 0.983333
+number of experiments: 1000
+ci coverage: 988
+cs coverage: 677
+# categories: 3
+variance of cluster center: 9
+# samples: 1000
+# bootstrap samples: 1000
+
+true mu's are:
+-3.10112 -0.197066 1.55567 
+confidence level: 0.983333
+number of experiments: 1000
+ci coverage: 877
+cs coverage: 477

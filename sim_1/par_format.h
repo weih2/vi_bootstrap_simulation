@@ -49,17 +49,23 @@ public:
   int n_bootstrap_samples;
   cavi_estimation* weighted_est;
 
+  std::queue<cavi_estimation> history_est;
+
   double** bootstrap_ci;
   double** credit_set;
+  double** empirical_ci;
 
   void cavi_update(int&);
   void cavi_bootstrap_update(int&);
 
   void ci_construct();
   void cs_construct();
+  void empirical_ci_construct();
 
   int ci_covered;
   int cs_covered;
+  int *ci_covered_each;
+  int *cs_covered_each;
   int n_experiments;
   void check_covered();
 

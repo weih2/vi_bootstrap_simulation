@@ -9,3 +9,164 @@ confidence level: 0.95
 number of experiments: 200
 ci coverage: 172
 cs coverage: 176
+# categories: 2
+variance of cluster center: 9
+# samples: 200
+# bootstrap samples: 200
+
+true mu's are:
+-1.03731 4.0401 
+confidence level: 0.95
+number of experiments: 200
+ci coverage: 170
+cs coverage: 170
+# categories: 2
+variance of cluster center: 9
+# samples: 200
+# bootstrap samples: 200
+
+true mu's are:
+-1.72895 2.9344 
+confidence level: 0.95
+number of experiments: 200
+ci coverage: 174
+cs coverage: 179
+# categories: 3
+variance of cluster center: 9
+# samples: 200
+# bootstrap samples: 1000
+
+true mu's are:
+0.684621 2.77273 3.36242 
+confidence level: 0.983333
+number of experiments: 1000
+ci coverage: 44
+cs coverage: 39
+# categories: 3
+variance of cluster center: 16
+# samples: 200
+# bootstrap samples: 1000
+
+true mu's are:
+-6.75534 1.04118 1.79891 
+confidence level: 0.983333
+number of experiments: 100
+ci coverage: 66
+cs coverage: 59
+# categories: 3
+variance of cluster center: 16
+# samples: 200
+# bootstrap samples: 1000
+
+true mu's are:
+-1.84751 2.0271 3.0528 
+confidence level: 0.983333
+number of experiments: 100
+ci coverage: 86
+cs coverage: 72
+# categories: 3
+variance of cluster center: 25
+# samples: 300
+# bootstrap samples: 1000
+
+true mu's are:
+-4.50351 4.00537 7.30732 
+confidence level: 0.983333
+number of experiments: 100
+ci coverage: 0
+cs coverage: 0
+# categories: 3
+variance of cluster center: 25
+# samples: 300
+# bootstrap samples: 1000
+
+true mu's are:
+-0.0403142 0.454114 4.27352 
+confidence level: 0.983333
+number of experiments: 100
+ci coverage: 60
+cs coverage: 58
+confidence interval from last iteration: 
+[ -0.670822, 0.198463]
+[ 0.368634, 1.68153]
+[ 3.91882, 4.8459]
+credit set from last iteration: 
+[ -0.333029, 0.137055]
+[ 0.672716, 1.14136]
+[ 4.11883, 4.61801]
+# categories: 3
+variance of cluster center: 25
+# samples: 300
+# bootstrap samples: 1000
+
+true mu's are:
+-5.9605 6.69454 9.47763 
+confidence level: 0.983333
+number of experiments: 100
+ci coverage: 59
+cs coverage: 57
+confidence interval from last iteration: 
+[ -6.26844, -5.82115]
+[ 6.50926, 19.8148]
+[ 9.23857, 10.9221]
+credit set from last iteration: 
+[ -6.29185, -5.8058]
+[ 6.53628, 7.03113]
+[ 9.22964, 9.68727]
+# categories: 3
+variance of cluster center: 25
+# samples: 300
+# bootstrap samples: 1000
+
+true mu's are:
+-0.924368 -0.882155 2.81361 
+confidence level: 0.983333
+number of experiments: 100
+ci coverage: 0
+cs coverage: 70
+confidence interval from last iteration: 
+[ -1.11391, -0.72258]
+[ -0.00367734, 0.922835]
+[ 2.27161, 2.98011]
+credit set from last iteration: 
+[ -1.01229, -0.670596]
+[ -11.8344, 11.8297]
+[ 2.54871, 3.01882]
+# categories: 3
+variance of cluster center: 25
+# samples: 300
+# bootstrap samples: 1000
+
+true mu's are:
+-4.19941 -3.69766 1.79372 
+confidence level: 0.983333
+number of experiments: 100
+ci coverage: 60
+cs coverage: 64
+confidence interval from last iteration: 
+[ -4.1977, -3.61517]
+[ -9.82658, -3.80048]
+[ 1.56362, 2.00215]
+credit set from last iteration: 
+[ -4.26127, -3.77006]
+[ -4.20142, -3.71019]
+[ 1.56502, 2.02131]
+# categories: 3
+variance of cluster center: 50
+# samples: 300
+# bootstrap samples: 1000
+
+true mu's are:
+-2.99008 -0.681488 -0.332542 
+confidence level: 0.983333
+number of experiments: 100
+ci coverage: 60
+cs coverage: 33
+confidence interval from last iteration: 
+[ -4.73063, -2.60281]
+[ -0.859868, -0.291766]
+[ -0.859868, -0.291766]
+credit set from last iteration: 
+[ -3.1569, -2.65989]
+[ -0.665104, -0.194763]
+[ -0.665104, -0.194763]
