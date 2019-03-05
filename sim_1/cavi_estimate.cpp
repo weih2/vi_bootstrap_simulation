@@ -1,9 +1,7 @@
 using namespace std;
 
 cavi_implementation::cavi_implementation(simulation_data& dat, int n_b_samples = 100,
-  int max_iter = 1000, double precision = 0.01)
-  : history_est()
-  {
+  int max_iter = 1000, double precision = 0.001){
   data = dat;
   est = init_cavi(dat);
 
@@ -21,6 +19,11 @@ cavi_implementation::cavi_implementation(simulation_data& dat, int n_b_samples =
   cs_covered_each = new int[data.g_vars.K]();
 
   n_experiments = 0;
+
+  history_map = new queue<double>[data.g_vars.K];
+  for(int k = 0; k < data.g_vars.K; k++){
+    history_map[k] = queue<double>();
+  }
 }
 
 void cavi_implementation::cavi_estimate(){
@@ -72,5 +75,8 @@ void cavi_implementation::cavi_update(int& n_steps){
     if(n_step >= max_n_iter) break;
   }
   gsl_sort2(est.m, 1, est.s2, 1, data.g_vars.K);
-  history_est.push(est);
+
+  for(int k = 0; k < data.g_vars.K; k++){
+    history_map[k].push(est.m[k]);
+  }
 }

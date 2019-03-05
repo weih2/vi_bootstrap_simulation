@@ -1,22 +1,22 @@
 #include "../include.h"
 
-#define N_SAMPLES 1000
+#define N_SAMPLES 2000
 
 int main(){
   simulation_data data100;
   data100.g_vars.n_samples = N_SAMPLES;
   data100.g_vars.K = 3;
-  data100.g_vars.sigma_2 = 9;
+  data100.g_vars.sigma_2 = 50;
 
   data100.b_vars.confidence = 0.95;
 
   generate_latent_pars(data100);
 
-  cavi_implementation sim100(data100, 1000);
+  cavi_implementation sim100(data100, 10);
 
   int n_steps = 1000;
 
-  int n_experiments = 1000;
+  int n_experiments = 10;
 
   cout << "total no of experiments: " << n_experiments << endl;
 
@@ -38,9 +38,9 @@ int main(){
   cout << endl;
 
   ofstream result_stream;
-  result_stream.open("simulation1000.txt", ofstream::out | ofstream::app);
+  result_stream.open("simulation500.txt", ofstream::out | ofstream::app);
   // result_stream.open(file_name, ofstream::out | ofstream::app);
-  sim100.save_result(result_stream);
+  sim100.save_result(cout);
   result_stream.close();
 
   return 0;

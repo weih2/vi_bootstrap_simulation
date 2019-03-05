@@ -16,7 +16,7 @@ void cavi_implementation::generate_weights(){
 
   // normalizing
   for(int i = 0; i < data.g_vars.n_samples ; i++)
-    data.b_vars.weights[i] *= data.g_vars.n_samples/sum_weights;
+   data.b_vars.weights[i] *= data.g_vars.n_samples/sum_weights;
 }
 
 void cavi_implementation::cavi_estimate_weighted(){
@@ -88,6 +88,10 @@ void cavi_implementation::cavi_bootstrap_update(int& n_steps){
       if((elbo - old_elbo) < epsilon) break;
     }
     gsl_sort2(est.m, 1, est.s2, 1, data.g_vars.K);
+    for(int k = 0; k < data.g_vars.K; k++){
+      cout << est.m[k] << " ";
+    }
+    cout << endl;
   }
   est = est_temp;
 }

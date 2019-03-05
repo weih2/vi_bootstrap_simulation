@@ -1,0 +1,306 @@
+result at: Tue Feb 19 21:37:43 2019
+
+# categories: 3
+variance of cluster center: 9
+# samples: 100
+# bootstrap samples: 100
+
+true mu's are:
+-2.80791 -0.840484 0.516523 
+confidence level: 0.95
+number of experiments: 1000
+ci coverage: 852
+ci coverage for parameter 1 :960
+ci coverage for parameter 2 :939
+ci coverage for parameter 3 :912
+cs coverage: 657
+cs coverage for parameter 1 :915
+cs coverage for parameter 2 :794
+cs coverage for parameter 3 :876
+confidence interval from last iteration: 
+[ -3.29599, -2.30397]
+[ -1.58775, -0.423912]
+[ 0.113478, 0.963155]
+credit set from last iteration: 
+[ -3.11905, -2.42885]
+[ -1.29881, -0.626593]
+[ 0.141818, 0.813362]
+empirical confidence interval:
+[ -2.77395, -2.77395]
+[ -0.962701, -0.962701]
+[ 0.47759, 0.47759]
+
+# categories: 3
+variance of cluster center: 25
+# samples: 100
+# bootstrap samples: 100
+
+true mu's are:
+-3.71164 1.88538 2.83791 
+confidence level: 0.95
+number of experiments: 10
+ci coverage: 0
+ci coverage for parameter 1 :7
+ci coverage for parameter 2 :0
+ci coverage for parameter 3 :1
+cs coverage: 0
+cs coverage for parameter 1 :8
+cs coverage for parameter 2 :0
+cs coverage for parameter 3 :2
+confidence interval from last iteration: 
+[ -5.13113, -4.29653]
+[ -8.65513, -2.41576]
+[ 1.09598, 2.61642]
+credit set from last iteration: 
+[ -4.79166, -3.85047]
+[ -3.632, -2.68859]
+[ 2.14035, 2.62466]
+empirical confidence interval:
+[ -4.29998, -3.59531]
+[ -4.04115, -3.14732]
+[ 2.28878, 2.66878]
+
+# categories: 3
+variance of cluster center: 25
+# samples: 100
+# bootstrap samples: 100
+
+true mu's are:
+-11.3821 -5.61702 -1.60827 
+confidence level: 0.95
+number of experiments: 10
+ci coverage: 6
+ci coverage for parameter 1 :10
+ci coverage for parameter 2 :6
+ci coverage for parameter 3 :10
+cs coverage: 7
+cs coverage for parameter 1 :10
+cs coverage for parameter 2 :7
+cs coverage for parameter 3 :10
+confidence interval from last iteration: 
+[ -11.6849, -11.1308]
+[ -5.45134, -4.87588]
+[ -2.14797, -1.48024]
+credit set from last iteration: 
+[ -11.7585, -11.0547]
+[ -5.46312, -4.79528]
+[ -2.13717, -1.47124]
+empirical confidence interval:
+[ -11.6398, -11.1719]
+[ -5.81246, -5.08006]
+[ -1.83548, -1.43703]
+
+# categories: 3
+variance of cluster center: 25
+# samples: 100
+# bootstrap samples: 100
+
+true mu's are:
+-6.1838 2.17331 12.3098 
+confidence level: 0.95
+number of experiments: 10
+ci coverage: 9
+ci coverage for parameter 1 :10
+ci coverage for parameter 2 :10
+ci coverage for parameter 3 :9
+cs coverage: 9
+cs coverage for parameter 1 :10
+cs coverage for parameter 2 :10
+cs coverage for parameter 3 :9
+confidence interval from last iteration: 
+[ -6.53984, -5.83145]
+[ 1.8739, 2.55599]
+[ 11.9164, 12.541]
+credit set from last iteration: 
+[ -6.52344, -5.85158]
+[ 1.89035, 2.55256]
+[ 11.8554, 12.559]
+empirical confidence interval:
+[ -6.41961, -6.07561]
+[ 2.01999, 2.38196]
+[ 11.9897, 12.4783]
+
+# categories: 3
+variance of cluster center: 25
+# samples: 100
+# bootstrap samples: 100
+
+true mu's are:
+-10.7284 -7.82292 -3.20109 
+confidence level: 0.95
+number of experiments: 10
+ci coverage: 0
+ci coverage for parameter 1 :0
+ci coverage for parameter 2 :0
+ci coverage for parameter 3 :5
+cs coverage: 0
+cs coverage for parameter 1 :0
+cs coverage for parameter 2 :0
+cs coverage for parameter 3 :8
+confidence interval from last iteration: 
+[ -9.45251, -7.54167]
+[ -3.58013, 1.50133]
+[ -6.59734, -3.22852]
+credit set from last iteration: 
+[ -9.36086, -8.89301]
+[ -3.80555, -2.79206]
+[ -3.80554, -2.79205]
+empirical confidence interval:
+[ -9.45869, -9.11321]
+[ -3.87932, -3.13389]
+[ -3.87932, -3.13389]
+
+# categories: 3
+variance of cluster center: 25
+# samples: 100
+# bootstrap samples: 100
+
+true mu's are:
+-3.83265 -2.92984 -2.76661 
+confidence level: 0.95
+number of experiments: 10
+ci coverage: 0
+ci coverage for parameter 1 :7
+ci coverage for parameter 2 :10
+ci coverage for parameter 3 :0
+cs coverage: 3
+cs coverage for parameter 1 :7
+cs coverage for parameter 2 :6
+cs coverage for parameter 3 :10
+confidence interval from last iteration: 
+[ -4.17293, -3.4101]
+[ -4.37958, -1.76518]
+[ -0.00214794, 3.20848]
+credit set from last iteration: 
+[ -4.04485, -3.49213]
+[ -3.04528, -2.48972]
+[ -9.79491, 9.79144]
+empirical confidence interval:
+[ -4.02436, -3.27499]
+[ -3.11224, -2.39682]
+[ -0.00309884, 0.00157406]
+
+# categories: 3
+variance of cluster center: 25
+# samples: 100
+# bootstrap samples: 100
+
+true mu's are:
+-3.24828 -2.71727 -2.6042 
+confidence level: 0.95
+number of experiments: 10
+ci coverage: 0
+ci coverage for parameter 1 :0
+ci coverage for parameter 2 :0
+ci coverage for parameter 3 :0
+cs coverage: 0
+cs coverage for parameter 1 :0
+cs coverage for parameter 2 :10
+cs coverage for parameter 3 :10
+confidence interval from last iteration: 
+[ -2.97603, -2.67418]
+[ -0.00183503, 2.93151]
+[ -0.00461848, 2.88409]
+credit set from last iteration: 
+[ -3.02724, -2.63533]
+[ -9.74506, 9.74231]
+[ -9.74506, 9.74231]
+empirical confidence interval:
+[ -2.90506, -2.65209]
+[ -0.00658763, 0.014811]
+[ -0.00658751, 0.0148128]
+
+# categories: 3
+variance of cluster center: 25
+# samples: 100
+# bootstrap samples: 100
+
+true mu's are:
+-6.77927 0.737433 8.52782 
+confidence level: 0.95
+number of experiments: 10
+ci coverage: 6
+ci coverage for parameter 1 :9
+ci coverage for parameter 2 :9
+ci coverage for parameter 3 :8
+cs coverage: 9
+cs coverage for parameter 1 :10
+cs coverage for parameter 2 :9
+cs coverage for parameter 3 :10
+confidence interval from last iteration: 
+[ -6.79175, -6.23344]
+[ 0.608545, 1.22815]
+[ 8.56845, 9.1213]
+credit set from last iteration: 
+[ -6.83815, -6.17594]
+[ 0.552367, 1.18793]
+[ 8.50095, 9.25478]
+empirical confidence interval:
+[ -7.07728, -6.46452]
+[ 0.399876, 1.00886]
+[ 8.24379, 8.82782]
+
+result at: Tue Feb 19 22:31:14 2019
+
+# categories: 3
+variance of cluster center: 25
+# samples: 100
+# bootstrap samples: 100
+
+true mu's are:
+-4.38043 -3.92534 -0.678628 
+confidence level: 0.95
+number of experiments: 10
+ci coverage: 0
+ci coverage for parameter 1 :8
+ci coverage for parameter 2 :0
+ci coverage for parameter 3 :0
+cs coverage: 0
+cs coverage for parameter 1 :8
+cs coverage for parameter 2 :0
+cs coverage for parameter 3 :10
+confidence interval from last iteration: 
+[ -4.4728, -3.53389]
+[ -1.21587, 2.17887]
+[ -0.000876492, 1.13387]
+credit set from last iteration: 
+[ -4.40923, -3.90505]
+[ -1.31515, -0.69248]
+[ -9.78064, 9.78011]
+empirical confidence interval:
+[ -4.47061, -4.0903]
+[ -1.21754, -0.559627]
+[ -0.000590624, 0.00257243]
+
+result at: Wed Feb 20 13:55:05 2019
+
+# categories: 3
+variance of cluster center: 25
+# samples: 100
+# bootstrap samples: 1000
+
+true mu's are:
+1.81883 4.70432 5.48887 
+confidence level: 0.95
+number of experiments: 1000
+ci coverage: 80
+ci coverage for parameter 1 :916
+ci coverage for parameter 2 :161
+ci coverage for parameter 3 :516
+cs coverage: 74
+cs coverage for parameter 1 :772
+cs coverage for parameter 2 :218
+cs coverage for parameter 3 :693
+confidence interval from last iteration: 
+[ 1.52296, 2.32677]
+[ 5.03717, 5.56079]
+[ 5.03597, 5.56049]
+credit set from last iteration: 
+[ 1.64795, 2.34943]
+[ 4.9783, 5.64619]
+[ 4.97853, 5.64642]
+empirical confidence interval:
+[ 1.43471, 2.40957]
+[ 4.57595, 5.4245]
+[ 4.98421, 5.76839]
+
