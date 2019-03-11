@@ -71,6 +71,11 @@ public:
 
   void save_result(std::ostream&);
 
+  // device storage
+  double **device_m_k;
+  double **device_s2;
+  double **device_weights;
+
 private:
   // protect from infinite iterations
   void cavi_estimate();
