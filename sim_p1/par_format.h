@@ -7,6 +7,13 @@ struct global_vars{
   int n_samples;
 };
 
+struct global_vars_device{
+  int *device_K;
+  double *device_sigma_2;
+  // number of x in each experiment
+  int *device_n_samples;
+}
+
 struct latent_vars{
   // cluster centers
   double* mu;
@@ -35,6 +42,13 @@ struct cavi_estimation{
   // posterior parameters for c
   double **phi;
 };
+
+struct device_cavi_estimation{
+  double **device_m;
+  double **device_s2;
+  double ***device_phi;
+  double **device_m_transpose;
+}
 
 class cavi_implementation{
 public:
@@ -72,9 +86,11 @@ public:
   void save_result(std::ostream&);
 
   // device storage
-  double **device_m_k;
-  double **device_s2;
+  global_vars_device device_g_vars;
+  int *device_n_boostrap_samples;
+  double *device_x;
   double **device_weights;
+  device_cavi_estimation device_est;
 
 private:
   // protect from infinite iterations
