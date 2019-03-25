@@ -91,6 +91,11 @@ public:
   double *device_x;
   double **device_weights;
   device_cavi_estimation device_est;
+  double *device_elbo;
+
+  double *device_epsilon;
+  int *device_max_n_iter;
+  int *device_exp_id;
 
 private:
   // protect from infinite iterations
