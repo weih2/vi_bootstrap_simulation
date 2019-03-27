@@ -6,7 +6,7 @@ void cavi_implementation::device_init_cavi_weighted(){
   cudaMemcpy(device_g_vars.device_sigma_2, &data.g_vars.sigma_2, sizeof(double),
     cudaMemcpyHostToDevice);
   cudaMalloc((void**)&(device_g_vars.device_n_samples), sizeof(int));
-  cudaMemcpy(davice_g_vars.device_n_samples, &data.g_vars.n_samples, sizeof(int),
+  cudaMemcpy(device_g_vars.device_n_samples, &data.g_vars.n_samples, sizeof(int),
     cudaMemcpyHostToDevice);
 
   cudaMalloc((void**)&device_n_boostrap_samples, sizeof(int));
@@ -32,7 +32,7 @@ void cavi_implementation::device_init_cavi_weighted(){
 
   // cavi settings
   cudaMalloc((void**)(&device_epsilon), sizeof(double));
-  cudaMemcpy(device_epsilon, &epsilon, sizeof(dobule), cudaMemcpyHostToDevice);
+  cudaMemcpy(device_epsilon, &epsilon, sizeof(double), cudaMemcpyHostToDevice);
   cudaMalloc((void**)(&device_max_n_iter), sizeof(int));
   cudaMemcpy(device_max_n_iter, &max_n_iter, sizeof(int), cudaMemcpyHostToDevice);
 
@@ -73,13 +73,13 @@ void cavi_implementation::device_cavi_estimate_weighted(int thread_id){
   int par_index;
   int weight_index;
 
-  for(int i = 0; i < *davice_g_vars.device_n_samples; i++){
+  for(int i = 0; i < *device_g_vars.device_n_samples; i++){
     sum_phi = 0;
     weight_index = (*device_n_bootstrap_samples) * tread_id + i;
 
     for(int k = 0; k < *device_g_vars.device_K; k++){
       phi_index = tread_id
-        * (*davice_g_vars.device_n_samples) * (*device_g_vars.device_K)
+        * (*device_g_vars.device_n_samples) * (*device_g_vars.device_K)
         + i
         * (*device_g_vars.device_K)
         + k;
@@ -94,7 +94,7 @@ void cavi_implementation::device_cavi_estimate_weighted(int thread_id){
     }
     for(int k = 0; k < *device_g_vars.device_K; k++){
       phi_index = tread_id
-        * (*davice_g_vars.device_n_samples) * (*device_g_vars.device_K)
+        * (*device_g_vars.device_n_samples) * (*device_g_vars.device_K)
         + i
         * (*device_g_vars.device_K)
         + k;
@@ -115,9 +115,9 @@ void cavi_implementation::device_cavi_estimate_weighted(int thread_id){
 
     par_index = tread_id * (*device_g_vars.device_K) + k;
 
-    for(int i = 0; i < *davice_g_vars.device_n_samples; i++){
+    for(int i = 0; i < *device_g_vars.device_n_samples; i++){
       phi_index = tread_id
-        * (*davice_g_vars.device_n_samples) * (*device_g_vars.device_K)
+        * (*device_g_vars.device_n_samples) * (*device_g_vars.device_K)
         + i
         * (*device_g_vars.device_K)
         + k;
@@ -135,7 +135,7 @@ void cavi_implementation::device_cavi_estimate_weighted(int thread_id){
       + log(device_est.device_s2[par_index])/2.;
     for(int i = 0; i < data.g_vars.n_samples; i++){
       phi_index = tread_id
-        * (*davice_g_vars.device_n_samples) * (*device_g_vars.device_K)
+        * (*device_g_vars.device_n_samples) * (*device_g_vars.device_K)
         + i
         * (*device_g_vars.device_K)
         + k;

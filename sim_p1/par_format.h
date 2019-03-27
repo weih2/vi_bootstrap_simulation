@@ -12,7 +12,7 @@ struct global_vars_device{
   double *device_sigma_2;
   // number of x in each experiment
   int *device_n_samples;
-}
+};
 
 struct latent_vars{
   // cluster centers
@@ -48,7 +48,7 @@ struct device_cavi_estimation{
   double **device_s2;
   double ***device_phi;
   double **device_m_transpose;
-}
+};
 
 class cavi_implementation{
 public:
