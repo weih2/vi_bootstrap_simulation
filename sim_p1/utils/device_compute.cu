@@ -1,16 +1,3 @@
-struct device_storage{
-  global_vars_device device_g_vars;
-  int *device_n_bootstrap_samples;
-  double *device_x;
-  double *device_weights;
-  device_cavi_estimation device_est;
-  double *device_elbo;
-
-  double *device_epsilon;
-  int *device_max_n_iter;
-  int *device_exp_id;
-};
-
 __device__
 void device_generate_weights(int exp_id, int thread_id, device_storage device_store){
   // device_store.device_weights
@@ -24,7 +11,7 @@ void device_generate_weights(int exp_id, int thread_id, device_storage device_st
 }
 
 __device__  // update estimate per thread per loop
-void cavi_implementation::device_cavi_estimate_weighted(int thread_id, device_storage device_store){
+void device_cavi_estimate_weighted(int thread_id, device_storage device_store){
   device_store.device_elbo[thread_id] = 0;
   double sum_phi;
   int phi_index;

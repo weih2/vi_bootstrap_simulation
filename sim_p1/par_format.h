@@ -49,3 +49,16 @@ struct device_cavi_estimation{
   double ***device_phi;
   double **device_m_transpose;
 };
+
+struct device_storage{
+  global_vars_device device_g_vars;
+  int *device_n_bootstrap_samples;
+  double *device_x;
+  double *device_weights;
+  device_cavi_estimation device_est;
+  double *device_elbo;
+
+  double *device_epsilon;
+  int *device_max_n_iter;
+  int *device_exp_id;
+};
