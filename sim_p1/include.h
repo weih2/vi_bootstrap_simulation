@@ -11,6 +11,7 @@
 
 #include "./utils/sample_quantile.cpp"
 #include "./utils/gaussian_quantile.cpp"
+#include "./utils/device_compute.cu"
 
 /*
 #include <gsl/gsl_sort_double.h>

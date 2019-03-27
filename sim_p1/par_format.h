@@ -50,6 +50,19 @@ struct device_cavi_estimation{
   double **device_m_transpose;
 };
 
+struct device_storage{
+  global_vars_device device_g_vars;
+  int *device_n_bootstrap_samples;
+  double *device_x;
+  double *device_weights;
+  device_cavi_estimation device_est;
+  double *device_elbo;
+
+  double *device_epsilon;
+  int *device_max_n_iter;
+  int *device_exp_id;
+}
+
 class cavi_implementation{
 public:
   cavi_implementation(simulation_data&, int, int, double);
@@ -86,16 +99,7 @@ public:
   void save_result(std::ostream&);
 
   // device storage
-  global_vars_device device_g_vars;
-  int *device_n_bootstrap_samples;
-  double *device_x;
-  double *device_weights;
-  device_cavi_estimation device_est;
-  double *device_elbo;
-
-  double *device_epsilon;
-  int *device_max_n_iter;
-  int *device_exp_id;
+  device_storage device_store;
 
   // copy back
   double *host_m_transpose;
@@ -108,8 +112,5 @@ private:
 
   void device_init_cavi_weighted();
   void cavi_weighted_copy_back();
-  __device__ void device_generate_weights(int, int);
-  __device__ void device_cavi_estimate_weighted();
-  __global__ void device_cavi_bootstrap_update_single();
   void device_cavi_bootstrap_update();
 };

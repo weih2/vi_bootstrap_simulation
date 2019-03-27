@@ -26,6 +26,8 @@ cavi_implementation::cavi_implementation(simulation_data& dat, int n_b_samples =
   }
 
   host_m_transpose = new double[n_bootstrap_samples * data.g_vars.K];
+
+  device_init_cavi_weighted();
 }
 
 void cavi_implementation::cavi_estimate(){
