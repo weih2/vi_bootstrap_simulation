@@ -105,4 +105,11 @@ private:
   void cavi_estimate();
   void cavi_estimate_weighted();
   void generate_weights();
+
+  void device_init_cavi_weighted();
+  void cavi_weighted_copy_back();
+  void device_generate_weights(int, int);
+  void device_cavi_estimate_weighted();
+  void device_cavi_bootstrap_update_single();
+  void device_cavi_bootstrap_update();
 };

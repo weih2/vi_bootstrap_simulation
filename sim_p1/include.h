@@ -29,6 +29,7 @@
 
 #include "cavi_estimate.cpp"
 // #include "cavi_estimate_weighted.cpp"
+#include "cavi_estimate_weighted_device.cu"
 #include "ci_construct.cpp"
 #include "cs_construct.cpp"
 #include "empirical_ci_construct.cpp"

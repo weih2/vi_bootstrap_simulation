@@ -158,7 +158,7 @@ void cavi_implementation::device_cavi_bootstrap_update_single(){
   const int par_index_start = tread_id * (*device_g_vars.device_K);
   const int par_index_end = (tread_id + 1) * (*device_g_vars.device_K);
 
-  device_generate_weights(tread_id);
+  device_generate_weights((*device_exp_id), tread_id);
   double device_old_elbo;
 
   for(int n_iter = 0; n_iter < *device_max_n_iter; n_iter++){
