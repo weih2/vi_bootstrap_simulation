@@ -9,6 +9,8 @@
 #include <chrono>
 #include <ctime>
 
+#include "par_format.h"
+
 #include "./utils/sample_quantile.cpp"
 #include "./utils/gaussian_quantile.cpp"
 #include "./utils/device_compute.cu"
@@ -23,7 +25,8 @@
 #include <thrust/sort.h>
 #include <curand_kernel.h>
 
-#include "par_format.h"
+
+#include "cavi_implementation.h"
 #include "random_pack.cpp"
 #include "gen_data.cpp"
 #include "init_cavi.cpp"
