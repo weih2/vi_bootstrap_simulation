@@ -89,7 +89,7 @@ public:
   global_vars_device device_g_vars;
   int *device_n_bootstrap_samples;
   double *device_x;
-  double **device_weights;
+  double *device_weights;
   device_cavi_estimation device_est;
   double *device_elbo;
 

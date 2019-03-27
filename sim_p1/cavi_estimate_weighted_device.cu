@@ -61,7 +61,7 @@ void cavi_implementation::device_generate_weights(int exp_id, int thread_id){
 
   for(int n_sample = 0; n_sample < *device_n_bootstrap_samples; n_sample++){
     device_weights[(*device_n_bootstrap_samples) * thread_id + n_sample]
-      = curand_uniform(&state);
+      = curand_uniform_double(&state);
   }
 }
 
