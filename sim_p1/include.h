@@ -9,6 +9,10 @@
 #include <chrono>
 #include <ctime>
 
+#include "cuda.h"
+#include <thrust/sort.h>
+#include <curand_kernel.h>
+
 #include "par_format.h"
 
 #include "./utils/sample_quantile.cpp"
@@ -20,11 +24,6 @@
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_cdf.h>
 */
-
-#include "cuda.h"
-#include <thrust/sort.h>
-#include <curand_kernel.h>
-
 
 #include "cavi_implementation.h"
 #include "random_pack.cpp"
