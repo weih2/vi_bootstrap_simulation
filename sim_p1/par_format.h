@@ -44,10 +44,10 @@ struct cavi_estimation{
 };
 
 struct device_cavi_estimation{
-  double **device_m;
-  double **device_s2;
-  double ***device_phi;
-  double **device_m_transpose;
+  double *device_m;
+  double *device_s2;
+  double *device_phi;
+  double *device_m_transpose;
 };
 
 struct device_storage{
