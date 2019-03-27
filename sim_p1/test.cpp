@@ -14,6 +14,7 @@ int main(){
   generate_data(sim1);
   generate_weights(sim1);
 
+  /*
   cavi_implementation sim0(sim1, 500);
   cavi_implementation sim2(sim1, 500);
 
@@ -26,7 +27,8 @@ int main(){
   cout << "another vb posterior means: " << sim2.est.m[0] << " and " << sim2.est.m[1] << endl;
 
   sim0.cs_construct();
-
+  */
+  
   /*
 
   int n_covered = 0;

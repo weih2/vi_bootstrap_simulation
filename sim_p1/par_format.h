@@ -97,6 +97,9 @@ public:
   int *device_max_n_iter;
   int *device_exp_id;
 
+  // copy back
+  double *host_m_transpose;
+
 private:
   // protect from infinite iterations
   void cavi_estimate();

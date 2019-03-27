@@ -24,6 +24,8 @@ cavi_implementation::cavi_implementation(simulation_data& dat, int n_b_samples =
   for(int k = 0; k < data.g_vars.K; k++){
     history_map[k] = queue<double>();
   }
+
+  host_m_transpose = new double[n_bootstrap_samples * data.g_vars.K];
 }
 
 void cavi_implementation::cavi_estimate(){
