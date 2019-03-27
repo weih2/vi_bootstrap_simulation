@@ -78,7 +78,7 @@ void device_cavi_estimate_weighted(int thread_id, device_storage device_store){
       - (product_x_phi * product_x_phi + 1) * device_store.device_est.device_s2[par_index]
         /(2*(*device_store.device_g_vars.device_sigma_2))
       + log(device_store.device_est.device_s2[par_index])/2.;
-    for(int i = 0; i < data.g_vars.n_samples; i++){
+    for(int i = 0; i < *device_store.device_g_vars.device_n_samples; i++){
       phi_index = thread_id
         * (*device_store.device_g_vars.device_n_samples) * (*device_store.device_g_vars.device_K)
         + i
@@ -116,7 +116,7 @@ void device_cavi_bootstrap_update_single(device_storage device_store){
     device_store.device_est.device_s2 + par_index_start);
 
   // rearrange
-  for(int par_index = 0; par_index < (*device_g_vars.device_K); par_index++){
+  for(int par_index = 0; par_index < (*device_store.device_g_vars.device_K); par_index++){
     device_store.device_est.device_m_transpose[+ thread_id]
       = device_store.device_est.device_m[par_index_start + par_index * (*device_store.device_n_bootstrap_samples)];
   }
