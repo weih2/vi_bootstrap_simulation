@@ -111,7 +111,7 @@ void device_cavi_bootstrap_update_single(device_storage device_store){
     if(device_store.device_elbo[thread_id] - device_old_elbo < *device_store.device_epsilon) break;
   }
 
-  thrust::sort_by_key(device_store.device_est.device_m + par_index_start,
+  thrust::sort_by_key(thrust::device, device_store.device_est.device_m + par_index_start,
     device_store.device_est.device_m + par_index_end,
     device_store.device_est.device_s2 + par_index_start);
 

@@ -10,6 +10,7 @@
 #include <ctime>
 
 #include "cuda.h"
+#include <thrust/execution_policy.h>
 #include <thrust/sort.h>
 #include <curand_kernel.h>
 
