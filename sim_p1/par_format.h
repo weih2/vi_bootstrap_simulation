@@ -61,7 +61,7 @@ struct device_storage{
   double *device_epsilon;
   int *device_max_n_iter;
   int *device_exp_id;
-}
+};
 
 class cavi_implementation{
 public:
