@@ -9,8 +9,8 @@ void cavi_implementation::device_init_cavi_weighted(){
   cudaMemcpy(device_g_vars.device_n_samples, &data.g_vars.n_samples, sizeof(int),
     cudaMemcpyHostToDevice);
 
-  cudaMalloc((void**)&device_n_boostrap_samples, sizeof(int));
-  cudaMemcpy(device_n_boostrap_samples, &n_bootstrap_samples,
+  cudaMalloc((void**)&device_n_bootstrap_samples, sizeof(int));
+  cudaMemcpy(device_n_bootstrap_samples, &n_bootstrap_samples,
     sizeof(int), cudaMemcpyHostToDevice);
   // allocate memory for weights using global memory temporarily
   cudaMalloc((void**)&device_weights,
@@ -59,7 +59,7 @@ void cavi_implementation::device_generate_weights(int exp_id, int thread_id){
   curandState state;
   curand_init(exp_id, thread_id, 0, &state);
 
-  for(int n_sample = 0; n_sample < *device_n_boostrap_samples; n_sample++){
+  for(int n_sample = 0; n_sample < *device_n_bootstrap_samples; n_sample++){
     device_weights[(*device_n_bootstrap_samples) * tread_id + n_sample]
       = curand_uniform(&state);
   }
@@ -153,7 +153,7 @@ void cavi_implementation::device_cavi_estimate_weighted(int thread_id){
 __global__
 void cavi_implementation::device_cavi_bootstrap_update_single(){
   int tread_id = threadIdx.x + blockIdx.x * blockDim.x;
-  if(tread_id >= *device_n_boostrap_samples) return;
+  if(tread_id >= *device_n_bootstrap_samples) return;
 
   const int par_index_start = tread_id * (*device_g_vars.device_K);
   const int par_index_end = (tread_id + 1) * (*device_g_vars.device_K);
@@ -174,7 +174,7 @@ void cavi_implementation::device_cavi_bootstrap_update_single(){
   // rearrange
   for(int par_index = 0; par_index < (*device_g_vars.device_K); par_index++){
     device_est.device_m_transpose[+ tread_id]
-      = device_est.device_m[par_index_start + par_index * (*device_n_boostrap_samples)];
+      = device_est.device_m[par_index_start + par_index * (*device_n_bootstrap_samples)];
   }
 }
 
