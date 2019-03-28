@@ -117,7 +117,7 @@ void device_cavi_bootstrap_update_single(device_storage device_store){
 
   // rearrange
   for(int par_index = 0; par_index < (*device_store.device_g_vars.device_K); par_index++){
-    device_store.device_est.device_m_transpose[+ thread_id]
-      = device_store.device_est.device_m[par_index_start + par_index * (*device_store.device_n_bootstrap_samples)];
+    device_store.device_est.device_m_transpose[par_index * (*device_store.device_n_bootstrap_samples) + thread_id]
+      = device_store.device_est.device_m[par_index_start + par_index];
   }
 }
