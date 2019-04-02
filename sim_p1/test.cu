@@ -14,21 +14,16 @@ int main(){
   generate_data(sim1);
   generate_weights(sim1);
 
-  /*
   cavi_implementation sim0(sim1, 500);
-  cavi_implementation sim2(sim1, 500);
 
   int n_steps = 1000;
   sim0.cavi_update(n_steps);
-  sim2.cavi_update(n_steps);
 
   cout << "true latent means: " << sim1.l_vars.mu[0] << " and " << sim1.l_vars.mu[1] << endl;
   cout << "vb posterior means: " << sim0.est.m[0] << " and " << sim0.est.m[1] << endl;
-  cout << "another vb posterior means: " << sim2.est.m[0] << " and " << sim2.est.m[1] << endl;
 
   sim0.cs_construct();
-  */
-  
+
   /*
 
   int n_covered = 0;
