@@ -30,6 +30,7 @@ int main(){
   for(int n_e = 0; n_e < n_experiments; n_e ++){
     // regenerate data
     generate_data(sim0.data);
+    sim0.cavi_update(n_steps);
 
     sim0.device_cavi_bootstrap_update();
     sim0.ci_construct();
