@@ -9,7 +9,7 @@ void cavi_implementation::ci_construct(){
       host_m_transpose + k*n_bootstrap_samples,
       n_bootstrap_samples, (1 + data.b_vars.confidence)/2.
     );
-    std::cout << bootstrap_ci[k][0] << std::endl;
+    std::cout << *(host_m_transpose + k*n_bootstrap_samples) << std::endl;
 
     bootstrap_ci[k][0] = 2 * est.m[k] - bootstrap_ci[k][0];
 
