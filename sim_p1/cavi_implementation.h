@@ -39,6 +39,8 @@ public:
   // copy back
   double *host_m_transpose;
 
+  void device_cavi_bootstrap_update();
+
 private:
   // protect from infinite iterations
   void cavi_estimate();
@@ -47,5 +49,4 @@ private:
 
   void device_init_cavi_weighted();
   void cavi_weighted_copy_back();
-  void device_cavi_bootstrap_update();
 };
