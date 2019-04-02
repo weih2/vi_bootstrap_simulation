@@ -56,7 +56,7 @@ void cavi_implementation::cavi_weighted_copy_back(){
 void cavi_implementation::device_cavi_bootstrap_update(){
   // yeah only one line
   cudaMemcpy(device_store.device_exp_id, &n_experiments, sizeof(int), cudaMemcpyHostToDevice);
-  cudaMemcpy(device_store.device_x, data.x, data.g_vars.n_samples * sizeof(int) , cudaMemcpyHostToDevice);
+  cudaMemcpy(device_store.device_x, data.x, data.g_vars.n_samples * sizeof(double) , cudaMemcpyHostToDevice);
   std::cout << "running..." << std::endl;
   device_cavi_bootstrap_update_single<<<64, 64>>>(device_store);
   cavi_weighted_copy_back();
