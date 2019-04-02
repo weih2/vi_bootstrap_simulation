@@ -4,13 +4,11 @@ void device_generate_weights(int exp_id, int thread_id, device_storage device_st
   curandState state;
   curand_init(exp_id, thread_id, 0, &state);
 
-  /*
   for(int n_sample = 0; n_sample < *device_store.device_n_bootstrap_samples; n_sample++){
     device_store.device_weights[(*device_store.device_n_bootstrap_samples) * thread_id + n_sample]
-      = curand_uniform_double(&state);
+      // = curand_uniform_double(&state);
+      = 1;
   }
-  */
-  device_store.device_weights[(*device_store.device_n_bootstrap_samples) * thread_id + n_sample] = 1;
 }
 
 __device__  // update estimate per thread per loop
