@@ -36,6 +36,11 @@ int main(){
 
     if((sim0.bootstrap_ci[0][0] <= sim0.data.l_vars.mu[0]) && (sim0.data.l_vars.mu[0] <= sim0.bootstrap_ci[0][1]))
       n_covered++;
+
+    cout << "confidence interval from last iteration: " << endl;
+    for(int k = 0; k < data.g_vars.K; k++){
+      cout << "[ " << bootstrap_ci[k][0] << ", " << bootstrap_ci[k][1] << "]" << endl;
+    }
   }
 
   cout << "coverage: " << n_covered << endl;
