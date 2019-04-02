@@ -39,7 +39,7 @@ int main(){
 
     cout << "confidence interval from last iteration: " << endl;
     for(int k = 0; k < data.g_vars.K; k++){
-      cout << "[ " << bootstrap_ci[k][0] << ", " << bootstrap_ci[k][1] << "]" << endl;
+      cout << "[ " << sim0.bootstrap_ci[k][0] << ", " << sim0.bootstrap_ci[k][1] << "]" << endl;
     }
   }
 
