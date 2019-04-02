@@ -31,7 +31,7 @@ int main(){
     // regenerate data
     generate_data(sim0.data);
 
-    sim0.device_cavi_bootstrap_update(n_steps);
+    sim0.device_cavi_bootstrap_update();
     sim0.ci_construct();
 
     if((sim0.bootstrap_ci[0][0] <= sim0.data.l_vars.mu[0]) && (sim0.data.l_vars.mu[0] <= sim0.bootstrap_ci[0][1]))
