@@ -71,6 +71,7 @@ void device_cavi_estimate_weighted(int thread_id, device_storage device_store){
       sum_phi += device_store.device_est.device_phi[phi_index] * device_store.device_weights[weight_index];
       product_x_phi += device_store.device_x[i] * device_store.device_est.device_phi[phi_index]
         * device_store.device_weights[weight_index];
+      printf("i've been actually excuted\n");
     }
     printf("my id is %d, my estimation is %f, and global is %f\n",
                 thread_id,sum_phi, (*device_store.device_g_vars.device_sigma_2));
