@@ -3,10 +3,13 @@ void device_generate_weights(int exp_id, int thread_id, device_storage device_st
   // device_store.device_weights
   curandState state;
   curand_init(exp_id, thread_id, 0, &state);
-
+  double sum_weights = 0;
   for(int n_sample = 0; n_sample < *device_store.device_g_vars.device_n_samples; n_sample++){
-    device_store.device_weights[(*device_store.device_g_vars.device_n_samples) * thread_id + n_sample]
-      = -log(curand_uniform_double(&state));
+    sum_weights += (device_store.device_weights[(*device_store.device_g_vars.device_n_samples) * thread_id + n_sample]
+      = -log(curand_uniform_double(&state));)
+  }
+  for(int n_sample = 0; n_sample < *device_store.device_g_vars.device_n_samples; n_sample++){
+    device_store.device_weights[(*device_store.device_g_vars.device_n_samples) * thread_id + n_sample] /= sum_weights;
   }
 }
 
