@@ -6,7 +6,7 @@ void device_generate_weights(int exp_id, int thread_id, device_storage device_st
 
   for(int n_sample = 0; n_sample < *device_store.device_g_vars.device_n_samples; n_sample++){
     device_store.device_weights[(*device_store.device_g_vars.device_n_samples) * thread_id + n_sample]
-      = curand_uniform_double(&state);
+      = -log(curand_uniform_double(&state));
   }
 }
 
