@@ -1,7 +1,7 @@
 void cavi_implementation::ci_construct(){
   for(int k = 0; k < data.g_vars.K; k++){
     // gsl_sort(m_v[k], 1, n_bootstrap_samples);
-    thrust::sort(host_m_transpose + k*n_bootstrap_samples,
+    thrust::sort(thrust::host, host_m_transpose + k*n_bootstrap_samples,
       host_m_transpose + (k+1)*n_bootstrap_samples);
 
     // get ci
