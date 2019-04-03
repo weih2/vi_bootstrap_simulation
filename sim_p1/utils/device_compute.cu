@@ -91,10 +91,10 @@ void device_cavi_estimate_weighted(int thread_id, device_storage device_store){
         *(device_store.device_x[i] * (-device_store.device_x[i]/2. + device_store.device_est.device_m[par_index])
         - (device_store.device_est.device_s2[par_index]
           + device_store.device_est.device_m[par_index]*device_store.device_est.device_m[par_index])/2.);
+          printf("my id is %d, my estimation is %f\n",
+            thread_id, *(device_store.device_est.device_m + phi_index));
     }
   }
-  printf("my id is %d, my estimation is %f\n",
-    thread_id, *(device_store.device_est.device_m + par_index_start));
 }
 
 __global__
