@@ -32,7 +32,7 @@ void device_cavi_estimate_weighted(int thread_id, device_storage device_store){
       par_index = thread_id * (*device_store.device_g_vars.device_K) + k;
 
       sum_phi += (
-        (device_store.device_est.device_phi)[par_index] =
+        (device_store.device_est.device_phi)[phi_index] =
           exp((device_store.device_x)[i] * (device_store.device_est.device_m)[par_index]
             - ((device_store.device_est.device_s2)[par_index]
             + (device_store.device_est.device_m)[par_index]*(device_store.device_est.device_m)[par_index])/2.)

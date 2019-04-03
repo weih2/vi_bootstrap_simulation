@@ -25,7 +25,7 @@ int main(){
   sim0.cs_construct();
 
   int n_covered = 0;
-  int n_experiments = 20;
+  int n_experiments = 2;
 
   for(int n_e = 0; n_e < n_experiments; n_e ++){
     // regenerate data
