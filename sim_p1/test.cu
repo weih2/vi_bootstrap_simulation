@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
   simulation_data sim1;
-  sim1.g_vars.n_samples = 500;
+  sim1.g_vars.n_samples = 50;
   sim1.g_vars.K = 2;
   sim1.g_vars.sigma_2 = 9;
 
@@ -14,7 +14,7 @@ int main(){
   generate_data(sim1);
   generate_weights(sim1);
 
-  cavi_implementation sim0(sim1, 500);
+  cavi_implementation sim0(sim1, 50);
 
   int n_steps = 1000;
   sim0.cavi_update(n_steps);

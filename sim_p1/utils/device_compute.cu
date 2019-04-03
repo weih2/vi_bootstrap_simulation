@@ -93,6 +93,8 @@ void device_cavi_estimate_weighted(int thread_id, device_storage device_store){
           + device_store.device_est.device_m[par_index]*device_store.device_est.device_m[par_index])/2.);
     }
   }
+  printf("my id is %d, my estimation is %f\n",
+    thread_id, *(device_store.device_est.device_m + par_index_start));
 }
 
 __global__
@@ -116,8 +118,6 @@ void device_cavi_bootstrap_update_single(device_storage device_store){
     device_store.device_est.device_m + par_index_end,
     device_store.device_est.device_s2 + par_index_start);
 
-  printf("my id is %d, my estimation is %f\n", 
-    thread_id, *(device_store.device_est.device_m + par_index_end));
   // rearrange
   for(int par_index = 0; par_index < (*device_store.device_g_vars.device_K); par_index++){
     device_store.device_est.device_m_transpose[par_index * (*device_store.device_n_bootstrap_samples) + thread_id]
