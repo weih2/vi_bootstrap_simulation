@@ -4,8 +4,8 @@ void device_generate_weights(int exp_id, int thread_id, device_storage device_st
   curandState state;
   curand_init(exp_id, thread_id, 0, &state);
 
-  for(int n_sample = 0; n_sample < *device_store.device_n_samples; n_sample++){
-    device_store.device_weights[(*device_store.device_n_samples) * thread_id + n_sample]
+  for(int n_sample = 0; n_sample < *device_store.device_g_vars.device_n_samples; n_sample++){
+    device_store.device_weights[(*device_store.device_g_vars.device_n_samples) * thread_id + n_sample]
       = curand_uniform_double(&state);
   }
 }
@@ -20,7 +20,7 @@ void device_cavi_estimate_weighted(int thread_id, device_storage device_store){
 
   for(int i = 0; i < *device_store.device_g_vars.device_n_samples; i++){
     sum_phi = 0;
-    weight_index = (*device_store.device_n_samples) * thread_id + i;
+    weight_index = (*device_store.device_g_vars.device_n_samples) * thread_id + i;
 
     for(int k = 0; k < *device_store.device_g_vars.device_K; k++){
       phi_index = thread_id
@@ -66,7 +66,7 @@ void device_cavi_estimate_weighted(int thread_id, device_storage device_store){
         + i
         * (*device_store.device_g_vars.device_K)
         + k;
-      weight_index = (*device_store.device_n_samples) * thread_id + i;
+      weight_index = (*device_store.device_g_vars.device_n_samples) * thread_id + i;
       sum_phi += device_store.device_est.device_phi[phi_index] * device_store.device_weights[weight_index];
       product_x_phi += device_store.device_x[i] * device_store.device_est.device_phi[phi_index]
         * device_store.device_weights[weight_index];
@@ -84,7 +84,7 @@ void device_cavi_estimate_weighted(int thread_id, device_storage device_store){
         + i
         * (*device_store.device_g_vars.device_K)
         + k;
-      weight_index = (*device_store.device_n_samples) * thread_id + i;
+      weight_index = (*device_store.device_g_vars.device_n_samples) * thread_id + i;
 
       device_store.device_elbo[thread_id] += device_store.device_est.device_phi[phi_index] * device_store.device_weights[weight_index]
         *(device_store.device_x[i] * (-device_store.device_x[i]/2. + device_store.device_est.device_m[par_index])
