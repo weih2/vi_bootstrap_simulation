@@ -22,6 +22,7 @@ int main(){
   bridge bridge_0(dev_settings);
   bridge_0.init_device();
   bridge_0.copy_to_device();
+  bridge_0.connect_to_execution();
   bridge_0.copy_back();
   bridge_0.construct_empirical_ci();
 
