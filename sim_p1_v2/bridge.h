@@ -1,6 +1,6 @@
 class bridge{
 public:
-  bridge();
+  bridge(device_settings);
   // this will be generated at host
   device_settings host_dev_settings;
   // this is gpu's copy of settings
@@ -10,7 +10,7 @@ public:
   int *vwlb_cs_covered;
   int *vp_cs_covered;
 
-  int *map_mu;
+  double *map_mu;
 
   int *device_vwlb_cs_covered;
   int *device_vp_cs_covered;
