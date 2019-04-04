@@ -6,6 +6,6 @@ __global__ void cavi_execute(bridge* bg){
   // obtain point estimates
   thread_implementation.device_cavi_point_estimate();
   for(int k = 0; k < K; k++){
-    (this -> device_empirical_mu)[t_id + k * n_experiments] = thread_implementation.m[k];
+    (bg -> device_empirical_mu)[t_id + k * n_experiments] = thread_implementation.m[k];
   }
 }
