@@ -6,7 +6,7 @@ __device__ void device_cavi_implementation::device_cavi_point_estimate_update(){
   for(int i = 0; i < n_samples; i++){
     sum_phi = 0;
     for(int k = 0; k < K; k++){
-      phi[i][k] = exp(x[i] * m[k] - (s2[k] + m[k]*[k])/2.);
+      phi[i][k] = exp(x[i] * m[k] - (s2[k] + m[k]*m[k])/2.);
       sum_phi += phi[i][k];
     }
     for(int k = 0; k < K; k++){
