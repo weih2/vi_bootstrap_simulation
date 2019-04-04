@@ -3,36 +3,31 @@ public:
   __device__ device_cavi_implementation(device_settings&, int);
   int thread_id;
 
-  // global variables
-  int K;
-  int n_samples;
-  double sigma_2;
-
   // local variables
-  double mu[g_vars.K];
-  int c[g_vars.n_samples];
+  double mu[K];
+  int c[n_samples];
 
   // data
-  double x[g_vars.n_samples];
-  double weights[g_vars.n_samples];
+  double x[n_samples];
+  double weights[n_samples];
 
   // point estimate
-  double m[g_vars.K];
-  double s2[g_vars.K];
-  double phi[g_vars.n_samples][g_vars.K];
+  double m[K];
+  double s2[K];
+  double phi[n_samples][K];
 
   // point estimate per bootstrap sample
   int b_count;
-  double m_b[g_vars.K];
-  double s2_b[g_vars.K];
-  double phi_b[g_vars.n_samples];
+  double m_b[K];
+  double s2_b[K];
+  double phi_b[n_samples];
 
   // historical MAP for mu
-  double map_mu[n_bootstrap_samples][g_vars.K];
+  double map_mu[n_bootstrap_samples][K];
 
   // intervals
-  double vwlb_cs[g_vars.K][2];
-  double vp_cs[g_vars.K][2];
+  double vwlb_cs[K][2];
+  double vp_cs[K][2];
 
   // settings
   int device_n_bootstrap_samples;

@@ -1,7 +1,7 @@
 void bridge::init_device(){
   // allocate memory
-  cudaMalloc((void**)&device_dev_settings.l_vars.mu, g_vars.K * sizeof(double));
-  cudaMalloc((void**)&device_dev_settings.l_vars.c, g_vars.n_samples * sizeof(int));
+  cudaMalloc((void**)&device_dev_settings.l_vars.mu, K * sizeof(double));
+  cudaMalloc((void**)&device_dev_settings.l_vars.c, n_samples * sizeof(int));
   cudaMalloc((void**)&device_dev_settings.epsilon, sizeof(double));
   cudaMalloc((void**)&device_dev_settings.max_n_iter, sizeof(int));
   cudaMalloc((void**)&device_dev_settings.bootstrap_confidence, sizeof(double));
@@ -15,9 +15,9 @@ void bridge::init_device(){
 
 void bridge::copy_to_device(){
   cudaMemcpy(device_dev_settings.l_vars.mu, host_dev_settings.l_vars.mu,
-    g_vars.K * sizeof(double), cudaMemcpyHostToDevice);
+    K * sizeof(double), cudaMemcpyHostToDevice);
   cudaMemcpy(device_dev_settings.l_vars.c, host_dev_settings.l_vars.c,
-    g_vars.n_samples * sizeof(int), cudaMemcpyHostToDevice);
+    n_samples * sizeof(int), cudaMemcpyHostToDevice);
   cudaMemcpy(device_dev_settings.epsilon, host_dev_settings.epsilon,
     sizeof(double), cudaMemcpyHostToDevice);
   cudaMemcpy(device_dev_settings.max_n_iter, host_dev_settings.max_n_iter,

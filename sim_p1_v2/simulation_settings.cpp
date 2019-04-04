@@ -1,8 +1,6 @@
-extern const global_vars g_vars = {
-  2, // K
-  10, // sigma_2
-  500 // n samples
-};
+#define K 2
+#define sigma_2 10
+#define n_samples 500
 
-extern const int n_bootstrap_samples = 1000;
-extern const int n_experiments = 1000;
+#define n_bootstrap_samples 1000
+#define n_experiments 1000

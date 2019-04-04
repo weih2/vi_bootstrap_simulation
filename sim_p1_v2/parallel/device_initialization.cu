@@ -1,9 +1,4 @@
 __device__ device_cavi_implementation::device_cavi_implementation(device_settings& dev_settings, int t_id){
-  // init global variables
-  K = g_vars.K;
-  n_samples = g_vars.n_samples;
-  sigma_2 = g_vars.sigma_2;
-
   // copy local variables
   for(int k = 0; k < K; k++){
     mu[k] = dev_settings.l_vars.mu[k];
