@@ -1,5 +1,6 @@
-void bridge::save_result(ostream& result_stream){
+using namespace std;
 
+void bridge::save_result(ostream& result_stream){
     auto timenow = chrono::system_clock::to_time_t(chrono::system_clock::now());
 
     result_stream << "result at: " << ctime(&timenow) << endl;
