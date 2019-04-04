@@ -6,9 +6,6 @@ __device__ void device_cavi_implementation::device_cavi_point_estimate(){
     old_elbo = elbo;
     device_cavi_point_estimate_update();
     if((elbo - old_elbo) < device_epsilon) break;
-    if(thread_id == 0){
-      printf("current elbo: %f\n", elbo);
-    }
   }
 
   thrust::sort_by_key(thrust::device, m, m + K, s2);
