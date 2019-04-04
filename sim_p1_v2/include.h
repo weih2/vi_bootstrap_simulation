@@ -26,7 +26,7 @@
 // utility functions
 #include "random_pack.cpp"
 #include "./utils/gen_data.cpp"
-#inlcude "./utils/gaussian_quantile.cpp"
+#include "./utils/gaussian_quantile.cpp"
 #include "./utils/sample_quantile.cu"
 
 // parallel implementations
