@@ -26,5 +26,7 @@ int main(){
   bridge_0.copy_back();
   bridge_0.construct_empirical_ci();
 
+  bridge_0.save_result(std::cout);
+
   return 0;
 }
