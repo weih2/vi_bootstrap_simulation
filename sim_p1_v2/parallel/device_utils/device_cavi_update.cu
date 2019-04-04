@@ -10,7 +10,7 @@ __device__ void device_cavi_implementation::device_cavi_point_estimate_update(){
         phi[i][k] = exp(x[i] * m[k] - (s2[k] + m[k]*[k])/2.)
       );
     }
-    for(int k = 0; k < data.g_vars.K; k++){
+    for(int k = 0; k < K; k++){
       phi[i][k] /= sum_phi;
       elbo -= phi[i][k] * log(phi[i][k]);
     }
