@@ -12,7 +12,6 @@ void generate_latent_pars(latent_vars& l_vars){
 
   for(int i = 0; i < n_samples; i++){
     l_vars.c[i] = floor(random_uniform() * K);
-    cout << l_vars.c[i] << endl;
   }
   return;
 }
