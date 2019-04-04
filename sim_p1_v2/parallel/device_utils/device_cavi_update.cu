@@ -13,6 +13,7 @@ __device__ void device_cavi_implementation::device_cavi_point_estimate_update(){
       phi[i][k] /= sum_phi;
       elbo -= phi[i][k] * log(phi[i][k]);
     }
+    if(thread_id == 0) printf("%f\n", phi[i][0]);
   }
 
   // update posterior of mu
