@@ -15,7 +15,6 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
   thread_id = t_id;
   b_count = 1;
 
-
   // set random state
   curandState state;
   curand_init(thread_id, 0, 0, &state);
