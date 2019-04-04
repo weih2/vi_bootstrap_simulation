@@ -33,4 +33,4 @@
 
 // host implementations
 #include "init_bridge.cu"
-#include "cavi_excution.cu"
+#include "cavi_execution.cu"
