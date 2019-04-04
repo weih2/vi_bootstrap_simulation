@@ -1,6 +1,6 @@
 using namespace std;
 
-void generate_latent_pars(local_vars& l_vars){
+void generate_latent_pars(latent_vars& l_vars){
   l_vars.mu = new double[g_vars.K];
   l_vars.c = new int[g_vars.n_samples];
 
