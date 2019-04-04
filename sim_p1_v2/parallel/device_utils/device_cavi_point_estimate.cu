@@ -1,10 +1,10 @@
 __device__ void device_cavi_implementation::device_cavi_point_estimate(){
-  device_cavi__point_estimate_update();
+  device_cavi_point_estimate_update();
   double old_elbo;
 
   for(int n_step = 1; n_step <= max_n_iter; n_step++){
     old_elbo = elbo;
-    device_cavi__point_estimate_update();
+    device_cavi_point_estimate_update();
     if((elbo - old_elbo) < epsilon) break;
   }
 
