@@ -1,10 +1,10 @@
 struct global_vars{
   // # categories
-  int K;
+  const int K;
   // variance of cluster center
-  double sigma_2;
+  const double sigma_2;
   // # samples
-  int n_samples;
+  const int n_samples;
 };
 
 struct latent_vars{
