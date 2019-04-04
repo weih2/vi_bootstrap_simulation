@@ -1,6 +1,6 @@
 class device_cavi_implementation{
 public:
-  __device__ device_cavi_implementation(device_settings&, int);
+  __device__ device_cavi_implementation(device_settings, int);
   int thread_id;
 
   // local variables
