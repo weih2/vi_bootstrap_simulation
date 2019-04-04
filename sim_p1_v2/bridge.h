@@ -29,5 +29,5 @@ public:
 
   void count_covered();
   void construct_empirical_ci();
-  void save_result(ostream&);
+  void save_result(std::ostream&);
 };
