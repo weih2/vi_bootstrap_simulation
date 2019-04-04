@@ -24,7 +24,7 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
     m[k] = curand_normal_double(&state) * sqrt(sigma_2);
     s2[k] = sigma_2;
     for(int i = 0; i < n_samples; i++){
-      phi[k] = 1/double(K);
+      phi[i][k] = 1/double(K);
     }
   }
 
