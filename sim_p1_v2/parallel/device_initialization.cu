@@ -31,6 +31,6 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
   for(int i = 0; i < n_samples; i++){
     // let variance be 1
     x[i] = mu[c[i]] + curand_normal_double(&state);
-    if(thread_id == 0) printf("%f\n", x[i]);
+    if(thread_id <= 1) printf("%f\n", x[i]);
   }
 }
