@@ -16,12 +16,18 @@ public:
   int *device_vwlb_cs_covered;
   int *device_vp_cs_covered;
 
+  double empirical_ci[K][2];
+
+  int vwlb_cs_covered_counts;
+  int vp_cs_covered_counts;
+
   void init_device();
   void copy_to_device();
   void copy_back();
 
   void connect_to_execution();
 
-  int count_vwlb_cs_covered();
-  int count_vp_cs_covered();
+  void count_covered();
+  void construct_empirical_ci();
+  int save_result()
 };

@@ -37,6 +37,8 @@
 
 // host implementations
 #include "init_bridge.cu"
-#include "utils/copy_to_device.cu"
+#include "./utils/copy_to_device.cu"
 #include "cavi_execution.cu"
 #include "connect_to_execution.cu"
+#include "./utils/construct_empirical_ci.cu"
+#include "./utils/save_result.cu"
