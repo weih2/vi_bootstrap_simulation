@@ -1,10 +1,11 @@
 __device__ device_cavi_implementation::device_cavi_implementation(device_settings dev_settings, int t_id){
+  printf("initializing... %f\n", dev_settings.l_vars.mu[0]);
   // copy local variables
   for(int k = 0; k < K; k++){
     mu[k] = dev_settings.l_vars.mu[k];
     c[k] = dev_settings.l_vars.c[k];
   }
-printf("initializing...\n");
+
   // copy settings
   device_max_n_iter = *dev_settings.max_n_iter;
   device_epsilon = *dev_settings.epsilon;
