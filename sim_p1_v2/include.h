@@ -26,6 +26,7 @@
 // utility functions
 #include "random_pack.cpp"
 #include "./utils/gen_data.cpp"
+#inlcude "./utils/gaussian_quantile.cpp"
 #include "./utils/sample_quantile.cu"
 
 // parallel implementations
@@ -36,4 +37,6 @@
 
 // host implementations
 #include "init_bridge.cu"
+#include "utils/copy_to_device.cu"
 #include "cavi_execution.cu"
+#include "connect_to_execution.cu"

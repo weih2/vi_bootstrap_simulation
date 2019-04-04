@@ -10,13 +10,17 @@ public:
   int *vwlb_cs_covered;
   int *vp_cs_covered;
 
-  double *map_mu;
+  double *host_empirical_mu;
+  double *device_empirical_mu;
 
   int *device_vwlb_cs_covered;
   int *device_vp_cs_covered;
 
   void init_device();
   void copy_to_device();
+  void copy_back();
+
+  void connect_to_execution();
 
   int count_vwlb_cs_covered();
   int count_vp_cs_covered();
