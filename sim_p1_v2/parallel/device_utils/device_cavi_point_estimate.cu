@@ -2,8 +2,6 @@ __device__ void device_cavi_implementation::device_cavi_point_estimate(){
   device_cavi_point_estimate_update();
   double old_elbo;
 
-  printf("I've been excuted\n");
-
   for(int n_step = 1; n_step <= device_max_n_iter; n_step++){
     old_elbo = elbo;
     device_cavi_point_estimate_update();
