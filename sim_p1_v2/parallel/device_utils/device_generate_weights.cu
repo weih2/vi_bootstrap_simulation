@@ -14,8 +14,8 @@ __device__ void device_cavi_implementation::device_generate_weights(){
   }
 
   // by the way we can initialize estimates
-  for(int k = 0; k < g_vars.K; k++){
-    m_b[k] = curand_normal_double(&state) * sqrt(g_vars.sigma_2);
+  for(int k = 0; k < K; k++){
+    m_b[k] = curand_normal_double(&state) * sqrt(sigma_2);
     s2_b[k] = sigma_2;
     for(int i = 0; i < n_samples; i++){
       phi_b[k] = 1/double(K);
