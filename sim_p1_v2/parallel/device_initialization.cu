@@ -2,7 +2,10 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
   // copy local variables
   for(int k = 0; k < K; k++){
     mu[k] = dev_settings.l_vars.mu[k];
-    c[k] = dev_settings.l_vars.c[k];
+  }
+  
+  for(int i = 0; i < n_samples; i++){
+    c[i] = dev_settings.l_vars.c[i];
   }
 
   // copy settings
