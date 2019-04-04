@@ -1,6 +1,6 @@
 __device__ void device_cavi_implementation::device_generate_weights(){
   curandState state;
-  curand_init(thread_id, b_count, 0, &state);
+  curand_init(thread_id, b_count + 1, 0, &state);
 
   double sum_weights = 0;
   for(int i = 0; i < n_samples; i++){

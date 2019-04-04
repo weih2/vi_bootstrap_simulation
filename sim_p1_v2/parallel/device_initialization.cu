@@ -3,7 +3,7 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
   for(int k = 0; k < K; k++){
     mu[k] = dev_settings.l_vars.mu[k];
   }
-  
+
   for(int i = 0; i < n_samples; i++){
     c[i] = dev_settings.l_vars.c[i];
   }
@@ -16,7 +16,7 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
 
   // generate data
   thread_id = t_id;
-  b_count = 1;
+  b_count = 0;
 
   // set random state
   curandState state;

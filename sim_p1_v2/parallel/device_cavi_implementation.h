@@ -23,7 +23,7 @@ public:
   double phi_b[n_samples];
 
   // historical MAP for mu
-  double map_mu[n_bootstrap_samples][K];
+  double map_mu[K][n_bootstrap_samples];
 
   // intervals
   double vwlb_cs[K][2];
