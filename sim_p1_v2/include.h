@@ -14,11 +14,14 @@
 // my own header files
 #include "par_format.h"
 #include "./parallel/device_par_format.h"
-#include "./parallel/device_cavi_implementation.h"
-#include "bridge.h"
 
 // global settings
 #include "simulation_settings.cpp"
+
+#include "./parallel/device_cavi_implementation.h"
+#include "bridge.h"
+
+
 
 // utility functions
 #include "random_pack.cpp"

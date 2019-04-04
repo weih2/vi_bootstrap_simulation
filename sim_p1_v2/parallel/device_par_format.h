@@ -7,4 +7,4 @@ struct device_settings{
   double *ci_quantile;
 
   int thread_id;
-}
+};
