@@ -8,5 +8,4 @@ __global__ void cavi_execute(bridge* bg){
   for(int k = 0; k < K; k++){
     (bg -> device_empirical_mu)[t_id + k * n_experiments] = thread_implementation.m[k];
   }
-  cudaDeviceSynchronize();
 }
