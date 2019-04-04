@@ -46,7 +46,6 @@ void device_cavi_estimate_weighted(int thread_id, device_storage device_store){
         + i
         * (*device_store.device_g_vars.device_K)
         + k;
-      par_index = thread_id * (*device_store.device_g_vars.device_K) + k;
 
       device_store.device_est.device_phi[phi_index] /= sum_phi;
       device_store.device_elbo[thread_id] -=
