@@ -5,6 +5,8 @@
 #include<ostream>
 #include<fstream>
 
+#include <chrono>
+#include <ctime>
 // cuda official libraries
 #include "cuda.h"
 #include <thrust/execution_policy.h>
