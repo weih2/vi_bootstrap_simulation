@@ -17,9 +17,9 @@ void bridge::construct_empirical_ci(){
         (host_empirical_mu[k*n_experiments + n] - sum_m[k]/double(n_experiments));
     variance_m_est[k] /= double(n_experiments - 1);
 
-    empirical_ci[k][0] = latent_vars.mu[k] -
+    empirical_ci[k][0] = host_dev_settings.latent_vars.mu[k] -
       (*host_dev_settings.ci_quantile) * sqrt(variance_m_est[k]);
-    empirical_ci[k][1] = latent_vars.mu[k] +
+    empirical_ci[k][1] = host_dev_settings.latent_vars.mu[k] +
       (*host_dev_settings.ci_quantile) * sqrt(variance_m_est[k]);
   }
 }
