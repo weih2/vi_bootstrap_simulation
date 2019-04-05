@@ -10,7 +10,7 @@ void bridge::connect_to_execution(){
 
     for(int k = 0; k < K; k++){
       std::cout << "this times' empirical ci is [" << empirical_ci[k][0] << ","
-        << empirical_ci[k][1] << "]." std::endl;
+        << empirical_ci[k][1] << "]." << std::endl;
       if((empirical_ci[k][0] < host_dev_settings.l_vars.mu[k])
         &&(empirical_ci[k][1] > host_dev_settings.l_vars.mu[k]))
         empirical_ci_covered_counts[k]++;
