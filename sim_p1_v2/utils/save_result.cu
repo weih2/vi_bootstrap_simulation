@@ -22,30 +22,18 @@ void bridge::save_result(ostream& result_stream){
 
     // coverate
     result_stream << "number of experiments: " << n_experiments << endl;
-    /*
-    result_stream << "ci coverage: " << ci_covered << endl;
+
     for(int k = 0; k < data.g_vars.K; k++){
-      result_stream << "ci coverage for parameter " << k + 1 << " :" << ci_covered_each[k] << endl;
-    }
-    result_stream << "cs coverage: " << cs_covered << endl;
-    for(int k = 0; k < data.g_vars.K; k++){
-      result_stream << "cs coverage for parameter " << k + 1 << " :" << cs_covered_each[k] << endl;
+      result_stream << "variational wlb confidence set coverage for parameter " << k + 1 << " :" << vwlb_cs_covered_counts[K] << endl;
     }
 
-    // ci and cs
-    result_stream << "confidence interval from last iteration: " << endl;
     for(int k = 0; k < data.g_vars.K; k++){
-      result_stream << "[ " << bootstrap_ci[k][0] << ", " << bootstrap_ci[k][1] << "]" << endl;
+      result_stream << "variational confidence set coverage for parameter " << k + 1 << " :" << vp_cs_covered_each[k] << endl;
     }
-    result_stream << "credit set from last iteration: " << endl;
+
     for(int k = 0; k < data.g_vars.K; k++){
-      result_stream << "[ " << credit_set[k][0] << ", " << credit_set[k][1] << "]" << endl;
+      result_stream << "empirical confidence set coverage for parameter " << k + 1 << " :" << empirical_ci_covered_counts[k] << endl;
     }
-    */
-    result_stream << "empirical confidence interval:" << endl;
-    for(int k = 0; k < K; k++){
-      result_stream << "[ " << empirical_ci[k][0] << ", " << empirical_ci[k][1] << "]" << endl;
-    }
+
     result_stream << endl;
-
 }
