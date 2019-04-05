@@ -1,9 +1,10 @@
 void bridge::connect_to_execution(){
   cavi_execute<<<64,64>>>(*this, 1);
   cudaDeviceSynchronize();
+  count_coverage();
+  
   for(int n = 0; n < n_experiments; n++){
     cavi_execute<<<64,64>>>(*this, 0);
-    if((n+1)%10 == 0) std::cout << "working on " << (n+1) << "th sample" << std::endl;
     cudaDeviceSynchronize();
     construct_empirical_ci();
 
