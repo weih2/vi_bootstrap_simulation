@@ -20,14 +20,14 @@ public:
 
   int vwlb_cs_covered_counts[K];
   int vp_cs_covered_counts[K];
+  int empirical_ci_covered_counts[K];
 
   void init_device();
   void copy_to_device();
-  void copy_back();
 
   void connect_to_execution();
 
-  void count_covered();
+  void count_coverage();
   void construct_empirical_ci();
   void save_result(std::ostream&);
 };

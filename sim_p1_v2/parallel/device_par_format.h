@@ -5,6 +5,7 @@ struct device_settings{
   int *max_n_iter;
   double *bootstrap_confidence;
   double *ci_quantile;
+  int *data_count;
 
   int thread_id;
 };

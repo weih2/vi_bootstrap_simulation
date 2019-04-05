@@ -7,10 +7,15 @@ void bridge::init_device(){
   cudaMalloc((void**)&device_dev_settings.bootstrap_confidence, sizeof(double));
   cudaMalloc((void**)&device_dev_settings.ci_quantile, sizeof(double));
 
+  cudaMalloc((void**)&device_dev_settings.data_count, sizeof(int));
+  cudaMemset(device_dev_settings, 0, sizeof(int));
+
   cudaMalloc((void**)&device_vwlb_cs_covered,
     sizeof(int) * K * n_bootstrap_samples);
+  cudaMemset(device_vwlb_cs_covered, 0, sizeof(int) * K * n_bootstrap_samples);
   cudaMalloc((void**)&device_vp_cs_covered,
     sizeof(int) * K * n_bootstrap_samples);
+  cudaMemset(device_vp_cs_covered, 0, sizeof(int) * K * n_bootstrap_samples);
 
   cudaMalloc((void**)&device_empirical_mu,
     sizeof(double) * n_experiments * K);

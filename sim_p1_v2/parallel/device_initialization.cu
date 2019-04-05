@@ -20,7 +20,8 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
 
   // set random state
   curandState state;
-  curand_init(thread_id, 0, 0, &state);
+  curand_init(thread_id + n_experiments * (*dev_settings.data_count), 0, 0, &state);
+  if(t_id == 0) (*dev_settings.data_count)++;
 
   // initialize estimates
   for(int k = 0; k < K; k++){

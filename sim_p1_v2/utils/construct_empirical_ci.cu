@@ -1,4 +1,7 @@
 void bridge::construct_empirical_ci(){
+  cudaMemcpy(host_empirical_mu, device_empirical_mu,
+    sizeof(double) * K * n_experiments, cudaMemcpyDeviceToHost);
+    
   for(int k = 0; k < K; k++){
     thrust::sort(thrust::host, host_empirical_mu + k * n_experiments,
       host_empirical_mu + (k + 1) * n_experiments);

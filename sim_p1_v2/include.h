@@ -47,5 +47,5 @@
 #include "cavi_execution.cu"
 #include "connect_to_execution.cu"
 #include "./utils/construct_empirical_ci.cu"
-#include "./utils/copy_back.cu"
+#include "./utils/count_coverage.cu"
 #include "./utils/save_result.cu"
