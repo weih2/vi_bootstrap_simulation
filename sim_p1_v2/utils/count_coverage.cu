@@ -13,8 +13,8 @@ void bridge::count_coverage(){
       vp_cs_covered_counts[k]  += vp_cs_covered[k * n_experiments + n];
       vwlb_cs_covered_counts[k] += vwlb_cs_covered[k * n_experiments + n];
 
-      if((empirical_ci[k][0] < host_empirical_mu[n])
-        && (empirical_ci[k][1] > host_empirical_mu[n])
+      if((empirical_ci[k][0] < host_empirical_mu[k*n_experiments + n])
+        && (empirical_ci[k][1] > host_empirical_mu[k*n_experiments + n])
       ) empirical_ci_covered_counts[k]++;
     }
   }
