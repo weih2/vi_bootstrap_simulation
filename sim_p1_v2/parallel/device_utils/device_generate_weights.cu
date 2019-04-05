@@ -10,7 +10,7 @@ __device__ void device_cavi_implementation::device_generate_weights(){
   }
 
   for(int i = 0; i < n_samples; i++){
-    weights[i] /= sum_weights;
+    weights[i] *= n_samples/sum_weights;
   }
 
   // by the way we can initialize estimates
