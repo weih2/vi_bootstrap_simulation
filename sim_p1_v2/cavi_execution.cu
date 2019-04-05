@@ -13,10 +13,10 @@ __global__ void cavi_execute(bridge bg, int bootstrap_execution){
     for(int k = 0; k < K; k++){
       if((thread_implementation.vp_cs[k][0] < thread_implementation.mu[k])
         &&(thread_implementation.vp_cs[k][1] > thread_implementation.mu[k]))
-        device_vp_cs_covered[k * n_experiments + t_id]++;
+        (bg.device_vp_cs_covered[k * n_experiments + t_id])++;
       if((thread_implementation.vwlb_cs[k][0] < thread_implementation.mu[k])
         &&(thread_implementation.vwlb_cs[k][1] > thread_implementation.mu[k]))
-        device_vwlb_cs_covered[k * n_experiments + t_id]++;
+        (bg.device_vwlb_cs_covered[k * n_experiments + t_id])++;
     }
   }
 
