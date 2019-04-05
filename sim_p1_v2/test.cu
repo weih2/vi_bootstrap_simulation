@@ -22,7 +22,6 @@ int main(){
   bridge bridge_0(dev_settings);
 
   bridge_0.connect_to_execution();
-  bridge_0.construct_empirical_ci();
 
   bridge_0.save_result(std::cout);
 

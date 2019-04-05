@@ -3,6 +3,7 @@ void bridge::connect_to_execution(){
   cudaDeviceSynchronize();
   for(int n = 0; n < n_experiments; n++){
     cavi_execute<<<64,64>>>(*this, 0);
+    cudaDeviceSynchronize();
     construct_empirical_ci();
 
     for(int k = 0; k < K; k++){
