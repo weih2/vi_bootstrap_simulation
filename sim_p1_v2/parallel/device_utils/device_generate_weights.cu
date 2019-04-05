@@ -18,7 +18,7 @@ __device__ void device_cavi_implementation::device_generate_weights(){
     m_b[k] = curand_normal_double(&state) * sqrt(double(sigma_2));
     s2_b[k] = sigma_2;
     for(int i = 0; i < n_samples; i++){
-      phi_b[k] = 1/double(K);
+      phi_b[i][k] = 1/double(K);
     }
   }
 }
