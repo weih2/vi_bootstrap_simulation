@@ -24,7 +24,7 @@ void bridge::save_result(ostream& result_stream){
     result_stream << "number of experiments: " << n_experiments << endl;
 
     for(int k = 0; k < K; k++){
-      result_stream << "variational wlb confidence set coverage for parameter " << k + 1 << " :" << vwlb_cs_covered_counts[K] << endl;
+      result_stream << "variational wlb confidence set coverage for parameter " << k + 1 << " :" << vwlb_cs_covered_counts[k] << endl;
     }
 
     for(int k = 0; k < K; k++){
