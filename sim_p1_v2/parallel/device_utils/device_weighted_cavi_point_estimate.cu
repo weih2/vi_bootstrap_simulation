@@ -1,5 +1,5 @@
 __device__ void device_cavi_implementation::device_weighted_cavi_point_estimate(){
-  dobule old_elbo;
+  double old_elbo;
 
   for(; b_count < n_bootstrap_samples; b_count++){
     device_generate_weights();

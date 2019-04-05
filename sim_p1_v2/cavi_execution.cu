@@ -11,7 +11,7 @@ __global__ void cavi_execute(bridge bg){
     (bg.device_empirical_mu)[t_id + k * n_experiments] = thread_implementation.m[k];
     if(t_id == 0){
       printf("ci is [%f,%f]", thread_implementation.vwlb_cs[k][0],
-       thread_implementation.vwlb_cs[k][1])
+       thread_implementation.vwlb_cs[k][1]);
     }
   }
 }
