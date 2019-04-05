@@ -36,6 +36,8 @@
 #include "./parallel/device_utils/device_generate_weights.cu"
 #include "./parallel/device_utils/device_cavi_update.cu"
 #include "./parallel/device_utils/device_cavi_point_estimate.cu"
+#include "./parallel/device_utils/device_weighted_cavi_update.cu"
+#include "./parallel/device_utils/device_weighted_cavi_point_estimate.cu"
 
 // host implementations
 #include "init_bridge.cu"
