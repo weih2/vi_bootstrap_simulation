@@ -20,8 +20,7 @@ int main(){
   *dev_settings.ci_quantile = cdf_ugaussian_Pinv(0.975);
 
   bridge bridge_0(dev_settings);
-  bridge_0.init_device();
-  bridge_0.copy_to_device();
+  
   bridge_0.connect_to_execution();
   bridge_0.copy_back();
   bridge_0.construct_empirical_ci();

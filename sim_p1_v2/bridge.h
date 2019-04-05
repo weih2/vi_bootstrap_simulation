@@ -18,8 +18,8 @@ public:
 
   double empirical_ci[K][2];
 
-  int vwlb_cs_covered_counts;
-  int vp_cs_covered_counts;
+  int vwlb_cs_covered_counts[K];
+  int vp_cs_covered_counts[K];
 
   void init_device();
   void copy_to_device();
