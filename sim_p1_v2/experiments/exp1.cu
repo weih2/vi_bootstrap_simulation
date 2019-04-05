@@ -1,4 +1,5 @@
 #include "../include.h"
+#include "fixed_latent_vars_generation.cpp"
 
 int main(){
   latent_vars true_vars;
@@ -19,11 +20,19 @@ int main(){
   dev_settings.ci_quantile = new double();
   *dev_settings.ci_quantile = cdf_ugaussian_Pinv(0.975);
 
-  bridge bridge_0(dev_settings);
+  double delta;
 
-  bridge_0.connect_to_execution();
+  for(int delta_count = 0; delta_count < 1000; delta_count++){
+    delta = delta_count * delta_count * 0.01;
+    fixed_latent_vars_generation(dev_settings.l_vars, delta);
 
-  bridge_0.save_result(std::cout);
+    bridge bridge_0(dev_settings);
+
+    bridge_0.connect_to_execution();
+
+    bridge_0.save_result(std::cout);
+  }
+
 
   return 0;
 }

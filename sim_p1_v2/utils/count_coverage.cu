@@ -6,10 +6,16 @@ void bridge::count_coverage(){
   cudaMemcpy(vp_cs_covered, device_vp_cs_covered,
     sizeof(int) * K * n_experiments, cudaMemcpyDeviceToHost);
 
+  construct_empirical_ci();
+
   for(int k = 0; k < K; k++){
     for(int n = 0; n < n_experiments; n++){
       vp_cs_covered_counts[k]  += vp_cs_covered[k * n_experiments + n];
       vwlb_cs_covered_counts[k] += vwlb_cs_covered[k * n_experiments + n];
+
+      if((empirical_ci[k][0] < host_empirical_mu[n])
+        && (empirical_ci[k][1] > host_empirical_mu[n])
+      ) empirical_ci_covered_counts[k]++;
     }
   }
 }
