@@ -20,7 +20,7 @@ public:
   int b_count;
   double m_b[K];
   double s2_b[K];
-  double phi_b[n_samples];
+  double phi_b[n_samples][K];
 
   // historical MAP for mu
   double map_mu[K][n_bootstrap_samples];
