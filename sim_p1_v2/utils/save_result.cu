@@ -2,12 +2,6 @@ using namespace std;
 
 void bridge::save_result(ostream& result_stream){
     // saving true value
-    result_stream << "true mu's are:" << endl;
-    for(int k = 0; k < K; k++){
-      result_stream << host_dev_settings.l_vars.mu[k] << " ";
-    }
-    result_stream << endl;
-
     for(int k = 0; k < K; k++){
       result_stream << "variational wlb confidence set coverage for parameter " << k + 1 << " :" << vwlb_cs_covered_counts[k] << endl;
     }

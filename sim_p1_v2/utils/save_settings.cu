@@ -13,6 +13,11 @@ void bridge::save_settings(ostream& result_stream){
   result_stream << "confidence level: " <<
     *host_dev_settings.bootstrap_confidence << endl;
 
+  result_stream << "true mu's are:" << endl;
+  for(int k = 0; k < K; k++){
+    result_stream << host_dev_settings.l_vars.mu[k] << " ";
+  }
+  result_stream << endl;
   // coverate
   result_stream << "number of experiments: " << n_experiments << endl;
 }
