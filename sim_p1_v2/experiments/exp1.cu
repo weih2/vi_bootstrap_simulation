@@ -32,7 +32,7 @@ int main(){
   for(int delta_count = 50; delta_count <= 51; delta_count++){
     // delta_i = 0.1 * i
     delta = delta_count * 0.1;
-    // fixed_latent_vars_generation(dev_settings.l_vars, delta);
+    fixed_latent_vars_generation(dev_settings.l_vars, delta);
 
     bridge bridge_0(dev_settings);
 
