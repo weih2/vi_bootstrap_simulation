@@ -43,6 +43,8 @@ int main(){
     coverage_vwlb[delta_count] = 0;
     coverage_vp[delta_count] = 0;
 
+    bridge_0.save_result(cout);
+
     for(int k = 0; k < K; k++){
       cout << bridge_0.vwlb_cs_covered_counts[k] << endl;
       coverage_vwlb[delta_count - 1] += bridge_0.vwlb_cs_covered_counts[k];
