@@ -38,11 +38,10 @@ int main(){
          += bridge_0.vwlb_cs_covered_counts[k];
       }
 
+      bridge_0.save_result();
+
       bridge_0.clean_device();
     }
-
-    for(int k = 0; k < K; k++)
-      std::cout << vwlb_cs_covered_counts_total[50][k] << std::endl;
 
   return 0;
 }
