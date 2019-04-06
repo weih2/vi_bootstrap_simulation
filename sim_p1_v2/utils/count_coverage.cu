@@ -9,6 +9,9 @@ void bridge::count_coverage(){
   construct_empirical_ci();
 
   for(int k = 0; k < K; k++){
+    vp_cs_covered_counts[k] = 0;
+    vwlb_cs_covered_counts[k] = 0;
+    
     for(int n = 0; n < n_experiments; n++){
       vp_cs_covered_counts[k]  += vp_cs_covered[k * n_experiments + n];
       vwlb_cs_covered_counts[k] += vwlb_cs_covered[k * n_experiments + n];
