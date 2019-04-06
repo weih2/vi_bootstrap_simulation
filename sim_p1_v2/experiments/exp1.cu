@@ -28,11 +28,8 @@ int main(){
   for(int delta_count = 50; delta_count <= 51; delta_count++){
     // delta_i = 0.1 * i
     delta = delta_count * 0.1;
-    fixed_latent_vars_generation(dev_settings.l_vars, delta);
-    bridge_0 = bridge(dev_settings);
+    // fixed_latent_vars_generation(dev_settings.l_vars, delta);
     // bridge_0.save_settings(cout);
-
-    bridge_0 = bridge(dev_settings);
 
     bridge_0.connect_to_execution();
 
