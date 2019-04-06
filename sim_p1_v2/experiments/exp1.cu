@@ -30,7 +30,7 @@ int main(){
   double coverage_vwlb[100];
   double coverage_vp[100];
 
-  for(int delta_count = 1; delta_count <= 100; delta_count++){
+  for(int delta_count = 50; delta_count <= 55; delta_count++){
     // delta_i = 0.1 * i
     delta = delta_count * 0.1;
     fixed_latent_vars_generation(dev_settings.l_vars, delta);
@@ -51,13 +51,13 @@ int main(){
     coverage_vp[delta_count - 1] /= double(K * n_experiments);
   }
 
-  for(int delta_count = 1; delta_count <= 100; delta_count++){
+  for(int delta_count = 50; delta_count <= 55; delta_count++){
     result_stream << coverage_vwlb[delta_count - 1] << " ";
   }
   result_stream << endl;
 
-  for(int delta_count = 1; delta_count <= 100; delta_count++){
-    result_stream << coverage_vwlb[delta_count - 1] << " " << endl;
+  for(int delta_count = 50; delta_count <= 55; delta_count++){
+    result_stream << coverage_vwlb[delta_count - 1] << " ";
   }
   result_stream << endl;
 
