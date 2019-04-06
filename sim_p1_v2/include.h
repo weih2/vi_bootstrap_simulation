@@ -23,8 +23,6 @@
 #include "./parallel/device_cavi_implementation.h"
 #include "bridge.h"
 
-
-
 // utility functions
 #include "random_pack.cpp"
 #include "./utils/gen_data.cpp"
