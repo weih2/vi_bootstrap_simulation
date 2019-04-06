@@ -30,6 +30,10 @@ int main(){
 
       bridge_0.save_result(std::cout);
 
+      for(int k = 0; k < K; k++){
+        std::cout << bridge_0.vwlb_cs_covered_counts[k] << std::endl;
+      }
+
       bridge_0.clean_device();
 
     }
