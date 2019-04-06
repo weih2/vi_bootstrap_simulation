@@ -33,7 +33,7 @@ int main(){
 
       for(int k = 0; k < K; k++){
         vwlb_cs_covered_counts_total[delta_count - 1][k]
-         += bridge_0.vwlb_cs_covered_counts[k] << std::endl;
+         += bridge_0.vwlb_cs_covered_counts[k];
       }
 
       bridge_0.clean_device();
