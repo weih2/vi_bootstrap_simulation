@@ -32,6 +32,10 @@ int main(){
       bridge_0.save_result(std::cout);
 
       for(int k = 0; k < K; k++){
+        vwlb_cs_covered_counts_total[delta_count - 1][k] = 0;
+      }
+
+      for(int k = 0; k < K; k++){
         vwlb_cs_covered_counts_total[delta_count - 1][k]
          += bridge_0.vwlb_cs_covered_counts[k];
       }
