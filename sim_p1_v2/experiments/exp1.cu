@@ -30,7 +30,7 @@ int main(){
   double coverage_vwlb[100];
   double coverage_vp[100];
 
-  for(int delta_count = 50; delta_count <= 55; delta_count++){
+  for(int delta_count = 50; delta_count <= 51; delta_count++){
     // delta_i = 0.1 * i
     delta = delta_count * 0.1;
     fixed_latent_vars_generation(dev_settings.l_vars, delta);
@@ -44,9 +44,12 @@ int main(){
     coverage_vp[delta_count] = 0;
 
     for(int k = 0; k < K; k++){
+      cout << bridge_0.vwlb_cs_covered_counts[k] < endl;
       coverage_vwlb[delta_count - 1] += bridge_0.vwlb_cs_covered_counts[k];
       coverage_vp[delta_count - 1] += bridge_0.vp_cs_covered_counts[k];
     }
+
+
     coverage_vwlb[delta_count - 1] /= double(K * n_experiments);
     coverage_vp[delta_count - 1] /= double(K * n_experiments);
   }
