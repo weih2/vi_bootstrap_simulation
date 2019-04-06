@@ -39,7 +39,6 @@ int main(){
     bridge_0 = bridge(dev_settings);
 
     bridge_0.connect_to_execution();
-    bridge_0.clean_device();
 
     coverage_vwlb[delta_count] = 0;
     coverage_vp[delta_count] = 0;
@@ -52,6 +51,8 @@ int main(){
 
     coverage_vwlb[delta_count - 1] /= double(K * n_experiments);
     coverage_vp[delta_count - 1] /= double(K * n_experiments);
+    
+    bridge_0.clean_device();
   }
 
   for(int delta_count = 50; delta_count <= 51; delta_count++){
