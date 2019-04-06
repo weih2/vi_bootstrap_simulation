@@ -20,7 +20,7 @@ int main(){
     dev_settings.ci_quantile = new double();
     *dev_settings.ci_quantile = cdf_ugaussian_Pinv(0.975);
 
-    double vwlb_cs_covered_counts_total[K];
+    double vwlb_cs_covered_counts_total[100][K];
 
     for(int delta_count = 50; delta_count < 51; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars, 5);
@@ -32,7 +32,7 @@ int main(){
       bridge_0.save_result(std::cout);
 
       for(int k = 0; k < K; k++){
-        vwlb_cs_covered_counts_total[k]
+        vwlb_cs_covered_counts_total[delta_count - 1][k]
          += bridge_0.vwlb_cs_covered_counts[k] << std::endl;
       }
 
@@ -40,7 +40,7 @@ int main(){
     }
 
     for(int k = 0; k < K; k++)
-      std::cout << vwlb_cs_covered_counts_total[k] << endl;
-      
+      std::cout << vwlb_cs_covered_counts_total[49][k] << std::endl;
+
   return 0;
 }
