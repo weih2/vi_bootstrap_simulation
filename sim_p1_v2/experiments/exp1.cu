@@ -36,10 +36,12 @@ int main(){
     fixed_latent_vars_generation(dev_settings.l_vars, delta);
 
     bridge_0 = bridge(dev_settings);
-    bridge_0.save_settings(result_stream);
 
     bridge_0.connect_to_execution();
     bridge_0.clean_device();
+
+    coverage_vwlb[delta_count] = 0;
+    coverage_vp[delta_count] = 0;
 
     for(int k = 0; k < K; k++){
       coverage_vwlb[delta_count] += bridge_0.vwlb_cs_covered_counts[k];
@@ -50,12 +52,14 @@ int main(){
   }
 
   for(int delta_count = 1; delta_count <= 100; delta_count++){
-    result_stream << coverage_vwlb[delta_count] << " " << endl;
+    result_stream << coverage_vwlb[delta_count] << " ";
   }
+  result_stream << endl;
 
   for(int delta_count = 1; delta_count <= 100; delta_count++){
     result_stream << coverage_vwlb[delta_count] << " " << endl;
   }
+  result_stream << endl;
 
   result_stream.close();
 
