@@ -1,8 +1,6 @@
 #include "../include.h"
 #include "fixed_latent_vars_generation.cpp"
 
-using namespace std;
-
 int main(){
   ofstream result_stream;
   result_stream.open("simulation_result.txt", ofstream::out | ofstream::app);
