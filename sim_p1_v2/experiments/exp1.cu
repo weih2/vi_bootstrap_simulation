@@ -2,7 +2,6 @@
 #include "fixed_latent_vars_generation.cpp"
 
 int main(){
-
     latent_vars true_vars;
     generate_latent_pars(true_vars);
 
@@ -21,6 +20,8 @@ int main(){
     dev_settings.ci_quantile = new double();
     *dev_settings.ci_quantile = cdf_ugaussian_Pinv(0.975);
 
+    double vwlb_cs_covered_counts_total[K];
+
     for(int delta_count = 50; delta_count < 51; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars, 5);
 
@@ -31,11 +32,15 @@ int main(){
       bridge_0.save_result(std::cout);
 
       for(int k = 0; k < K; k++){
-        std::cout << bridge_0.vwlb_cs_covered_counts[k] << std::endl;
+        vwlb_cs_covered_counts_total[k]
+         += bridge_0.vwlb_cs_covered_counts[k] << std::endl;
       }
 
       bridge_0.clean_device();
-
     }
+
+    for(int k = 0; k < K; k++)
+      std::cout << vwlb_cs_covered_counts_total[k] << endl;
+      
   return 0;
 }
