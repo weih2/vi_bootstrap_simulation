@@ -40,7 +40,7 @@ int main(){
     coverage_vp[delta_count] = 0;
 
     for(int k = 0; k < K; k++){
-      cout << bridge_0.vwlb_cs_covered_counts[k] << endl;
+      printf("%d\n", bridge_0.vwlb_cs_covered_counts[k]);
       coverage_vwlb[delta_count - 1] += bridge_0.vwlb_cs_covered_counts[k];
       coverage_vp[delta_count - 1] += bridge_0.vp_cs_covered_counts[k];
     }
@@ -50,16 +50,6 @@ int main(){
 
     bridge_0.clean_device();
   }
-
-  for(int delta_count = 50; delta_count <= 51; delta_count++){
-    std::cout << coverage_vwlb[delta_count - 1] << " ";
-  }
-  std::cout << endl;
-
-  for(int delta_count = 50; delta_count <= 51; delta_count++){
-    std::cout << coverage_vwlb[delta_count - 1] << " ";
-  }
-  std::cout << endl;
 
   return 0;
 }
