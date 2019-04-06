@@ -12,10 +12,8 @@ void bridge::init_device(){
 
   cudaMalloc((void**)&device_vwlb_cs_covered,
     sizeof(int) * K * n_bootstrap_samples);
-  cudaMemset(device_vwlb_cs_covered, 0, sizeof(int) * size_t(K * n_bootstrap_samples));
   cudaMalloc((void**)&device_vp_cs_covered,
     sizeof(int) * K * n_bootstrap_samples);
-  cudaMemset(device_vp_cs_covered, 0, sizeof(int) * size_t(K * n_bootstrap_samples));
 
   cudaMalloc((void**)&device_empirical_mu,
     sizeof(double) * n_experiments * K);
