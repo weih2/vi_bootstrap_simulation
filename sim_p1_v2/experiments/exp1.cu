@@ -52,7 +52,7 @@ int main(){
     coverage_vwlb[delta_count - 1] /= double(K * n_experiments);
     coverage_vp[delta_count - 1] /= double(K * n_experiments);
 
-    bridge_0.clean_device();
+    // bridge_0.clean_device();
   }
 
   for(int delta_count = 50; delta_count <= 51; delta_count++){
