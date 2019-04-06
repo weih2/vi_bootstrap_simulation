@@ -49,13 +49,13 @@ int main(){
     for(int delta_count = 0; delta_count < 100; delta_count++){
       vwlb_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
       vp_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
-      printf("%s ", vwlb_cs_covered_counts_total[delta_count]);
+      printf("%f ", vwlb_cs_covered_counts_total[delta_count]);
     }
 
     printf("\n");
 
     for(int delta_count = 0; delta_count < 100; delta_count++){
-      printf("%s ", vp_cs_covered_counts_total[delta_count]);
+      printf("%f ", vp_cs_covered_counts_total[delta_count]);
     }
 
   return 0;
