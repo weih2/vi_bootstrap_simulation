@@ -1,10 +1,7 @@
 #include "../include.h"
-// #include "fixed_latent_vars_generation.cpp"
+#include "fixed_latent_vars_generation.cpp"
 
 int main(){
-  ofstream result_stream;
-  result_stream.open("simulation_result.txt", ofstream::out | ofstream::app);
-
     latent_vars true_vars;
     generate_latent_pars(true_vars);
 
@@ -29,7 +26,6 @@ int main(){
 
     bridge_0.save_result(std::cout);
 
-  result_stream.close();
 
   return 0;
 }
