@@ -38,7 +38,7 @@ int main(){
          += bridge_0.vwlb_cs_covered_counts[k];
       }
 
-      bridge_0.save_result(std::cout);
+      bridge_0.save_result();
 
       bridge_0.clean_device();
     }

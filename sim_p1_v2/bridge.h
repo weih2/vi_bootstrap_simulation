@@ -31,5 +31,6 @@ public:
   void count_coverage();
   void construct_empirical_ci();
   void save_settings(std::ostream&);
-  void save_result(std::ostream&);
+  // void save_result(std::ostream&);
+  void save_result();
 };
