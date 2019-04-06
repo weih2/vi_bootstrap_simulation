@@ -22,7 +22,7 @@ int main(){
 
     double vwlb_cs_covered_counts_total[100][K];
 
-    for(int delta_count = 50; delta_count < 51; delta_count++){
+    for(int delta_count = 50; delta_count < 52; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars, 5);
 
       bridge bridge_0(dev_settings);
@@ -44,7 +44,7 @@ int main(){
     }
 
     for(int k = 0; k < K; k++)
-      std::cout << vwlb_cs_covered_counts_total[49][k] << std::endl;
+      std::cout << vwlb_cs_covered_counts_total[50][k] << std::endl;
 
   return 0;
 }
