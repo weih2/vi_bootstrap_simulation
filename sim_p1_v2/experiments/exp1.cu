@@ -45,7 +45,6 @@ int main(){
     coverage_vwlb[delta_count - 1] /= double(K * n_experiments);
     coverage_vp[delta_count - 1] /= double(K * n_experiments);
 
-    bridge_0.clean_device();
   }
 
   return 0;
