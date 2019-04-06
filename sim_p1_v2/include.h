@@ -48,4 +48,5 @@
 #include "connect_to_execution.cu"
 #include "./utils/construct_empirical_ci.cu"
 #include "./utils/count_coverage.cu"
+#include "./utils/save_settings.cu"
 #include "./utils/save_result.cu"

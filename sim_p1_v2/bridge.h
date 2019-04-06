@@ -24,10 +24,12 @@ public:
 
   void init_device();
   void copy_to_device();
+  void clean_device();
 
   void connect_to_execution();
 
   void count_coverage();
   void construct_empirical_ci();
+  void save_settings(std::ostream&);
   void save_result(std::ostream&);
 };
