@@ -21,6 +21,8 @@ int main(){
     dev_settings.ci_quantile = new double();
     *dev_settings.ci_quantile = cdf_ugaussian_Pinv(0.975);
 
+    fixed_latent_vars_generation(dev_settings.l_vars, 5);
+
     bridge bridge_0(dev_settings);
 
     bridge_0.connect_to_execution();
