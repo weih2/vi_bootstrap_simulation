@@ -20,27 +20,42 @@ int main(){
     dev_settings.ci_quantile = new double();
     *dev_settings.ci_quantile = cdf_ugaussian_Pinv(0.975);
 
-    double vwlb_cs_covered_counts_total[100][K];
+    double vwlb_cs_covered_counts_total[100];
+    double vp_cs_covered_counts_total[100];
 
-    for(int delta_count = 50; delta_count < 52; delta_count++){
-      fixed_latent_vars_generation(dev_settings.l_vars, 5);
+    for(int delta_count = 0; delta_count < 100; delta_count++){
+      fixed_latent_vars_generation(dev_settings.l_vars,
+        (delta_count + 1) * 0.1);
 
       bridge bridge_0(dev_settings);
 
       bridge_0.connect_to_execution();
 
       for(int k = 0; k < K; k++){
-        vwlb_cs_covered_counts_total[delta_count - 1][k] = 0;
+        vwlb_cs_covered_counts_total[delta_count] = 0;
+        vp_cs_covered_counts_total[delta_count] = 0;
       }
 
       for(int k = 0; k < K; k++){
-        vwlb_cs_covered_counts_total[delta_count - 1][k]
+        vwlb_cs_covered_counts_total[delta_count]
          += bridge_0.vwlb_cs_covered_counts[k];
+        vp_cs_covered_counts_total[delta_count]
+         += bridge_0.vp_cs_covered_counts[k];
       }
 
-      bridge_0.save_result();
-
       bridge_0.clean_device();
+    }
+
+    for(int delta_count = 0; delta_count < 100; delta_count++){
+      vwlb_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
+      vp_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
+      printf("%s ", vwlb_cs_covered_counts_total[delta_count]);
+    }
+
+    printf("\n");
+
+    for(int delta_count = 0; delta_count < 100; delta_count++){
+      printf("%s ", vp_cs_covered_counts_total[delta_count]);
     }
 
   return 0;
