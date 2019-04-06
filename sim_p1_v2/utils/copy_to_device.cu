@@ -8,7 +8,6 @@ void bridge::init_device(){
   cudaMalloc((void**)&device_dev_settings.ci_quantile, sizeof(double));
 
   cudaMalloc((void**)&device_dev_settings.data_count, sizeof(int));
-  cudaMemset(device_dev_settings.data_count, 0, sizeof(int));
 
   cudaMalloc((void**)&device_vwlb_cs_covered,
     sizeof(int) * K * n_experiments);
