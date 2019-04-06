@@ -31,8 +31,6 @@ int main(){
 
     bridge_0.save_result(std::cout);
 
-    return 0;
-
   result_stream.close();
 
   return 0;
