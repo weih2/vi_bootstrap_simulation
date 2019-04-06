@@ -1,5 +1,5 @@
 #include "../include.h"
-#include "fixed_latent_vars_generation.cpp"
+// #include "fixed_latent_vars_generation.cpp"
 
 int main(){
   ofstream result_stream;
