@@ -29,8 +29,6 @@ int main(){
 
       bridge_0.connect_to_execution();
 
-      bridge_0.save_result(std::cout);
-
       for(int k = 0; k < K; k++){
         vwlb_cs_covered_counts_total[delta_count - 1][k] = 0;
       }
