@@ -26,7 +26,7 @@ int main(){
   *dev_settings.ci_quantile = cdf_ugaussian_Pinv(0.975);
 
   double delta;
-  bridge bridge_0;
+  bridge bridge_0(dev_settings);
   double coverage_vwlb[100];
   double coverage_vp[100];
 
@@ -36,14 +36,14 @@ int main(){
     fixed_latent_vars_generation(dev_settings.l_vars, delta);
 
     bridge_0 = bridge(dev_settings);
-    bridge_0.save_settings();
+    bridge_0.save_settings(result_stream);
 
     bridge_0.connect_to_execution();
     bridge_0.clean_device();
 
-    for(k = 0; k < K; k++){
-      coverage_vwlb[delta_count] += vwlb_cs_covered_counts[k];
-      coverage_vp[delta_count] += vp_cs_covered_counts[k];
+    for(int k = 0; k < K; k++){
+      coverage_vwlb[delta_count] += bridge_0.vwlb_cs_covered_counts[k];
+      coverage_vp[delta_count] += bridge_0.vp_cs_covered_counts[k];
     }
     coverage_vwlb[delta_count] /= double(K * n_experiments);
     coverage_vp[delta_count] /= double(K * n_experiments);
