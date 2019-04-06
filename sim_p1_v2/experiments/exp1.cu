@@ -21,15 +21,17 @@ int main(){
     dev_settings.ci_quantile = new double();
     *dev_settings.ci_quantile = cdf_ugaussian_Pinv(0.975);
 
-    fixed_latent_vars_generation(dev_settings.l_vars, 5);
+    for(int delta_count = 50; delta_count < 51; delta_count++){
+      fixed_latent_vars_generation(dev_settings.l_vars, 5);
 
-    bridge bridge_0(dev_settings);
+      bridge bridge_0(dev_settings);
 
-    bridge_0.connect_to_execution();
+      bridge_0.connect_to_execution();
 
-    bridge_0.save_result(std::cout);
+      bridge_0.save_result(std::cout);
 
-    bridge_0.clean_device();
+      bridge_0.clean_device();
 
+    }
   return 0;
 }
