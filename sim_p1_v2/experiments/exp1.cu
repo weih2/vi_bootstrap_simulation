@@ -52,14 +52,14 @@ int main(){
   }
 
   for(int delta_count = 50; delta_count <= 51; delta_count++){
-    result_stream << coverage_vwlb[delta_count - 1] << " ";
+    std::cout << coverage_vwlb[delta_count - 1] << " ";
   }
-  result_stream << endl;
+  std::cout << endl;
 
   for(int delta_count = 50; delta_count <= 51; delta_count++){
-    result_stream << coverage_vwlb[delta_count - 1] << " ";
+    std::cout << coverage_vwlb[delta_count - 1] << " ";
   }
-  result_stream << endl;
+  std::cout << endl;
 
   return 0;
 }
