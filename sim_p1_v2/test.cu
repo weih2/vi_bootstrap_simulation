@@ -25,5 +25,7 @@ int main(){
 
   bridge_0.save_result(std::cout);
 
+  bridge_0.clean_device();
+
   return 0;
 }
