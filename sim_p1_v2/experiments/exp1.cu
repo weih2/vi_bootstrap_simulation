@@ -23,7 +23,11 @@ int main(){
     double vwlb_cs_covered_counts_total[100];
     double vp_cs_covered_counts_total[100];
 
-    for(int delta_count = 0; delta_count < 100; delta_count++){
+    bridge bridge_settings(dev_settings);
+    bridge_settings.save_settings(std::cout);
+    bridge_settings.clean_device();
+
+    for(int delta_count = 0; delta_count < 10; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars,
         (delta_count + 1) * 0.1);
 
@@ -46,7 +50,7 @@ int main(){
       bridge_0.clean_device();
     }
 
-    for(int delta_count = 0; delta_count < 100; delta_count++){
+    for(int delta_count = 0; delta_count < 10; delta_count++){
       vwlb_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
       vp_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
       printf("%f ", vwlb_cs_covered_counts_total[delta_count]);
@@ -54,7 +58,7 @@ int main(){
 
     printf("\n");
 
-    for(int delta_count = 0; delta_count < 100; delta_count++){
+    for(int delta_count = 0; delta_count < 10; delta_count++){
       printf("%f ", vp_cs_covered_counts_total[delta_count]);
     }
 
