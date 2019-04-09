@@ -22,6 +22,7 @@ int main(){
 
     double vwlb_cs_covered_counts_total[100];
     double vp_cs_covered_counts_total[100];
+    double empirical_ci_covered_counts_total[100];
 
     bridge bridge_settings(dev_settings);
     bridge_settings.save_settings(std::cout);
@@ -38,6 +39,7 @@ int main(){
       for(int k = 0; k < K; k++){
         vwlb_cs_covered_counts_total[delta_count] = 0;
         vp_cs_covered_counts_total[delta_count] = 0;
+        empirical_ci_covered_counts_total[delta_count] = 0;
       }
 
       for(int k = 0; k < K; k++){
@@ -45,6 +47,8 @@ int main(){
          += bridge_0.vwlb_cs_covered_counts[k];
         vp_cs_covered_counts_total[delta_count]
          += bridge_0.vp_cs_covered_counts[k];
+        empirical_ci_covered_counts_total[delta_count]
+         += bridge_0.empirical_ci_covered_counts[k];
       }
 
       bridge_0.clean_device();
@@ -53,6 +57,7 @@ int main(){
     for(int delta_count = 0; delta_count < 10; delta_count++){
       vwlb_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
       vp_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
+      empirical_ci_covered_counts_total[delta_count] /= double(K * n_experiments);
       printf("%f ", vwlb_cs_covered_counts_total[delta_count]);
     }
 
@@ -60,6 +65,12 @@ int main(){
 
     for(int delta_count = 0; delta_count < 10; delta_count++){
       printf("%f ", vp_cs_covered_counts_total[delta_count]);
+    }
+
+    printf("\n");
+
+    for(int delta_count = 0; delta_count < 10; delta_count++){
+      printf("%f ", empirical_ci_covered_counts_total[delta_count]);
     }
 
   return 0;
