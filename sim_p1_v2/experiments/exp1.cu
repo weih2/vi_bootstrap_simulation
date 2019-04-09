@@ -1,5 +1,6 @@
 #include "../include.h"
 #include "fixed_latent_vars_generation.cpp"
+#define DELTA_COUNT 100
 
 int main(){
     latent_vars true_vars;
@@ -28,7 +29,7 @@ int main(){
     bridge_settings.save_settings(std::cout);
     bridge_settings.clean_device();
 
-    for(int delta_count = 0; delta_count < 10; delta_count++){
+    for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars,
         (delta_count + 1) * 0.1);
 
@@ -55,7 +56,7 @@ int main(){
       printf("experiments #%d is done\n", delta_count);
     }
 
-    for(int delta_count = 0; delta_count < 10; delta_count++){
+    for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
       vwlb_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
       vp_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
       empirical_ci_covered_counts_total[delta_count] /= double(K * n_experiments);
@@ -64,13 +65,13 @@ int main(){
 
     printf("\n");
 
-    for(int delta_count = 0; delta_count < 10; delta_count++){
+    for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
       printf("%f ", vp_cs_covered_counts_total[delta_count]);
     }
 
     printf("\n");
 
-    for(int delta_count = 0; delta_count < 10; delta_count++){
+    for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
       printf("%f ", empirical_ci_covered_counts_total[delta_count]);
     }
 
