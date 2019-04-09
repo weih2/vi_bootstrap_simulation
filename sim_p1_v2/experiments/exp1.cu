@@ -52,6 +52,7 @@ int main(){
       }
 
       bridge_0.clean_device();
+      printf("experiments #%d is done\n", delta_count);
     }
 
     for(int delta_count = 0; delta_count < 10; delta_count++){
