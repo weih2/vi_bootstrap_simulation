@@ -1,0 +1,114 @@
+simulation starts at: Tue Apr  9 21:44:20 2019
+
+# categories: 3
+variance of cluster center: 10
+# samples: 1000
+# bootstrap samples: 1000
+
+confidence level: 0.95
+true mu's are:
+0.548746 1.13281 5.3352 
+number of experiments: 4096
+experiments #0 is done
+experiments #1 is done
+experiments #2 is done
+experiments #3 is done
+experiments #4 is done
+experiments #5 is done
+experiments #6 is done
+experiments #7 is done
+experiments #8 is done
+experiments #9 is done
+experiments #10 is done
+experiments #11 is done
+experiments #12 is done
+experiments #13 is done
+experiments #14 is done
+experiments #15 is done
+experiments #16 is done
+experiments #17 is done
+experiments #18 is done
+experiments #19 is done
+experiments #20 is done
+experiments #21 is done
+experiments #22 is done
+experiments #23 is done
+experiments #24 is done
+experiments #25 is done
+experiments #26 is done
+experiments #27 is done
+experiments #28 is done
+experiments #29 is done
+experiments #30 is done
+experiments #31 is done
+experiments #32 is done
+experiments #33 is done
+experiments #34 is done
+experiments #35 is done
+experiments #36 is done
+experiments #37 is done
+experiments #38 is done
+experiments #39 is done
+experiments #40 is done
+experiments #41 is done
+experiments #42 is done
+experiments #43 is done
+experiments #44 is done
+experiments #45 is done
+experiments #46 is done
+experiments #47 is done
+experiments #48 is done
+experiments #49 is done
+experiments #50 is done
+experiments #51 is done
+experiments #52 is done
+experiments #53 is done
+experiments #54 is done
+experiments #55 is done
+experiments #56 is done
+experiments #57 is done
+experiments #58 is done
+experiments #59 is done
+experiments #60 is done
+experiments #61 is done
+experiments #62 is done
+experiments #63 is done
+experiments #64 is done
+experiments #65 is done
+experiments #66 is done
+experiments #67 is done
+experiments #68 is done
+experiments #69 is done
+experiments #70 is done
+experiments #71 is done
+experiments #72 is done
+experiments #73 is done
+experiments #74 is done
+experiments #75 is done
+experiments #76 is done
+experiments #77 is done
+experiments #78 is done
+experiments #79 is done
+experiments #80 is done
+experiments #81 is done
+experiments #82 is done
+experiments #83 is done
+experiments #84 is done
+experiments #85 is done
+experiments #86 is done
+experiments #87 is done
+experiments #88 is done
+experiments #89 is done
+experiments #90 is done
+experiments #91 is done
+experiments #92 is done
+experiments #93 is done
+experiments #94 is done
+experiments #95 is done
+experiments #96 is done
+experiments #97 is done
+experiments #98 is done
+experiments #99 is done
+0.700684 0.681722 0.737386 0.753174 0.686686 0.633301 0.684408 0.768717 0.833171 0.887777 0.926514 0.946533 0.955973 0.958252 0.960612 0.959310 0.956950 0.956706 0.957275 0.958333 0.959229 0.958008 0.955160 0.952799 0.951335 0.949707 0.947347 0.946615 0.946452 0.945719 0.945638 0.945882 0.946208 0.944824 0.944499 0.944824 0.943604 0.943034 0.944255 0.943848 0.944499 0.944092 0.945557 0.944906 0.945150 0.945475 0.944987 0.944824 0.944906 0.944824 0.944661 0.944743 0.945475 0.945638 0.946045 0.945475 0.945394 0.945475 0.945638 0.945475 0.946126 0.946045 0.946289 0.945801 0.945801 0.944906 0.945394 0.945068 0.945312 0.944987 0.944661 0.944499 0.944580 0.944499 0.945231 0.945231 0.945801 0.945882 0.946045 0.946370 0.946615 0.947103 0.947266 0.947103 0.947754 0.948079 0.948242 0.948405 0.949137 0.950033 0.949707 0.948893 0.948405 0.947021 0.946452 0.944987 0.945638 0.944987 0.944824 0.944824 
+0.703939 0.577962 0.584880 0.565837 0.496989 0.457926 0.483561 0.534993 0.588623 0.638916 0.682861 0.718913 0.744385 0.765544 0.784993 0.792643 0.797363 0.799561 0.798910 0.798828 0.799886 0.802327 0.805013 0.809326 0.815511 0.821696 0.829020 0.836426 0.843018 0.853597 0.859619 0.867513 0.875326 0.881022 0.886475 0.892497 0.896403 0.902018 0.905924 0.911947 0.915120 0.918620 0.921468 0.925293 0.927816 0.929769 0.931234 0.933268 0.934489 0.935954 0.937581 0.939535 0.940023 0.941081 0.941569 0.942871 0.943034 0.943441 0.943604 0.944417 0.945475 0.946370 0.946859 0.946940 0.947184 0.947021 0.947266 0.947510 0.948079 0.948161 0.948486 0.948242 0.947998 0.947510 0.947835 0.948405 0.948486 0.948649 0.948649 0.948730 0.948730 0.948893 0.948812 0.948730 0.948649 0.948405 0.948161 0.947998 0.948079 0.948079 0.947184 0.946045 0.945312 0.943766 0.942139 0.940023 0.939941 0.938802 0.938395 0.937744 
+0.932536 0.965413 0.943034 0.950684 0.964355 0.967041 0.949300 0.933268 0.928792 0.937337 0.946859 0.951742 0.955811 0.959310 0.959717 0.958496 0.952067 0.950033 0.941243 0.935547 0.935547 0.935303 0.934814 0.930827 0.924642 0.924154 0.930420 0.927409 0.930501 0.933105 0.937174 0.939535 0.941406 0.942627 0.943441 0.944417 0.944987 0.945638 0.946859 0.948079 0.948079 0.948486 0.948812 0.948975 0.949626 0.948893 0.949056 0.949626 0.949788 0.950521 0.950684 0.951009 0.950195 0.950358 0.950439 0.950033 0.950033 0.949707 0.950358 0.950114 0.949951 0.949788 0.949707 0.950033 0.950033 0.981771 0.950358 0.950195 0.950439 0.950114 0.950277 0.950114 0.949788 0.983154 0.950195 0.950114 0.949951 0.949951 0.949870 0.949951 0.950114 0.950114 0.950114 0.950033 0.950033 0.983887 0.997884 0.998698 0.998779 0.998861 0.998372 0.997640 0.997152 0.995931 0.995117 0.993652 0.993652 0.992839 0.992513 0.992025 
