@@ -1,19 +1,4 @@
-struct hyper_prior_pars{
-  double sigma_2_lower;
-  double sigma_2_upper;
-  double sigma_b_2_lower;
-  double sigma_b_2_upper;
-  double log_pi_lower;
-  double log_pi_upper;
-};
-
-// using same x throghout the simulation
-struct observations{
-  double* x;
-  double* y;
-};
-
-// true parameters
+// true parameters, will all be fixed
 struct global_pars{
   double beta[p];
 
@@ -23,6 +8,10 @@ struct global_pars{
   double pi;
 };
 
+struct device_settings{
+  global_pars* g_pars;
+  double* x;
+}
 
 // vb posterior
 struct vb_posterior_pars{

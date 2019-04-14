@@ -12,4 +12,8 @@
 
 #include "bridge.h"
 
+#include "./utils/random_pack.cpp"
+#include "./utils/copy_to_device.cu"
+#include "./utils/generate_x.cpp"
+
 #include "./parallel/cavi_implementor.h"
