@@ -1,4 +1,5 @@
 #define p 200
+#define non_zero_beta 5
 #define n 100
 
 // N = 1000

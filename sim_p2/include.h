@@ -17,3 +17,7 @@
 #include "./utils/generate_x.cpp"
 
 #include "./parallel/cavi_implementor.h"
+#include "./parallel/device_utils/cavi_implementor_init.cu"
+#include "./parallel/device_utils/device_generate_weights.cu"
+#include "./parallel/device_utils/device_generate_y.cu"
+#include "./parallel/device_utils/device_update_elbo.cu"
