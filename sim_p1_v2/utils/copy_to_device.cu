@@ -11,8 +11,17 @@ void bridge::init_device(){
 
   cudaMalloc((void**)&device_vwlb_cs_covered,
     sizeof(int) * K * n_experiments);
+  cudaMalloc((void**)&device_vwlb_cs2_covered,
+    sizeof(int) * K * n_experiments);
   cudaMalloc((void**)&device_vp_cs_covered,
     sizeof(int) * K * n_experiments);
+
+  cudaMalloc((void**)&device_vp_cs_lengths,
+    sizeof(double) * K * n_experiments);
+  cudaMalloc((void**)&device_vwlb_cs_lengths,
+    sizeof(double) * K * n_experiments);
+  cudaMalloc((void**)&device_vwlb_cs2_lengths,
+    sizeof(double) * K * n_experiments);
 
   cudaMalloc((void**)&device_empirical_mu,
     sizeof(double) * n_experiments * K);
@@ -27,6 +36,10 @@ void bridge::clean_device(){
   cudaFree(device_dev_settings.ci_quantile);
   cudaFree(device_dev_settings.data_count);
   cudaFree(device_vwlb_cs_covered);
+  cudaFree(device_vwlb_cs2_covered);
+  cudaFree(device_vp_cs_lengths);
+  cudaFree(device_vwlb_cs_lengths);
+  cudaFree(device_vwlb_cs2_lengths);
   cudaFree(device_vp_cs_covered);
   cudaFree(device_vp_cs_covered);
   cudaFree(device_empirical_mu);

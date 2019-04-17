@@ -27,6 +27,7 @@ public:
 
   // intervals
   double vwlb_cs[K][2];
+  double vwlb_cs2[K][2];
   double vp_cs[K][2];
 
   // settings
@@ -42,6 +43,7 @@ public:
   __device__ void device_cavi_point_estimate();
   __device__ void device_weighted_cavi_point_estimate();
   __device__ void device_vwlb_cs_construct();
+  __device__ void device_vwlb_cs2_construct();
   __device__ void device_vp_cs_construct();
 
 private:

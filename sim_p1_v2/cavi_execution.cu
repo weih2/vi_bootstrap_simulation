@@ -5,9 +5,10 @@ __global__ void cavi_execute(bridge bg, int bootstrap_execution){
   // obtain point estimates
   thread_implementation.device_cavi_point_estimate();
 
-  if(bootstrap_execution){
+  if(bootstrap_execution != 0){
     thread_implementation.device_weighted_cavi_point_estimate();
     thread_implementation.device_vwlb_cs_construct();
+    thread_implementation.device_vwlb_cs2_construct();
     thread_implementation.device_vp_cs_construct();
 
     for(int k = 0; k < K; k++){
@@ -19,7 +20,20 @@ __global__ void cavi_execute(bridge bg, int bootstrap_execution){
         &&(thread_implementation.vwlb_cs[k][1] > thread_implementation.mu[k]))
         bg.device_vwlb_cs_covered[k * n_experiments + t_id] = 1;
         else bg.device_vwlb_cs_covered[k * n_experiments + t_id] = 0;
+      if((thread_implementation.vwlb_cs2[k][0] < thread_implementation.mu[k])
+        &&(thread_implementation.vwlb_cs2[k][1] > thread_implementation.mu[k]))
+        bg.device_vwlb_cs2_covered[k * n_experiments + t_id] = 1;
+        else bg.device_vwlb_cs2_covered[k * n_experiments + t_id] = 0;
     }
+  }
+
+  if(bootstrap_execution == 2){  // consider length
+    bg.device_vwlb_cs_lengths[k * n_experiments + t_id] =
+      thread_implementation.vwlb_cs[k][1] - thread_implementation.vwlb_cs[k][0];
+    bg.device_vwlb_cs2_lengths[k * n_experiments + t_id] =
+      thread_implementation.vwlb_cs2[k][1] - thread_implementation.vwlb_cs2[k][0];
+    bg.device_vp_cs_lengths[k * n_experiments + t_id] =
+      thread_implementation.vp_cs[k][1] - thread_implementation.vp_cs[k][0];
   }
 
   // in a non-bootstrap implementation this is all we need

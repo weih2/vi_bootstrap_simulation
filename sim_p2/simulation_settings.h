@@ -1,11 +1,12 @@
-#define p 200
+#define n_parameters 200
 #define non_zero_beta 5
-#define n 100
+#define n_samples 100
 
 // N = 1000
 #define n_sigma_2 10
 #define n_sigma_b_2 10
 #define n_pi 10
+#define N n_sigma_2*n_sigma_b_2*n_pi
 
 #define n_bootstrap_samples 1000
 #define n_experiments 4096

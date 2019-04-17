@@ -1,6 +1,6 @@
 // true parameters, will all be fixed
 struct global_pars{
-  double beta[p];
+  double beta[n_parameters];
 
   // theta
   double sigma_2;
@@ -16,7 +16,7 @@ struct device_settings{
 // vb posterior
 struct vb_posterior_pars{
   // p-dimensional
-  double alpha[p];  // posterior inclusion prob
-  double mu[p];
-  double s2[p];
+  double alpha[n_parameters];  // posterior inclusion prob
+  double mu[n_parameters];
+  double s2[n_parameters];
 }

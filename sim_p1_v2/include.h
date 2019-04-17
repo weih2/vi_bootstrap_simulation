@@ -24,6 +24,7 @@
 
 // utility functions
 #include "random_pack.cpp"
+#include "./utils/cal_mean.cu"
 #include "./utils/gen_data.cpp"
 #include "./utils/gaussian_quantile.cpp"
 #include "./utils/sample_quantile.cu"

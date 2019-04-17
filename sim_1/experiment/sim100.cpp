@@ -1,22 +1,27 @@
 #include "../include.h"
 
-#define N_SAMPLES 2000
+#define N_SAMPLES 500
+#define DELTA 1.
 
 int main(){
   simulation_data data100;
   data100.g_vars.n_samples = N_SAMPLES;
   data100.g_vars.K = 3;
-  data100.g_vars.sigma_2 = 50;
+  data100.g_vars.sigma_2 = 10;
 
   data100.b_vars.confidence = 0.95;
 
   generate_latent_pars(data100);
+  data100.l_vars.mu[0] = -DELTA;
+  data100.l_vars.mu[1] = 0;
+  data100.l_vars.mu[2] = DELTA;
 
-  cavi_implementation sim100(data100, 10);
+  cavi_implementation sim100(data100, 1000);
 
-  int n_steps = 1000;
+  int n_steps = 100;
 
-  int n_experiments = 10;
+  // just need one
+  int n_experiments = 1;
 
   cout << "total no of experiments: " << n_experiments << endl;
 
@@ -37,11 +42,11 @@ int main(){
   sim100.empirical_ci_construct();
   cout << endl;
 
-  ofstream result_stream;
-  result_stream.open("simulation500.txt", ofstream::out | ofstream::app);
+  // ofstream result_stream;
+  // result_stream.open("simulation500.txt", ofstream::out | ofstream::app);
   // result_stream.open(file_name, ofstream::out | ofstream::app);
   sim100.save_result(cout);
-  result_stream.close();
+  // result_stream.close();
 
   return 0;
 }

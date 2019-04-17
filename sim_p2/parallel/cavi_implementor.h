@@ -26,6 +26,7 @@ private:
 
   global_pars current_pars;
 
+  // inner loop
   __device__ void cavi_point_estimate();
   __device__ void cavi_point_estimate_update();
   __device__ void update_elbo();

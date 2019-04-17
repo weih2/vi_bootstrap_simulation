@@ -4,7 +4,7 @@ __device__ cavi_implementor::cavi_implementor(device_settings dev_settings, int 
   thread_id = t_id;
   x = dev_settings.x;
 
-  for(int k = 0; k < p; k++){
+  for(int k = 0; k < n_parameters; k++){
     true_pars.beta[k] = (*dev_settings.g_pars).beta[k];
   }
 
