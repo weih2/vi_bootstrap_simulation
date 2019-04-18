@@ -28,14 +28,12 @@ __global__ void cavi_execute(bridge bg, int bootstrap_execution){
   }
 
   if(bootstrap_execution == 2){  // consider length
-    for(int k = 0; k < K; k++){
-      bg.device_vwlb_cs_lengths[k * n_experiments + t_id] =
-        thread_implementation.vwlb_cs[k][1] - thread_implementation.vwlb_cs[k][0];
-      bg.device_vwlb_cs2_lengths[k * n_experiments + t_id] =
-        thread_implementation.vwlb_cs2[k][1] - thread_implementation.vwlb_cs2[k][0];
-      bg.device_vp_cs_lengths[k * n_experiments + t_id] =
-        thread_implementation.vp_cs[k][1] - thread_implementation.vp_cs[k][0];
-    }
+    bg.device_vwlb_cs_lengths[k * n_experiments + t_id] =
+      thread_implementation.vwlb_cs[k][1] - thread_implementation.vwlb_cs[k][0];
+    bg.device_vwlb_cs2_lengths[k * n_experiments + t_id] =
+      thread_implementation.vwlb_cs2[k][1] - thread_implementation.vwlb_cs2[k][0];
+    bg.device_vp_cs_lengths[k * n_experiments + t_id] =
+      thread_implementation.vp_cs[k][1] - thread_implementation.vp_cs[k][0];
   }
 
   // in a non-bootstrap implementation this is all we need
