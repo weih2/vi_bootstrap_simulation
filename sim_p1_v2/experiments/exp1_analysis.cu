@@ -59,19 +59,19 @@ int main(){
       printf("\n vwlb cs lengths");
       for(int i = 0; i < n_experiments; i++){
         for(int k = 0; k < K; k++){
-          printf("%f ", vwlb_cs_lengths[k * n_experiments + i]);
+          printf("%f ", bridge_0.vwlb_cs_lengths[k * n_experiments + i]);
         }
       }
       printf("\n vwlb cs2 lengths");
       for(int i = 0; i < n_experiments; i++){
         for(int k = 0; k < K; k++){
-          printf("%f ", vwlb_cs2_lengths[k * n_experiments + i]);
+          printf("%f ", bridge_0.vwlb_cs2_lengths[k * n_experiments + i]);
         }
       }
       printf("\n vp cs lengths");
       for(int i = 0; i < n_experiments; i++){
         for(int k = 0; k < K; k++){
-          printf("%f ", vp_cs_lengths[k * n_experiments + i]);
+          printf("%f ", bridge_0.vp_cs_lengths[k * n_experiments + i]);
         }
       }
       printf("\nexperiments #%d is done\n", delta_count);
