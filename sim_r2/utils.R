@@ -1,8 +1,8 @@
 # calculate entropy
-cal_entropy = function(probs, active_set){
-  probs = probs[active_set]
+cal_entropy = function(probs, active.set){
+  probs = probs[active.set]
   entropy = numeric(n.pars)
-  entropy[active_set] =  - probs * log(probs) - (1 - probs) * log(1 - probs)
+  entropy[active.set] =  - probs * log(probs) - (1 - probs) * log(1 - probs)
   return(entropy)
 }
 
