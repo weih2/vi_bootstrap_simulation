@@ -24,6 +24,7 @@ int main(){
     *dev_settings.ci_quantile = cdf_ugaussian_Pinv(0.975);
 
     double vwlb_cs_covered_counts_total[DELTA_COUNT];
+    double vwlb_cs2_covered_counts_total[DELTA_COUNT];
     double vp_cs_covered_counts_total[DELTA_COUNT];
     double empirical_ci_covered_counts_total[DELTA_COUNT];
 
@@ -40,6 +41,7 @@ int main(){
 
       for(int k = 0; k < K; k++){
         vwlb_cs_covered_counts_total[delta_count] = 0;
+        vwlb_cs2_covered_counts_total[delta_count] = 0;
         vp_cs_covered_counts_total[delta_count] = 0;
         empirical_ci_covered_counts_total[delta_count] = 0;
       }
@@ -47,6 +49,8 @@ int main(){
       for(int k = 0; k < K; k++){
         vwlb_cs_covered_counts_total[delta_count]
          += bridge_0.vwlb_cs_covered_counts[k];
+        vwlb_cs2_covered_counts_total[delta_count]
+        += bridge_0.vwlb_cs2_covered_counts[k];
         vp_cs_covered_counts_total[delta_count]
          += bridge_0.vp_cs_covered_counts[k];
         empirical_ci_covered_counts_total[delta_count]
@@ -79,9 +83,15 @@ int main(){
 
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
       vwlb_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
+      vwlb_cs2_covered_counts_total[delta_count] /= double(K * n_experiments);
       vp_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
       empirical_ci_covered_counts_total[delta_count] /= double(K * n_experiments);
       printf("%f ", vwlb_cs_covered_counts_total[delta_count]);
+    }
+    printf("\n");
+
+    for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
+      printf("%f ", vp_cs2_covered_counts_total[delta_count]);
     }
 
     printf("\n");

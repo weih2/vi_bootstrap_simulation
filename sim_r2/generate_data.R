@@ -1,4 +1,4 @@
-n.pars = 10 # no. covariates
+n.pars = 4 # no. covariates
 n.obs = 100 # no. obs
 auto.cor = 0.1 # collinearity
 sigma2 = 1 # error variance
@@ -17,13 +17,12 @@ gen.one.obs = function(o){
 
 # generate all observations
 gen.all.obs = function(o){
-  rep(gen.one.obs(), n.obs)
+  sapply(1:n.obs, gen.one.obs)
 }
 
 # arrange all observations
 create.design.matrix = function(o){
-  data = gen.all.obs()
-  matrix(data, ncol = n.pars, nrow = n.obs, byrow = T)
+  t(gen.all.obs())
 }
 
 # generate y, put x and y into the same object
