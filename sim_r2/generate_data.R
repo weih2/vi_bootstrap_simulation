@@ -26,7 +26,7 @@ create.design.matrix = function(o){
 }
 
 # generate y, put x and y into the same object
-gen.everything = function(beta){
+gen.everything = function(){
   X = create.design.matrix()
   noise = rnorm(n.obs, sd = sqrt(sigma2))
   
