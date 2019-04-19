@@ -1,12 +1,9 @@
-source("utils.R")
-source("generate_data.R")
-
 data = gen.everything() 
 
 # cavi settings
 n.max.iter = 20
 epsilon = 1e-3
-prob.threshold = 1e-3
+prob.threshold = 1e-6
 
 XTX = t(data$X) %*% (data$X)
 XTy = t(data$X) %*% (data$y)
@@ -40,4 +37,9 @@ main.loop = function(o){
     new_entropy = cal_entropy(beta.posterior$phi, active_set)
     if(max(abs(new_entropy - entropy)) < epsilon) break
   }
+  
+  return(list(
+    beta.posterior = beta.posterior,
+    global.posterior = global.posterior
+  ))
 }
