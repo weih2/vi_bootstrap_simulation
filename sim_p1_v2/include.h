@@ -38,12 +38,10 @@
 #include "./parallel/device_utils/device_weighted_cavi_point_estimate.cu"
 #include "./parallel/device_utils/device_vp_cs_construct.cu"
 #include "./parallel/device_utils/device_vwlb_cs_construct.cu"
-#include "./parallel/device_utils/device_vwlb_cs2_construct.cu"
 
 // host implementations
 #include "init_bridge.cu"
 #include "./utils/copy_to_device.cu"
-#include "./utils/lengths_copy_back.cu"
 #include "cavi_execution.cu"
 #include "connect_to_execution.cu"
 #include "./utils/construct_empirical_ci.cu"
