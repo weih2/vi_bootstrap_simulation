@@ -1,23 +1,3 @@
-data = gen.everything() 
-
-# cavi settings
-n.max.iter = 20
-epsilon = 1e-3
-prob.threshold = 1e-6
-
-# prior parameters
-# prior parameters for theta, will be uniform(0, 1)
-a0 = 1
-b0 = 1
-# prior parameters for sigma2, will be IG(0.001, 0.001)
-nu = 0.002
-lambda = 1
-# hyper parameter set fixed
-nu1 = 1
-
-XTX = t(data$X) %*% (data$X)
-XTy = t(data$X) %*% (data$y)
-
 # main loop
 main.loop = function(o){
   beta.posterior = init.beta.posterior()
@@ -29,14 +9,14 @@ main.loop = function(o){
   repeat{
     entropy = new_entropy
     
-    cavi.estimate(beta.posterior, global.posterior, active.set)
-    em.estimate(beta.posterior, global.posterior)
+    beta.posterior = cavi.estimate(beta.posterior, global.posterior, active.set)
+    global.posterior = em.estimate(beta.posterior, global.posterior)
     
     # exclude probabilities close to 0 or 1 from iteration
     active.set = ((beta.posterior$phi > prob.threshold) &
          (beta.posterior$phi < 1 - prob.threshold))
     
-    new_entropy = cal_entropy(beta.posterior$phi, active.set)
+    new_entropy = cal.entropy(beta.posterior$phi, active.set)
     if(max(abs(new_entropy - entropy)) < epsilon) break
   }
   
