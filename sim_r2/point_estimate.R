@@ -18,20 +18,6 @@ nu1 = 1
 XTX = t(data$X) %*% (data$X)
 XTy = t(data$X) %*% (data$y)
 
-cavi.estimate = function(beta.posterior, global.posterior, active.set){
-  beta.posterior$
-}
-
-em.estimate = function(beta.posterior, global.posterior){
-  global.posterior$theta.hat = 
-    (sum(beta.posterior$phi) + a0 - 1)/
-    (n.pars + a0 + b0 - 2)
-  global.posterior$sigma2.hat = 
-    sum((y - X %*% (beta.posterior$phi * beta.posterior$mu))^2)
-  global.posterior$sigma2.hat = 
-  return(global.posterior)
-}
-
 # main loop
 main.loop = function(o){
   beta.posterior = init.beta.posterior()
