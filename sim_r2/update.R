@@ -2,10 +2,11 @@ library(gtools) # will provide logit and inv.logit
 
 cavi.estimate = function(beta.posterior, global.posterior, active.set){
   
+  beta.posterior$s2 = global.posterior$sigma2.hat / (diag(XTX) + 1/nu1)
   beta.posterior[active.set] = inv.logit(
     logit(global.posterior$theta.hat) + 
       log(beta.posteior$s2[active.set]/(nu1 * global.posterior$sigma2.hat)) +
-      beta.posterior$mu^2 / (2 * beta.posterior$s2)
+      (beta.posterior$mu[active.set])^2 / (2 * beta.posterior$s2[active.set])
   )
 }
 
