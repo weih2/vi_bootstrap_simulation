@@ -5,12 +5,25 @@ main.loop = function(o){
   
   new_entropy = rep(0, n.pars)
   active.set = rep(TRUE, n.pars)
+  inv.A = solve(
+    XTX %*% diag(beta.posterior$phi) + diag(diagXTX * (1 - beta.posterior$phi)) + diag(n.pars)/nu1
+  )
+  
+  D = matrix(0, nrow = n.pars, ncol = n.pars)
+  B = XTX - diagXTX
   
   repeat{
     entropy = new_entropy
     
-    beta.posterior = cavi.estimate(beta.posterior, global.posterior, active.set)
+    D = - (beta.posterior$phi)
+    
+    beta.posterior = cavi.estimate(beta.posterior, global.posterior, inv.A, active.set)
+    
     global.posterior = em.estimate(beta.posterior, global.posterior)
+    
+    D = D + (beta.posterior$phi)
+    
+    inv.A = update.A(inv.A, active.set, B, D)
     
     # exclude probabilities close to 0 or 1 from iteration
     active.set = ((beta.posterior$phi > prob.threshold) &

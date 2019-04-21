@@ -1,7 +1,13 @@
 library(gtools) # will provide logit and inv.logit
 
-cavi.estimate = function(beta.posterior, global.posterior, active.set){
-  
+update.A = function(inv.A, active.set, B, D){
+  inv.A = inv.A - inv.A %*% B[, active.set] %*%
+    solve(diag(D[active.set]) + inv.A[active.set, ] %*% B[, active.set]) %*% XTy
+  return(inv.A)
+}
+s
+cavi.estimate = function(beta.posterior, global.posterior, inv.A, active.set){
+  beta.posterior$mu = inv.A %*% XTy
   beta.posterior$s2 = global.posterior$sigma2.hat / (diagXTX + 1/nu1)
   beta.posterior$phi[active.set] = inv.logit(
     logit(global.posterior$theta.hat) + 
