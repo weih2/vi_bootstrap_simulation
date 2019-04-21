@@ -1,3 +1,8 @@
+source("simulation_setup.R")
+source("generate_data.R")
+source("utils.R")
+source("update.R")
+
 # main loop
 main.loop = function(o){
   beta.posterior = init.beta.posterior()
@@ -9,7 +14,7 @@ main.loop = function(o){
     XTX %*% diag(beta.posterior$phi) + diag(diagXTX * (1 - beta.posterior$phi)) + diag(n.pars)/nu1
   )
   
-  D = matrix(0, nrow = n.pars, ncol = n.pars)
+  D = numeric(n.pars)
   B = XTX - diagXTX
   
   repeat{
@@ -20,7 +25,7 @@ main.loop = function(o){
     beta.posterior = cavi.estimate(beta.posterior, global.posterior, inv.A, active.set)
     
     global.posterior = em.estimate(beta.posterior, global.posterior)
-    
+
     D = D + (beta.posterior$phi)
     
     inv.A = update.A(inv.A, active.set, B, D)
@@ -38,3 +43,4 @@ main.loop = function(o){
     global.posterior = global.posterior
   ))
 }
+
