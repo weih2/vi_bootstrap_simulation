@@ -23,3 +23,4 @@ init.beta.posterior = function(o){
   )
   return(beta.posterior)
 }
+

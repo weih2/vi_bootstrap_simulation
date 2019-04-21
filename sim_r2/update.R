@@ -2,7 +2,9 @@ library(gtools) # will provide logit and inv.logit
 
 update.A = function(inv.A, active.set, B, D){
   inv.A = inv.A - inv.A %*% B[, active.set] %*%
-    solve(diag(D[active.set]) + inv.A[active.set, ] %*% B[, active.set]) %*% 
+    solve(
+      diag(1/D[active.set]) + inv.A[active.set, ] %*% B[, active.set]
+    ) %*% 
     inv.A[active.set, ]
   return(inv.A)
 }

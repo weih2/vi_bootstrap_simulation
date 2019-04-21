@@ -1,18 +1,20 @@
 n.pars = 4 # no. covariates
 n.obs = 100 # no. obs
-auto.cor = 0.1 # collinearity
+auto.cor = 0.00 # collinearity
 sigma2 = 1 # error variance
 beta = c(2, 3, rep(0, n.pars - 2)) # true beta
 
 # generate one observation
 gen.one.obs = function(o){
+  if(auto.cor != 0)
   as.numeric(
     arima.sim( 
       list(c(1,0,0), # ar(1) model
            ar = auto.cor),
       n = n.pars
     )
-  )
+  )else
+    rnorm(n.pars)
 }
 
 # generate all observations
@@ -33,3 +35,4 @@ gen.everything = function(){
   y = X %*% beta + noise
   return(list(X = X, y = y))
 }
+
