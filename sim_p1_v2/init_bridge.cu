@@ -7,6 +7,10 @@ bridge::bridge(device_settings dev_settings){
 
   host_empirical_mu = new double[n_experiments * K];
 
+  vwlb_cs_lengths = new double[n_experiments * K];
+  vwlb_cs2_lengths = new double[n_experiments * K];
+  vp_cs_lengths = new double[n_experiments * K];
+
   for(int k = 0; k < K; k++){
     empirical_ci_covered_counts[k] = 0;
   }

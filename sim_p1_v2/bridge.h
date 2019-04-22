@@ -20,11 +20,11 @@ public:
 
   // study the lengths distributions
   double *device_vwlb_cs_lengths;
-  double vwlb_cs_lengths[n_experiments * K];
+  double *vwlb_cs_lengths;
   double *device_vwlb_cs2_lengths;
-  double vwlb_cs2_lengths[n_experiments * K];
+  double *vwlb_cs2_lengths;
   double *device_vp_cs_lengths;
-  double vp_cs_lengths[n_experiments * K];
+  double *vp_cs_lengths;
 
   double empirical_ci[K][2];
 
