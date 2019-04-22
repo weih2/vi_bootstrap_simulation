@@ -62,21 +62,21 @@ int main(){
       bridge_settings.save_settings(std::cout);
       printf("\n vwlb cs lengths");
       for(int k = 0; k < K; k++){
-        for(int i = 0; i < n_experiments; i++){
+        for(int i = 0; i < n_experiments/4; i++){
           printf("%f ", bridge_0.vwlb_cs_lengths[k * n_experiments + i]);
         }
         printf("\n");
       }
       printf("\n vwlb cs2 lengths");
       for(int k = 0; k < K; k++){
-        for(int i = 0; i < n_experiments; i++){
+        for(int i = 0; i < n_experiments/4; i++){
           printf("%f ", bridge_0.vwlb_cs2_lengths[k * n_experiments + i]);
         }
         printf("\n");
       }
       printf("\n vp cs lengths");
       for(int k = 0; k < K; k++){
-        for(int i = 0; i < n_experiments; i++){
+        for(int i = 0; i < n_experiments/4; i++){
           printf("%f ", bridge_0.vp_cs_lengths[k * n_experiments + i]);
         }
         printf("\n");
