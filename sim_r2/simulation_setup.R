@@ -1,5 +1,3 @@
-data = gen.everything() 
-
 # cavi settings
 n.max.iter = 20
 epsilon = 1e-3
@@ -14,6 +12,8 @@ nu = 0.002
 lambda = 1
 # hyper parameter set fixed
 nu1 = 1
+
+data = gen.everything() 
 
 XTX = t(data$X) %*% (data$X)
 diagXTX = diag(XTX)

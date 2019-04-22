@@ -1,4 +1,4 @@
-n.pars = 4 # no. covariates
+n.pars = 10 # no. covariates
 n.obs = 100 # no. obs
 auto.cor = 0.00 # collinearity
 sigma2 = 1 # error variance
@@ -36,3 +36,8 @@ gen.everything = function(){
   return(list(X = X, y = y))
 }
 
+gen.weights = function(o){
+  weights = rexp(n.obs)
+  weights = weights/sum(weights) * n.obs
+  return(weights)
+}
