@@ -78,6 +78,10 @@ int main(){
           printf("%f ", vp_cs_lengths[k * n_experiments + i]);
         }
       }
+      printf("\n emirical cs lengths");
+      for(int k = 0; k < K; k++){
+        printf("%f ", bridge_0.empirical_ci[k][1] - bridge_0.empirical_ci[k][0]);
+      }
       printf("\nexperiments #%d is done\n", delta_count);
     }
 
