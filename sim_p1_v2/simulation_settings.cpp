@@ -3,4 +3,4 @@
 #define n_samples 1000
 
 #define n_bootstrap_samples 1000
-#define n_experiments 2048
+#define n_experiments 4096
