@@ -98,7 +98,7 @@ int main(){
     printf("\n");
 
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
-      printf("%f ", vp_cs2_covered_counts_total[delta_count]);
+      printf("%f ", vwlb_cs2_covered_counts_total[delta_count]);
     }
 
     printf("\n");
