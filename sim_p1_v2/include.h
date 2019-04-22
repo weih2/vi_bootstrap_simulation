@@ -38,6 +38,7 @@
 #include "./parallel/device_utils/device_weighted_cavi_point_estimate.cu"
 #include "./parallel/device_utils/device_vp_cs_construct.cu"
 #include "./parallel/device_utils/device_vwlb_cs_construct.cu"
+#include "./parallel/device_utils/device_vwlb_cs2_construct.cu"
 
 // host implementations
 #include "init_bridge.cu"
