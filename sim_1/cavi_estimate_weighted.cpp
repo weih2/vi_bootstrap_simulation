@@ -88,6 +88,7 @@ void cavi_implementation::cavi_bootstrap_update(int& n_steps){
       if((elbo - old_elbo) < epsilon) break;
     }
     gsl_sort2(est.m, 1, est.s2, 1, data.g_vars.K);
+    cout << est.m[0] << " ";
   }
   est = est_temp;
 }

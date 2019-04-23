@@ -1,6 +1,6 @@
 source("point_estimate.R")
 
-n.experiments = 500
+n.experiments = 100
 n.b.samples = 500
 original.data = data
 
@@ -25,12 +25,16 @@ get.beta1.vwlb.cs = function(confidence){
     quantile(beta1.bootstrap.map, (1 - confidence)/2),
     quantile(beta1.bootstrap.map, (1 + confidence)/2)
   ))
+  # return(beta1.bootstrap.map)
 }
 
 covered = 0
 for(i in 1:n.experiments){
+  original.data <<- gen.everything()
   if(i %% 10 == 0) print(i)
   vwlb.cs = get.beta1.vwlb.cs(0.95)
+  print(vwlb.cs[1]); print(vwlb.cs[2])
+  
   if(
     (vwlb.cs[1] < beta[1])&
     (vwlb.cs[2] > beta[1])

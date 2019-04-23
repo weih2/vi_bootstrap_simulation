@@ -17,7 +17,10 @@ main.loop = function(o){
   D = numeric(n.pars)
   B = XTX - diag(diagXTX)
   
+  n.iter = 0
+  
   repeat{
+    n.iter = n.iter + 1
     entropy = new_entropy
     
     D = - (beta.posterior$phi)
@@ -36,6 +39,7 @@ main.loop = function(o){
     inv.A = update.A(inv.A, active.set, B, D)
     
     new_entropy = cal.entropy(beta.posterior$phi, active.set)
+    print(entropy)
     if(max(abs(new_entropy - entropy)) < epsilon) break
     
   }

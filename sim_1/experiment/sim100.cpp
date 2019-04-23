@@ -1,7 +1,7 @@
 #include "../include.h"
 
 #define N_SAMPLES 500
-#define DELTA 1.
+#define DELTA 10.
 
 int main(){
   simulation_data data100;
