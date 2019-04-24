@@ -48,5 +48,5 @@ public:
 
 private:
   __device__ void device_cavi_point_estimate_update();
-  __device__ void device_weighted_cavi_point_estimate_update();
+  __device__ void device_weighted_cavi_point_estimate_update(int);
 };
