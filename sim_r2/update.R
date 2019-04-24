@@ -9,6 +9,15 @@ update.A = function(inv.A, active.set, B, D){
   return(inv.A)
 }
 
+update.A.slow = function(beta.posterior){
+  return(
+    solve(
+      XTX %*% diag(beta.posterior$phi) + 
+        diag(diagXTX * (1 - beta.posterior$phi)) + diag(n.pars)/nu1
+    )
+  )
+}
+
 cavi.estimate = function(beta.posterior, global.posterior, inv.A, active.set){
   beta.posterior$mu = inv.A %*% XTy
   beta.posterior$s2 = global.posterior$sigma2.hat / (diagXTX + 1/nu1)
