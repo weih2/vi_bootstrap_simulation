@@ -30,7 +30,7 @@ get.beta1.vwlb.cs = function(confidence){
 
 covered = 0
 for(i in 1:n.experiments){
-  original.data <<- gen.everything()
+  original.data <<- gen.new.y(original.data)
   if(i %% 10 == 0) print(i)
   vwlb.cs = get.beta1.vwlb.cs(0.95)
   # print(vwlb.cs[1]); print(vwlb.cs[2])
@@ -40,3 +40,4 @@ for(i in 1:n.experiments){
     (vwlb.cs[2] > beta[1])
   ) covered = covered + 1
 }
+

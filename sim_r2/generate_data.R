@@ -27,6 +27,13 @@ create.design.matrix = function(o){
   t(gen.all.obs())
 }
 
+gen.new.y = function(o.data){
+  noise = rnorm(n.obs, sd = sqrt(sigma2))
+  o.data$y = o.data$X %*% beta + noise
+  
+  return(o.data)
+}
+
 # generate y, put x and y into the same object
 gen.everything = function(){
   X = create.design.matrix()

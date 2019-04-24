@@ -23,7 +23,7 @@ cavi.estimate = function(beta.posterior, global.posterior, inv.A, active.set){
   beta.posterior$s2 = global.posterior$sigma2.hat / (diagXTX + 1/nu1)
   beta.posterior$phi[active.set] = inv.logit(
     logit(global.posterior$theta.hat) + 
-      log(beta.posterior$s2[active.set]/(nu1 * global.posterior$sigma2.hat)) +
+      log(beta.posterior$s2[active.set]/(nu1 * global.posterior$sigma2.hat))/2 +
       (beta.posterior$mu[active.set])^2 / (2 * beta.posterior$s2[active.set])
   )
   return(beta.posterior)

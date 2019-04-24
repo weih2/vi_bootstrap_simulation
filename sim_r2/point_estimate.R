@@ -36,11 +36,10 @@ main.loop = function(o){
          (beta.posterior$phi < 1 - prob.threshold))
     
     if(sum(active.set) == 0) break
-    # inv.A = update.A(inv.A, active.set, B, D)
-    inv.A = update.A.slow(beta.posterior)
+    inv.A = update.A(inv.A, active.set, B, D)
+    # inv.A = update.A.slow(beta.posterior)
     
     new_entropy = cal.entropy(beta.posterior$phi, active.set)
-    print(beta.posterior$mu)
     if(max(abs(new_entropy - entropy)) < epsilon) break
     
   }
