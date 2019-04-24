@@ -40,7 +40,7 @@ main.loop = function(o){
     inv.A = update.A.slow(beta.posterior)
     
     new_entropy = cal.entropy(beta.posterior$phi, active.set)
-    print(entropy)
+    print(beta.posterior$mu)
     if(max(abs(new_entropy - entropy)) < epsilon) break
     
   }
