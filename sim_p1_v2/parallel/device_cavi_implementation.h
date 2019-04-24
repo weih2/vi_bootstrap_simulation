@@ -18,7 +18,7 @@ public:
 
   // point estimate per bootstrap sample
   int b_count;
-  double m_b[K];
+  double m_b[K * 2];
   double s2_b[K];
   double phi_b[n_samples][K];
 
