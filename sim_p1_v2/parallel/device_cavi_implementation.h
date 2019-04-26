@@ -3,6 +3,8 @@ public:
   __device__ device_cavi_implementation(device_settings, int);
   int thread_id;
 
+  double sigma_2;
+
   // local variables
   double mu[K];
   int c[n_samples];
