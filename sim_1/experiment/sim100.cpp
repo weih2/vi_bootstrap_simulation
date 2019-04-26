@@ -1,6 +1,6 @@
 #include "../include.h"
 
-#define N_SAMPLES 500
+#define N_SAMPLES 1000
 #define DELTA 10.
 
 int main(){

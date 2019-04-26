@@ -8,7 +8,7 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
     c[i] = dev_settings.l_vars.c[i];
   }
 
-  sigma_2 = cal_variance(mu, K);
+  // sigma_2 = cal_variance(mu, K);
 
   // copy settings
   device_max_n_iter = *dev_settings.max_n_iter;

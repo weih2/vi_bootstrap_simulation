@@ -3,7 +3,7 @@ public:
   __device__ device_cavi_implementation(device_settings, int);
   int thread_id;
 
-  double sigma_2;
+  // double sigma_2;
 
   // local variables
   double mu[K];
@@ -20,7 +20,7 @@ public:
 
   // point estimate per bootstrap sample
   int b_count;
-  double m_b[K * 2];
+  double m_b[K];
   double s2_b[K];
   double phi_b[n_samples][K];
 

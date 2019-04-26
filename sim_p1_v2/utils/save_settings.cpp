@@ -6,7 +6,7 @@ void bridge::save_settings(ostream& result_stream){
   result_stream << "simulation starts at: " << ctime(&timenow) << endl;
   // global pars
   result_stream << "# categories: " << K << endl;
-  // result_stream << "variance of cluster center: " << sigma_2 << endl;
+  result_stream << "variance of cluster center: " << sigma_2 << endl;
   result_stream << "# samples: " << n_samples << endl;
   result_stream << "# bootstrap samples: " << n_bootstrap_samples << endl << endl;
 
