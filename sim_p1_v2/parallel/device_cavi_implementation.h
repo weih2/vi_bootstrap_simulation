@@ -18,6 +18,8 @@ public:
   double s2[K];
   double phi[n_samples][K];
 
+  int is_outlier;
+
   // point estimate per bootstrap sample
   int b_count;
   double m_b[K];
@@ -51,4 +53,5 @@ public:
 private:
   __device__ void device_cavi_point_estimate_update();
   __device__ void device_weighted_cavi_point_estimate_update();
+  __device__ void device_is_outlier();
 };

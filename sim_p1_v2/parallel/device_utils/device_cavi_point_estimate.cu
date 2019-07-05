@@ -10,4 +10,7 @@ __device__ void device_cavi_implementation::device_cavi_point_estimate(){
 
   thrust::sort_by_key(thrust::device, m, m + K, s2);
   // gsl_sort2(est.m, 1, est.s2, 1, data.g_vars.K);
+
+  // determine if the point estimate is an outlier
+  device_is_outlier();
 }

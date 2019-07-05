@@ -7,11 +7,14 @@
 #include<queue>
 
 #include <chrono>
-#include <ctime> 
+#include <ctime>
 
 #include <gsl/gsl_sort_double.h>
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_cdf.h>
+
+// global setting
+#define BUFF 200.
 
 #include "par_format.h"
 #include "random_pack.cpp"

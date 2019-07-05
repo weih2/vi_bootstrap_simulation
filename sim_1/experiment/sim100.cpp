@@ -3,11 +3,12 @@
 #define N_SAMPLES 1000
 #define DELTA 10.
 
+
 int main(){
   simulation_data data100;
   data100.g_vars.n_samples = N_SAMPLES;
   data100.g_vars.K = 3;
-  data100.g_vars.sigma_2 = 10;
+  data100.g_vars.sigma_2 = 100;
 
   data100.b_vars.confidence = 0.95;
 
@@ -16,12 +17,12 @@ int main(){
   data100.l_vars.mu[1] = 0;
   data100.l_vars.mu[2] = DELTA;
 
-  cavi_implementation sim100(data100, 1000);
+  cavi_implementation sim100(data100, 100);
 
   int n_steps = 100;
 
   // just need one
-  int n_experiments = 1;
+  int n_experiments = 1000;
 
   cout << "total no of experiments: " << n_experiments << endl;
 

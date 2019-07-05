@@ -6,6 +6,10 @@ public:
   // this is gpu's copy of settings
   device_settings device_dev_settings;
 
+  // indicate outlier
+  int *is_outlier;
+  int *device_is_outlier;
+
   // count how many are covered
   int *vwlb_cs_covered;
   int *vwlb_cs2_covered;
@@ -28,6 +32,7 @@ public:
 
   double empirical_ci[K][2];
 
+  int n_outlier;
   int vwlb_cs_covered_counts[K];
   int vwlb_cs2_covered_counts[K];
   int vp_cs_covered_counts[K];

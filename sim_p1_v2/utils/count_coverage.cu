@@ -15,8 +15,10 @@ void bridge::count_coverage(){
     vp_cs_covered_counts[k] = 0;
     vwlb_cs_covered_counts[k] = 0;
     vwlb_cs2_covered_counts[k] = 0;
-    
+
     for(int n = 0; n < n_experiments; n++){
+      if(is_outlier[n]) continue;
+
       vp_cs_covered_counts[k]  += vp_cs_covered[k * n_experiments + n];
       vwlb_cs_covered_counts[k] += vwlb_cs_covered[k * n_experiments + n];
       vwlb_cs2_covered_counts[k] += vwlb_cs2_covered[k * n_experiments + n];

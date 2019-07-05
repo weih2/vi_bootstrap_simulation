@@ -25,6 +25,9 @@ void bridge::init_device(){
 
   cudaMalloc((void**)&device_empirical_mu,
     sizeof(double) * n_experiments * K);
+
+  cudaMalloc((void**)&device_is_outlier,
+    sizeof(int) * n_experiments);
 }
 
 void bridge::clean_device(){

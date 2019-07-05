@@ -23,7 +23,7 @@ int main(){
 
   bridge_0.connect_to_execution();
 
-  bridge_0.save_result(std::cout);
+  bridge_0.save_result();
 
   bridge_0.clean_device();
 

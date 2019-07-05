@@ -54,6 +54,11 @@ void cavi_implementation::cavi_estimate(){
       sum_phi += est.phi[i][k];
       product_x_phi += data.x[i] * est.phi[i][k];
     }
+
+    for(int k_prime = 0; k_prime < data.g_vars.K; k_prime++){
+      if(k == k_prime) continue;
+      product_x_phi -= est.m[k_prime]/BUFF; // repulsive
+    }
     est.s2[k] = 1 / (1/data.g_vars.sigma_2 + sum_phi);
     est.m[k] = product_x_phi * est.s2[k];
 
@@ -61,6 +66,12 @@ void cavi_implementation::cavi_estimate(){
     for(int i = 0; i < data.g_vars.n_samples; i++){
       elbo += est.phi[i][k] *
         (data.x[i] * (- data.x[i]/2. + est.m[k]) - (est.s2[k] + est.m[k]*est.m[k])/2.);
+    }
+  }
+
+  for(int k = 0; k < data.g_vars.K; k++){
+    for(int k_prime = k + 1; k_prime < data.g_vars.K; k_prime++){
+      elbo -= est.m[k] * est.m[k_prime]/(2. * data.g_vars.sigma_2 * BUFF);
     }
   }
 }
