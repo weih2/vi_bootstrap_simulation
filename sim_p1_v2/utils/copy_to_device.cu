@@ -46,6 +46,7 @@ void bridge::clean_device(){
   cudaFree(device_vp_cs_covered);
   cudaFree(device_vp_cs_covered);
   cudaFree(device_empirical_mu);
+  cudaFree(device_is_outlier);
 }
 
 void bridge::copy_to_device(){
