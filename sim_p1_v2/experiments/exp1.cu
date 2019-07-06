@@ -64,7 +64,7 @@ int main(){
       printf("experiments #%d is done\n", delta_count);
     }
 
-    printf("number of outliers in each experiment: \n", );
+    printf("number of outliers in each experiment: \n");
 
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++)
       printf("%d ", n_outliers[delta_count]);
