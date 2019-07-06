@@ -5,7 +5,7 @@ __device__ void device_cavi_implementation::device_is_outlier(){
     absolute_deviance += fabs(m[k] - mu[k]);
   }
 
-  if(absolute_deviance > 10){
+  if(absolute_deviance > 5){
     is_outlier = 1;
   }else is_outlier = 0;
 
