@@ -1,6 +1,6 @@
 #include "../include.h"
 #include "fixed_latent_vars_generation.cpp"
-#define DELTA_COUNT 100
+#define DELTA_COUNT 10
 
 int main(){
     latent_vars true_vars;
@@ -21,10 +21,12 @@ int main(){
     dev_settings.ci_quantile = new double();
     *dev_settings.ci_quantile = cdf_ugaussian_Pinv(0.975);
 
-    double vwlb_cs_covered_counts_total[100];
-    double vp_cs_covered_counts_total[100];
-    double empirical_ci_covered_counts_total[100];
+    double vwlb_cs_covered_counts_total[DELTA_COUNT];
+    double vp_cs_covered_counts_total[DELTA_COUNT];
+    double empirical_ci_covered_counts_total[DELTA_COUNT];
     double vwlb_cs2_covered_counts_total[DELTA_COUNT];
+
+    int n_outliers[DELTA_COUNT];
 
     bridge bridge_settings(dev_settings);
     bridge_settings.save_settings(std::cout);
@@ -45,6 +47,8 @@ int main(){
         vwlb_cs2_covered_counts_total[delta_count] = 0;
       }
 
+      n_outliers[delta_count] = bridge_0.n_outlier;
+
       for(int k = 0; k < K; k++){
         vwlb_cs_covered_counts_total[delta_count]
          += bridge_0.vwlb_cs_covered_counts[k];
@@ -60,11 +64,19 @@ int main(){
       printf("experiments #%d is done\n", delta_count);
     }
 
+    printf("number of outliers in each experiment: \n", );
+
+    for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++)
+      printf("%d ", n_outliers[delta_count]);
+    printf("\n");
+
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
+      /*
       vwlb_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
       vp_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
       empirical_ci_covered_counts_total[delta_count] /= double(K * n_experiments);
       vwlb_cs2_covered_counts_total[delta_count] /= double(K * n_experiments);
+      */
       printf("%f ", vwlb_cs_covered_counts_total[delta_count]);
     }
     printf("\n");
