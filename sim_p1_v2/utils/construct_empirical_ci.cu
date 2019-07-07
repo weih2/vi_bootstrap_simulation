@@ -15,6 +15,8 @@ void bridge::construct_empirical_ci(){
       avg_m[k] += host_empirical_mu[k*n_experiments + n];
     }
 
+    avg_m[k] /= double(n_experiments);
+
     for(int n = 0; n < n_experiments; n++){
       sd_m_est[k] +=
         (host_empirical_mu[k*n_experiments + n] - avg_m[k])
@@ -45,6 +47,8 @@ void bridge::construct_empirical_ci(){
       if(is_outlier[n]) continue;
       avg_m[k] += host_empirical_mu[k*n_experiments + n];
     }
+
+    avg_m[k] /= double(n_experiments);
 
     for(int n = 0; n < n_experiments; n++){
       if(is_outlier[n]) continue;
