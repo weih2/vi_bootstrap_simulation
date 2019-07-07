@@ -1,5 +1,5 @@
 void bridge::save_result(){
-  printf("number of outliers %d\n", n_outlier);
+  printf("number of outliers %d\n", n_outliers);
 
   for(int k = 0; k < K; k++){
     printf("variational wlb confidence set coverage for parameter %d: %d\n",

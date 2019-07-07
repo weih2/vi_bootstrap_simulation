@@ -27,7 +27,7 @@ __global__ void cavi_execute(bridge bg, int bootstrap_execution){
     }
   }
 
-  bg.device_is_outlier[t_id] = thread_implementation.is_outlier;
+  // bg.device_is_outlier[t_id] = thread_implementation.is_outlier;
 
   if(bootstrap_execution == 2){  // consider length
     for(int k = 0; k < K; k++){

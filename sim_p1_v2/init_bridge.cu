@@ -17,7 +17,7 @@ bridge::bridge(device_settings dev_settings){
     empirical_ci_covered_counts[k] = 0;
   }
 
-  n_outlier = 0;
+  n_outliers = 0;
 
   init_device();
   copy_to_device();

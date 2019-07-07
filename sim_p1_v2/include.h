@@ -39,7 +39,7 @@
 #include "./parallel/device_utils/device_vp_cs_construct.cu"
 #include "./parallel/device_utils/device_vwlb_cs_construct.cu"
 #include "./parallel/device_utils/device_vwlb_cs2_construct.cu"
-#include "./parallel/device_utils/device_is_outlier.cu"
+// #include "./parallel/device_utils/device_is_outlier.cu"
 
 // host implementations
 #include "init_bridge.cu"
