@@ -77,24 +77,24 @@ int main(){
       empirical_ci_covered_counts_total[delta_count] /= double(K * n_experiments);
       vwlb_cs2_covered_counts_total[delta_count] /= double(K * n_experiments);
       */
-      printf("%f ", vwlb_cs_covered_counts_total[delta_count]);
+      printf("%d ", vwlb_cs_covered_counts_total[delta_count]);
     }
     printf("\n");
 
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
-      printf("%f ", vwlb_cs2_covered_counts_total[delta_count]);
-    }
-
-    printf("\n");
-
-    for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
-      printf("%f ", vp_cs_covered_counts_total[delta_count]);
+      printf("%d ", vwlb_cs2_covered_counts_total[delta_count]);
     }
 
     printf("\n");
 
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
-      printf("%f ", empirical_ci_covered_counts_total[delta_count]);
+      printf("%d ", vp_cs_covered_counts_total[delta_count]);
+    }
+
+    printf("\n");
+
+    for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
+      printf("%d ", empirical_ci_covered_counts_total[delta_count]);
     }
 
   return 0;
