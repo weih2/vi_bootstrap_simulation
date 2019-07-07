@@ -1,6 +1,6 @@
 #include "../include.h"
 #include "fixed_latent_vars_generation.cpp"
-#define DELTA_COUNT 10
+#define DELTA_COUNT 100
 
 int main(){
     latent_vars true_vars;
@@ -34,7 +34,7 @@ int main(){
 
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars,
-        (delta_count + 1) * 0.1);
+        (delta_count + 1) * 0.01);
 
       bridge bridge_0(dev_settings);
 
@@ -70,13 +70,13 @@ int main(){
       printf("%d ", n_outliers[delta_count]);
     printf("\n");
 
+    int n_effective;
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
-      /*
-      vwlb_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
-      vp_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
-      empirical_ci_covered_counts_total[delta_count] /= double(K * n_experiments);
-      vwlb_cs2_covered_counts_total[delta_count] /= double(K * n_experiments);
-      */
+      n_effective = n_experiments - n_outliers[delta_count];
+      vwlb_cs_covered_counts_total[delta_count] /= double(K * n_effective);
+      vp_cs_covered_counts_total[delta_count] /= double(K * n_effective);
+      empirical_ci_covered_counts_total[delta_count] /= double(K * n_effective);
+      vwlb_cs2_covered_counts_total[delta_count] /= double(K * n_effective);
       printf("%f ", vwlb_cs_covered_counts_total[delta_count]);
     }
     printf("\n");
