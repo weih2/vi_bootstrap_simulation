@@ -47,7 +47,7 @@ int main(){
         vwlb_cs2_covered_counts_total[delta_count] = 0;
       }
 
-      n_outliers[delta_count] = bridge_0.n_outlier;
+      n_outliers[delta_count] = bridge_0.n_outliers;
 
       for(int k = 0; k < K; k++){
         vwlb_cs_covered_counts_total[delta_count]
