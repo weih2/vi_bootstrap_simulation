@@ -55,7 +55,7 @@ int main(){
         vp_cs_covered_counts_total[delta_count]
          += bridge_0.vp_cs_covered_counts[k];
        vwlb_cs2_covered_counts_total[delta_count]
-       += bridge_0.vwlb_cs2_covered_counts[k];
+         += bridge_0.vwlb_cs2_covered_counts[k];
         empirical_ci_covered_counts_total[delta_count]
          += bridge_0.empirical_ci_covered_counts[k];
       }
