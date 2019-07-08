@@ -35,7 +35,7 @@ void bridge::construct_empirical_ci(){
       if(fabs(host_empirical_mu[k*n_experiments + n] - avg_m[k]) > sd_m_est[k] * 2){
         is_outlier[n] = 1;
         n_outliers ++;
-        continue;
+        break;
       }
     }
   }
