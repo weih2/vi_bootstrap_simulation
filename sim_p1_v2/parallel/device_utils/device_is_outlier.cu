@@ -10,7 +10,8 @@ __device__ void device_cavi_implementation::device_is_outlier(){
   for(int b = 0; b < n_bootstrap_samples; b++){
     is_outlier[b] = 0;
     for(int k = 0; k < K; k++){
-      if(fabs(map_mu[k][b] - m[k]) > 4 * b_sample_sds[k]){
+      if(0){
+      // if(fabs(map_mu[k][b] - m[k]) > 4 * b_sample_sds[k]){
         is_outlier[b] = 1;
         n_outliers ++;
         break;
