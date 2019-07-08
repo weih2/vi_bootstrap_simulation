@@ -31,6 +31,7 @@ public:
 
   // outliers excluded
   int n_outliers;
+  int is_outlier[n_bootstrap_samples];
   double map_mu_clean[K][n_bootstrap_samples];
 
   // intervals
