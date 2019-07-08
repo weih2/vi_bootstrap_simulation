@@ -1,15 +1,32 @@
 __device__ void device_cavi_implementation::device_is_outlier(){
-  // detect inaccurate point estimate
-  double absolute_deviance = 0;
+  double b_sample_sds[K];
+  int is_outlier[n_bootstrap_samples];
+
   for(int k = 0; k < K; k++){
-    absolute_deviance += fabs(m[k] - mu[k]);
+    b_sample_sds[k] = sqrt(cal_variance(map_mu[k], n_bootstrap_samples));
   }
 
-  if(absolute_deviance > 1){
-    is_outlier = 1;
-  }else is_outlier = 0;
-
   // is_outlier = 1;
+  for(int b = 0; b < n_bootstrap_samples; b++){
+    is_outlier[b] = 0;
+    for(int k = 0; k < K; k++){
+      if(fabs(map_mu[k][b] - m[k]) > 3 * b_sample_sds[k]){
+        is_outlier[b] = 1;
+        n_outliers ++;
+        break;
+      }
+    }
+  }
+
+  int b_clean = 0;
+  for(int b = 0; b < n_bootstrap_samples; b++){
+    if(!is_outlier[b]){
+      for(int k = 0; k < K; k++){
+        map_mu_clean[b_clean][k] = map_mu[b][k];
+      }
+      b_clean ++;
+    }
+  }
 
   return;
 }

@@ -29,6 +29,10 @@ public:
   // historical MAP for mu
   double map_mu[K][n_bootstrap_samples];
 
+  // outliers excluded
+  int n_outliers;
+  double map_mu_clean[K][n_bootstrap_samples];
+
   // intervals
   double vwlb_cs[K][2];
   double vwlb_cs2[K][2];
@@ -53,5 +57,5 @@ public:
 private:
   __device__ void device_cavi_point_estimate_update();
   __device__ void device_weighted_cavi_point_estimate_update();
-  // __device__ void device_is_outlier();
+  __device__ void device_is_outlier();
 };

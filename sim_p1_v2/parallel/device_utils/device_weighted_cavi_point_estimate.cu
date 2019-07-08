@@ -18,4 +18,6 @@ __device__ void device_cavi_implementation::device_weighted_cavi_point_estimate(
       map_mu[k][b_count] = m_b[k];
     }
   }
+
+  device_is_outlier();
 }
