@@ -1,6 +1,6 @@
 __device__ void device_cavi_implementation::device_is_outlier(){
   double b_sample_sds[K];
-
+  n_outliers = 0;
 
   for(int k = 0; k < K; k++){
     b_sample_sds[k] = sqrt(cal_variance(map_mu[k], n_bootstrap_samples));
@@ -11,7 +11,7 @@ __device__ void device_cavi_implementation::device_is_outlier(){
     is_outlier[b] = 0;
     for(int k = 0; k < K; k++){
       if(0){
-      // if(fabs(map_mu[k][b] - m[k]) > 4 * b_sample_sds[k]){
+      // if(fabs(map_mu[k][b] - m[k]) > 5 * b_sample_sds[k]){
         is_outlier[b] = 1;
         n_outliers ++;
         break;

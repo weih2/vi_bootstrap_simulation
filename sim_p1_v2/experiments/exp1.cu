@@ -34,7 +34,7 @@ int main(){
 
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars,
-        (delta_count + 1) * 0.1);
+        (delta_count + 1) * 1);
 
       bridge bridge_0(dev_settings);
 
