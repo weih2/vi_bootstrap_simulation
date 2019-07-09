@@ -21,7 +21,8 @@ __device__ void device_cavi_implementation::device_is_outlier(){
 
   int b_clean = 0;
   for(int b = 0; b < n_bootstrap_samples; b++){
-    if(!is_outlier[b]){
+    if(1){
+    // if(!is_outlier[b]){
       for(int k = 0; k < K; k++){
         map_mu_clean[k][b_clean] = map_mu[k][b];
       }
