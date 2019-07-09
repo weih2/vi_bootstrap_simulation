@@ -1,6 +1,6 @@
 __device__ void device_cavi_implementation::device_vwlb_cs_construct(){
   for(int k = 0; k < K; k++){
-    thrust::sort(thrust::device, map_mu[k], map_mu[k] + n_bootstrap_samples);
+    thrust::sort(thrust::device, map_mu_clean[k], map_mu_clean[k] + n_bootstrap_samples - n_outliers);
     vwlb_cs[k][0] = sample_quantile_from_sorted_data(
       map_mu_clean[k], (n_bootstrap_samples - n_outliers) , (1 + device_bootstrap_confidence)/2.
     );
