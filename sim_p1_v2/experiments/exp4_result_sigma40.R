@@ -10,6 +10,6 @@ library(ggplot2)
 ggplot(data = result.df, 
        mapping = aes(x = x.lab, y = coverage, color = lab)) + geom_line()
 
-# linetype
+  # linetype
 ggplot(data = result.df, 
        mapping = aes(x = x.lab, y = coverage, linetype = lab)) + geom_line()
