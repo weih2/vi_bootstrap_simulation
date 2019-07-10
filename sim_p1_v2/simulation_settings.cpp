@@ -1,4 +1,4 @@
-#define K 3
+#define K 2
 #define sigma_2 30.
 #define n_samples 500
 
