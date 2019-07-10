@@ -63,6 +63,7 @@ int main(){
       printf("\n vwlb cs lengths");
       for(int k = 0; k < K; k++){
         for(int i = 0; i < n_experiments/4; i++){
+          if(bridge_0.is_outlier[i]) continue;
           printf("%f ", bridge_0.vwlb_cs_lengths[k * n_experiments + i]);
         }
         printf("\n");
@@ -70,6 +71,7 @@ int main(){
       printf("\n vwlb cs2 lengths");
       for(int k = 0; k < K; k++){
         for(int i = 0; i < n_experiments/4; i++){
+          if(bridge_0.is_outlier[i]) continue;
           printf("%f ", bridge_0.vwlb_cs2_lengths[k * n_experiments + i]);
         }
         printf("\n");
@@ -77,6 +79,7 @@ int main(){
       printf("\n vp cs lengths");
       for(int k = 0; k < K; k++){
         for(int i = 0; i < n_experiments/4; i++){
+          if(bridge_0.is_outlier[i]) continue;
           printf("%f ", bridge_0.vp_cs_lengths[k * n_experiments + i]);
         }
         printf("\n");
