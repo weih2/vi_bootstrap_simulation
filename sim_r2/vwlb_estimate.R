@@ -41,3 +41,4 @@ for(i in 1:n.experiments){
   ) covered = covered + 1
 }
 
+show(covered)
