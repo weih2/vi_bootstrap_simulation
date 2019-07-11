@@ -1,4 +1,4 @@
-if( ! require(gtools, character.only = T)) 
+if( ! require("gtools", character.only = T)) 
   install.packages("gtools") # will provide logit and inv.logit
 
 library(gtools)
