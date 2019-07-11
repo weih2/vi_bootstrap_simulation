@@ -1,4 +1,6 @@
-require(gtools) # will provide logit and inv.logit
+if( ! require(gtools, character.only = T)) 
+  install.packages("gtools") # will provide logit and inv.logit
+
 library(gtools)
 
 update.A = function(inv.A, active.set, B, D){
