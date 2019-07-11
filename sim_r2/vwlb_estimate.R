@@ -34,7 +34,6 @@ for(i in 1:n.experiments){
   if(i %% 10 == 0) print(i)
   vwlb.cs = get.beta1.vwlb.cs(0.95)
   # print(vwlb.cs[1]); print(vwlb.cs[2])
-  
   if(
     (vwlb.cs[1] < beta[1])&
     (vwlb.cs[2] > beta[1])

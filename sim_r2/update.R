@@ -1,4 +1,4 @@
-library(gtools) # will provide logit and inv.logit
+require(gtools) # will provide logit and inv.logit
 
 update.A = function(inv.A, active.set, B, D){
   inv.A = inv.A - inv.A %*% B[, active.set] %*%
