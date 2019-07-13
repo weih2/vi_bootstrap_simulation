@@ -1,11 +1,20 @@
 source("gtools_utils.R")
 
 update.A = function(inv.A, active.set, B, D){
-  inv.A = inv.A - inv.A %*% B[, active.set] %*%
-    solve(
-      diag(1/D[active.set]) + inv.A[active.set, ] %*% B[, active.set]
-    ) %*% 
-    inv.A[active.set, ]
+  if(sum(active.set) > 1){
+    inv.A = inv.A - inv.A %*% B[, active.set] %*%
+      solve(
+        diag(1/D[active.set]) + inv.A[active.set, ] %*% B[, active.set]
+      ) %*% 
+      inv.A[active.set, ]
+  }else{
+    inv.A = inv.A - inv.A %*% B[, active.set] %*%
+      solve(
+        1/D[active.set] + inv.A[active.set, ] %*% B[, active.set]
+      ) %*% 
+      inv.A[active.set, ]
+  }
+  
   return(inv.A)
 }
 
@@ -36,7 +45,7 @@ em.estimate = function(beta.posterior, global.posterior){
 
   global.posterior$sigma2.hat = ( 
     nu * lambda + 
-    sum((data$y - data$X %*% (beta.posterior$phi * beta.posterior$mu))^2) +
+    sum((original.data$y - original.data$X %*% (beta.posterior$phi * beta.posterior$mu))^2) +
     sum(
       (diagXTX * (1 - beta.posterior$phi) + 1/nu1) * 
         beta.posterior$phi * (beta.posterior$mu)^2

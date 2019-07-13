@@ -47,10 +47,11 @@ test.coverage = function(o){
   return(c(vwlb.ci1.covered, vwlb.ci2.covered, vp.cs.covered))
 }
 
-result = matrix(nrow = 0, ncol = 3)
-for(i in 0:9){
+result = matrix(nrow = 0, ncol = 4)
+for(i in 6:9){
   auto.cor <<- 0.1 * i
   original.data <<- gen.everything()
+  # result = rbind(result, c(test.coverage(), auto.cor))
   result = rbind(result, test.coverage())
 }
 
