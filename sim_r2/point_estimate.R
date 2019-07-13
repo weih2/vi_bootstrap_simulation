@@ -1,5 +1,4 @@
 source("generate_data.R")
-source("simulation_setup.R")
 source("utils.R")
 source("update.R")
 

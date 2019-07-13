@@ -1,10 +1,5 @@
 source("point_estimate.R")
 
-n.experiments = 100
-n.b.samples = 500
-
-data = gen.everything() # only a place holder
-
 get.beta1.vwlb.cs = function(original.data, confidence){
   XTX <<- t(original.data$X) %*% (original.data$X)
   diagXTX <<- diag(XTX)
@@ -49,19 +44,4 @@ get.beta1.vwlb.cs = function(original.data, confidence){
   # return(beta1.bootstrap.map)
 }
 
-covered = 0
-
-original.data = data
-for(i in 1:n.experiments){
-  original.data = gen.new.y(original.data)
-  if(i %% 10 == 0) print(i)
-  vwlb.cs = get.beta1.vwlb.cs(original.data, 0.95)$vwlb.ci1
-  # print(vwlb.cs[1]); print(vwlb.cs[2])
-  if(
-    (vwlb.cs[1] < beta[1])&
-    (vwlb.cs[2] > beta[1])
-  ) covered = covered + 1
-}
-
-show(covered)
 
