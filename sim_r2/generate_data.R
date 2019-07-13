@@ -1,5 +1,5 @@
 n.pars = 10 # no. covariates
-n.obs = 100 # no. obs
+n.obs = 300 # no. obs
 auto.cor = 0.6 # collinearity
 sigma2 = 1 # error variance
 beta = c(2, 3, rep(0, n.pars - 2)) # true beta

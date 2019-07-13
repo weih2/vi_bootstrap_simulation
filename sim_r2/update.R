@@ -1,4 +1,4 @@
-library(gtools)
+source("gtools_utils.R")
 
 update.A = function(inv.A, active.set, B, D){
   inv.A = inv.A - inv.A %*% B[, active.set] %*%

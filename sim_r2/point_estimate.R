@@ -41,6 +41,7 @@ main.loop = function(o){
     new_entropy = cal.entropy(beta.posterior$phi, active.set)
     if(max(abs(new_entropy - entropy)) < epsilon) break
     
+    if(n.iter > n.max.iter) break
   }
   
   return(list(
