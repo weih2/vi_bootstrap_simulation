@@ -14,13 +14,11 @@ test.coverage = function(o){
   vp.cs.covered = 0
   
   for(i in 1:n.experiments){
-    original.data = gen.new.y(original.data)
+    original.data <<- gen.new.y(original.data)
+    point.estimate.beta = main.loop()$beta.posterior
     if(i %% 10 == 0) print(i)
     vwlb.ci1 = get.beta1.vwlb.cs(original.data, 0.95)$vwlb.ci1
     vwlb.ci2 = get.beta1.vwlb.cs(original.data, 0.95)$vwlb.ci2
-    
-    point.estimate.beta = main.loop()$beta.posterior
-    
     vp.cs = vb.beta1.credential.set(point.estimate.beta, 0.95)
     
     # print(vwlb.cs[1]); print(vwlb.cs[2])
@@ -44,7 +42,9 @@ test.coverage = function(o){
 }
 
 result = matrix(nrow = 0, ncol = 3)
-for(auto.cor in seq(0, 0.9, by = 0.1)){
+for(i in 0:9){
+  auto.cor <<- 0.1 * i
+  original.data <<- gen.everything()
   result = rbind(result, test.coverage())
 }
 
