@@ -47,3 +47,5 @@ result = matrix(nrow = 0, ncol = 3)
 for(auto.cor in seq(0, 0.9, by = 0.1)){
   result = rbind(result, test.coverage())
 }
+
+show(result)
