@@ -1,13 +1,8 @@
 source("point_estimate.R")
 
 get.beta1.vwlb.cs = function(original.data, confidence){
-  XTX <<- t(original.data$X) %*% (original.data$X)
-  diagXTX <<- diag(XTX)
-  XTy <<- t(original.data$X) %*% (original.data$y)
-  
-  beta1.point.estimate = main.loop()$beta.posterior$mu[1]
-  
   beta1.bootstrap.map = numeric(0)
+  beta1.point.estimate = main.loop()$beta.posterior$mu[1]
   
   for(i in 1:n.b.samples){
     weights = gen.weights()

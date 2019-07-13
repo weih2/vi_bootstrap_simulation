@@ -15,6 +15,12 @@ test.coverage = function(o){
   
   for(i in 1:n.experiments){
     original.data <<- gen.new.y(original.data)
+    XTX <<- t(original.data$X) %*% (original.data$X)
+    diagXTX <<- diag(XTX)
+    XTy <<- t(original.data$X) %*% (original.data$y)
+    
+    
+    beta1.bootstrap.map = numeric(0)
     point.estimate.beta = main.loop()$beta.posterior
     if(i %% 10 == 0) print(i)
     vwlb.ci1 = get.beta1.vwlb.cs(original.data, 0.95)$vwlb.ci1
