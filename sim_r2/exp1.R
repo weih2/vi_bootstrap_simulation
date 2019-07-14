@@ -2,7 +2,7 @@ source("simulation_setup.R")
 source("vwlb_estimate.R")
 source("vb_cs.R")
 
-n.experiments = 10
+n.experiments = 1000
 n.b.samples = 500
 
 data = gen.everything() # only a place holder
