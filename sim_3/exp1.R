@@ -6,11 +6,11 @@ n.burnin.steps = 10000
 
 # calculate the variance
 n.inter = 100
-n.sample = 1000
+n.sample = 100
 
-for(fdjwo in 1:10){
-  for(n in c(100, 200, 500, 1000, 2000)){
-    N <<- n
+for(n in c(100, 200, 500, 1000, 2000)){
+  N <<- n
+  for(fdjwo in 1:10){
     gen.new.data()
     old.sample = init.update()
     for(i in 1:n.burnin.steps){
@@ -21,11 +21,13 @@ for(fdjwo in 1:10){
       for(i2 in 1:n.inter){
         old.sample = gibbs.sample(old.sample)
       }
-      # if(i1 %% 10 == 0) show(i1)
+      if(i1 %% 10 == 0) show(i1)
       mu.sample = rbind(mu.sample, old.sample$mu)
     }
     
-    var.mu = apply(mu.sample, 2, var)
+    var.mu = var(mu.sample)
+    var.mu = diag(solve(var.mu))
+    var.mu = 1/var.mu
     show(var.mu)
   }
 }

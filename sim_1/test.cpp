@@ -1,31 +1,45 @@
 #include "include.h"
 
 using namespace std;
+#define DELTA 5.
 
 int main(){
   simulation_data sim1;
-  sim1.g_vars.n_samples = 500;
-  sim1.g_vars.K = 2;
-  sim1.g_vars.sigma_2 = 9;
+  sim1.g_vars.n_samples = 1000;
+  sim1.g_vars.K = 3;
+  sim1.g_vars.sigma_2 = 30;
 
   sim1.b_vars.confidence = 0.95;
 
   generate_latent_pars(sim1);
+  sim1.l_vars.mu[0] = -DELTA;
+  sim1.l_vars.mu[1] = 0;
+  sim1.l_vars.mu[2] = DELTA;
+
   generate_data(sim1);
   generate_weights(sim1);
 
   cavi_implementation sim0(sim1, 500);
-  cavi_implementation sim2(sim1, 500);
+  // cavi_implementation sim2(sim1, 500);
 
   int n_steps = 1000;
   sim0.cavi_update(n_steps);
-  sim2.cavi_update(n_steps);
+  // sim2.cavi_update(n_steps);
 
+  /*
   cout << "true latent means: " << sim1.l_vars.mu[0] << " and " << sim1.l_vars.mu[1] << endl;
   cout << "vb posterior means: " << sim0.est.m[0] << " and " << sim0.est.m[1] << endl;
-  cout << "another vb posterior means: " << sim2.est.m[0] << " and " << sim2.est.m[1] << endl;
+  cout << "n obs: " << sim1.g_vars.n_samples << endl;
+  cout << "estimated variance: ";
+  */
+  for(int k = 0; k < sim1.g_vars.K; k++) cout << sim0.est.s2[k] << " ";
+  cout << endl;
 
-  sim0.cs_construct();
+  // for(int k = 0; k < sim1.g_vars.K; k++) cout << sim0.est.m[k] << " ";
+  // cout << endl;
+  // cout << "another vb posterior means: " << sim2.est.m[0] << " and " << sim2.est.m[1] << endl;
+
+  // sim0.cs_construct();
 
   /*
 
