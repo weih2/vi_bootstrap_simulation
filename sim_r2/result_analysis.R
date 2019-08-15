@@ -26,7 +26,9 @@ library(ggplot2)
 # save(result, file = "result.file")
 load("result.file")
 
-result.1 = (result[, 1:4])/1000
+# result.1 = (result[, 1:4])/1000
+result.1 = (result[, 5:8])/1000
+
 result.1 = as.numeric(result.1)
 
 result.lab = rep(c("vwlb_cs", "vwlb_cs2", "vp", "empirical"), each = 20)
