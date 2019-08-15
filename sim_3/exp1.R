@@ -6,7 +6,7 @@ n.burnin.steps = 10000
 
 # calculate the variance
 n.inter = 100
-n.sample = 100
+n.sample = 1000
 
 for(n in c(100, 200, 500, 1000, 2000)){
   N <<- n
