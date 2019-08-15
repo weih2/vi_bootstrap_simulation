@@ -21,7 +21,7 @@ for(n in c(100, 200, 500, 1000, 2000)){
       for(i2 in 1:n.inter){
         old.sample = gibbs.sample(old.sample)
       }
-      if(i1 %% 10 == 0) show(i1)
+      # if(i1 %% 10 == 0) show(i1)
       mu.sample = rbind(mu.sample, old.sample$mu)
     }
     
