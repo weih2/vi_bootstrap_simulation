@@ -24,10 +24,13 @@ for(n in c(100, 200, 500, 1000, 2000)){
       # if(i1 %% 10 == 0) show(i1)
       mu.sample = rbind(mu.sample, old.sample$mu)
     }
+    abs.error = abs(sweep(mu.sample, 2, mu0))
+    max.abs.error = mean( apply(abs.error, 1, max) )
+    show(max.abs.error)
     
-    var.mu = var(mu.sample)
-    var.mu = diag(solve(var.mu))
-    var.mu = 1/var.mu
-    show(var.mu)
+    # var.mu = var(mu.sample)
+    # var.mu = diag(solve(var.mu))
+    # var.mu = 1/var.mu
+    # show(var.mu)
   }
 }
