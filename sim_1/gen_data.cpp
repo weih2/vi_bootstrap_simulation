@@ -19,6 +19,7 @@ void generate_data(simulation_data& sim_data){
   sim_data.x = new double[sim_data.g_vars.n_samples];
 
   for(int i = 0; i < sim_data.g_vars.n_samples; i++){
+    sim_data.l_vars.c[i] = floor(random_uniform() * sim_data.g_vars.K);
     const int &i_cat = sim_data.l_vars.c[i];
     sim_data.x[i] = sim_data.l_vars.mu[i_cat] + random_normal();
   }

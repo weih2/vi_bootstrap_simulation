@@ -2,6 +2,7 @@
 
 using namespace std;
 #define DELTA 5.
+#define N_EXPERIMENTS 500
 
 int main(){
   simulation_data sim1;
@@ -16,14 +17,25 @@ int main(){
   sim1.l_vars.mu[1] = 0;
   sim1.l_vars.mu[2] = DELTA;
 
-  generate_data(sim1);
-  generate_weights(sim1);
+  double s2_mean[3];
+  for(int k = 0; k < sim1.g_vars.K; k++) s2_mean[k] = 0;
 
   cavi_implementation sim0(sim1, 500);
-  // cavi_implementation sim2(sim1, 500);
 
-  int n_steps = 1000;
-  sim0.cavi_update(n_steps);
+  for(int n = 0; n < N_EXPERIMENTS; n++){
+    generate_data(sim0.data);
+
+    // cavi_implementation sim2(sim1, 500);
+    int n_steps = 1000;
+    sim0.cavi_update(n_steps);
+
+    for(int k = 0; k < sim1.g_vars.K; k++) s2_mean[k] += sim0.est.s2[k];
+    if(n % 100 == 0){
+      for(int k = 0; k < sim1.g_vars.K; k++) cout << sim0.est.s2[k] << " ";
+      cout << endl;
+    }
+  }
+
   // sim2.cavi_update(n_steps);
 
   /*
@@ -32,7 +44,7 @@ int main(){
   cout << "n obs: " << sim1.g_vars.n_samples << endl;
   cout << "estimated variance: ";
   */
-  for(int k = 0; k < sim1.g_vars.K; k++) cout << sim0.est.s2[k] << " ";
+  for(int k = 0; k < sim1.g_vars.K; k++) cout << s2_mean[k]/double(N_EXPERIMENTS) << " ";
   cout << endl;
 
   // for(int k = 0; k < sim1.g_vars.K; k++) cout << sim0.est.m[k] << " ";

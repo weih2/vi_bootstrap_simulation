@@ -6,11 +6,12 @@ n.burnin.steps = 10000
 
 # calculate the variance
 n.inter = 100
-n.sample = 1000
+n.sample = 200
 
 for(n in c(100, 200, 500, 1000, 2000)){
   N <<- n
-  for(fdjwo in 1:10){
+  var.mu.mean = numeric(K)
+  for(fdjwo in 1:50){
     gen.new.data()
     old.sample = init.update()
     for(i in 1:n.burnin.steps){
@@ -24,13 +25,16 @@ for(n in c(100, 200, 500, 1000, 2000)){
       # if(i1 %% 10 == 0) show(i1)
       mu.sample = rbind(mu.sample, old.sample$mu)
     }
-    abs.error = abs(sweep(mu.sample, 2, mu0))
-    max.abs.error = mean( apply(abs.error, 1, max) )
-    show(max.abs.error)
+    # abs.error = abs(sweep(mu.sample, 2, mu0))
+    # max.abs.error = mean( apply(abs.error, 1, max) )
+    # show(max.abs.error)
     
-    # var.mu = var(mu.sample)
-    # var.mu = diag(solve(var.mu))
-    # var.mu = 1/var.mu
-    # show(var.mu)
+    var.mu = var(mu.sample)
+    var.mu = diag(solve(var.mu))
+    var.mu = 1/var.mu
+    
+    var.mu.mean = var.mu.mean + var.mu
   }
+  var.mu.mean = var.mu.mean/50
+  show(var.mu.mean)
 }
