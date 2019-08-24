@@ -93,6 +93,3 @@ gibbs.sampler.cxx = cxxfunction(
   gibbs.sampler.cxx.body,
   plugin = "RcppArmadillo"
 )
-  
-gibbs.sampler.cxx(x, old.sample, 100)
-
