@@ -11,17 +11,14 @@ n.sample = 200
 for(n in c(100, 200, 500, 1000, 2000)){
   N <<- n
   var.mu.mean = numeric(K)
-  for(fdjwo in 1:50){
+  for(fdjwo in 1:100){
     gen.new.data()
     old.sample = init.update()
-    for(i in 1:n.burnin.steps){
-      old.sample = gibbs.sample(old.sample)
-    }
+    old.sample = gibbs.sampler.cxx(x, old.sample, n.burnin.steps)
+    show(old.sample)
     mu.sample = matrix(nrow = 0, ncol = 3)
     for(i1 in 1:n.sample){
-      for(i2 in 1:n.inter){
-        old.sample = gibbs.sample(old.sample)
-      }
+      old.sample = gibbs.sampler.cxx(x, old.sample, n.inter)
       # if(i1 %% 10 == 0) show(i1)
       mu.sample = rbind(mu.sample, old.sample$mu)
     }
@@ -35,6 +32,6 @@ for(n in c(100, 200, 500, 1000, 2000)){
     
     var.mu.mean = var.mu.mean + var.mu
   }
-  var.mu.mean = var.mu.mean/50
+  var.mu.mean = var.mu.mean/100
   show(var.mu.mean)
 }

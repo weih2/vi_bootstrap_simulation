@@ -2,11 +2,11 @@
 
 using namespace std;
 #define DELTA 5.
-#define N_EXPERIMENTS 500
+#define N_EXPERIMENTS 5000
 
 int main(){
   simulation_data sim1;
-  sim1.g_vars.n_samples = 1000;
+  sim1.g_vars.n_samples = 100;
   sim1.g_vars.K = 3;
   sim1.g_vars.sigma_2 = 30;
 
@@ -30,10 +30,12 @@ int main(){
     sim0.cavi_update(n_steps);
 
     for(int k = 0; k < sim1.g_vars.K; k++) s2_mean[k] += sim0.est.s2[k];
+    /*
     if(n % 100 == 0){
       for(int k = 0; k < sim1.g_vars.K; k++) cout << sim0.est.s2[k] << " ";
       cout << endl;
     }
+    */
   }
 
   // sim2.cavi_update(n_steps);
