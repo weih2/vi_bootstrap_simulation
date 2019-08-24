@@ -8,23 +8,28 @@ n.burnin.steps = 10000
 n.inter = 100
 n.sample = 200
 
-for(n in c(100, 200, 500, 1000, 2000)){
+test.seq = floor( exp( seq(5, 8, 0.2)))
+
+for(n in test.seq){
   N <<- n
   var.mu.mean = numeric(K)
-  for(fdjwo in 1:100){
+  var.max.abs.mean = numeric(0)
+  
+  res1 = numeric(0)
+  res2 = numeric(0)
+  
+  for(fdjwo in 1:500){
     gen.new.data()
     old.sample = init.update()
     old.sample = gibbs.sampler.cxx(x, old.sample, n.burnin.steps)
-    show(old.sample)
     mu.sample = matrix(nrow = 0, ncol = 3)
     for(i1 in 1:n.sample){
       old.sample = gibbs.sampler.cxx(x, old.sample, n.inter)
-      # if(i1 %% 10 == 0) show(i1)
       mu.sample = rbind(mu.sample, old.sample$mu)
     }
-    # abs.error = abs(sweep(mu.sample, 2, mu0))
-    # max.abs.error = mean( apply(abs.error, 1, max) )
-    # show(max.abs.error)
+    abs.error = abs(sweep(mu.sample, 2, mu0))
+    max.abs.error = mean( apply(abs.error, 1, max) )
+    var.max.abs.mean = c(var.max.abs.mean, max.abs.error)
     
     var.mu = var(mu.sample)
     var.mu = diag(solve(var.mu))
@@ -32,6 +37,12 @@ for(n in c(100, 200, 500, 1000, 2000)){
     
     var.mu.mean = var.mu.mean + var.mu
   }
-  var.mu.mean = var.mu.mean/100
+  
+  var.mu.mean = var.mu.mean/500
   show(var.mu.mean)
+  res1 = c(res1, mean(var.max.abs.mean))
+  res2 = c(res2, sd(var.max.abs.mean))
 }
+
+show(res1)
+show(res2)
