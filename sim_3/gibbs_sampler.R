@@ -38,8 +38,8 @@ gibbs.sampler.cxx.body = '
   
   int n_iter = as<int>(nSteps);
   
-  double ru;
-  double rn;
+  arma::colvec ru(N);
+  arma::rowvec rn(K);
   double var_mu;
   
   for(int n_iter_current = 0; n_iter_current < n_iter; n_iter_current++){
@@ -51,15 +51,15 @@ gibbs.sampler.cxx.body = '
     prob_mat = exp( - prob_mat % prob_mat /2) ;
     
     // sample latent
+    ru.randu();
     for(int n = 0; n < N; n++){
       prob_mat.row(n) /= sum(prob_mat.row(n));
-      ru = arma::randu();
       for(int k = 0; k < K; k++){
-        if(ru < prob_mat.at(n,k)){
+        if(ru[n] < prob_mat.at(n,k)){
           new_c[n] = k;
           break;
         }
-        ru -= prob_mat.at(n,k);
+        ru[n] -= prob_mat.at(n,k);
       }
     }
     
@@ -73,10 +73,10 @@ gibbs.sampler.cxx.body = '
       cat_k_sum[new_c[n]] += data_x[n];
     }
     
+    rn.randn();
     for(int k = 0; k < K; k++){
       var_mu = SIGMA_2 / (1 + cat_k_count[k] * SIGMA_2);
-      rn = arma::randn();
-      new_mu[k] = var_mu * cat_k_sum[k] + rn * sqrt(var_mu);
+      new_mu[k] = var_mu * cat_k_sum[k] + rn[k] * sqrt(var_mu);
     }
     new_mu = sort(new_mu);
   }
