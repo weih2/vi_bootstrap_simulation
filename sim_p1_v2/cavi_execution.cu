@@ -8,7 +8,7 @@ __global__ void cavi_execute(bridge bg, int bootstrap_execution){
   if(bootstrap_execution != 0){
     thread_implementation.device_weighted_cavi_point_estimate();
     thread_implementation.device_vwlb_cs_construct();
-    thread_implementation.device_vwlb_cs2_construct();
+    // thread_implementation.device_vwlb_cs2_construct();
     thread_implementation.device_vp_cs_construct();
 
     for(int k = 0; k < K; k++){

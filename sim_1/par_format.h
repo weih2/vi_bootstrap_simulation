@@ -24,6 +24,7 @@ struct simulation_data{
   latent_vars l_vars;
   // Gaussian sequnce data
   double *x;
+  int allocated;
 
   bootstrap_vars b_vars;
 };

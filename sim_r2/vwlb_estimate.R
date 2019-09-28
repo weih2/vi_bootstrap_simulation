@@ -1,5 +1,29 @@
 source("point_estimate.R")
 
+cal.weighted.posterior <- function(weights){
+  data.X <<- diag(sqrt(weights)) %*% original.data$X
+  data.y <<- diag(sqrt(weights)) %*% original.data$y
+  
+  XTX <<- t(original.data$X) %*% diag(weights) %*% original.data$X
+  diagXTX <<- diag(XTX)
+  XTy <<- t(original.data$X) %*% diag(weights) %*% original.data$y
+  
+  weighted.vb.posterior <<- main.loop()$beta.posterior
+}
+
+vb.indenpendent.sampler <- function(n.samples){
+  beta.samples = matrix(nrow = 0, ncol = n.pars)
+  for(n in 1:n.samples){
+    weights = gen.weights()
+    cal.weighted.posterior(weights)
+    beta.samples = rbind(beta.samples, sapply(1:n.pars, function(i){
+      if(weighted.vb.posterior$phi[i] < 0.5) return(0)
+      else return(weighted.vb.posterior$mu[i])
+    }))
+  }
+  return(beta.samples)
+}
+
 get.beta1.vwlb.cs = function(original.data, confidence){
   beta1.bootstrap.map = numeric(0)
   beta2.bootstrap.map = numeric(0)

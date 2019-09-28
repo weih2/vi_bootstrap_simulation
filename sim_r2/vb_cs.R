@@ -37,6 +37,31 @@ vb.beta1.credential.set = function(beta.posterior, confidence){
   )
 }
 
+vb.credible.set = function(beta.posterior, confidence, beta.index){
+  # remaining prob excluding the point mass at 0
+  re.prob = confidence - 1 + beta.posterior$phi[beta.index]
+  
+  if(re.prob < 0) return(c(0,0))
+  tail.prob = (1 - confidence)/2
+  
+  q.std = qnorm(1 - tail.prob)
+  
+  temp.cs = c(beta.posterior$mu[beta.index] - q.std * sqrt(beta.posterior$s2[beta.index]),
+              beta.posterior$mu[beta.index] + q.std * sqrt(beta.posterior$s2[beta.index]))
+  
+  if ( (temp.cs[1] < 0)&&(temp.cs[2] > 0) ){
+    rev.tail.prob = ( 1 - re.prob )/2
+    q.std = qnorm(1 - rev.tail.prob)
+    temp2 = beta.posterior$mu[beta.index] - q.std * sqrt(beta.posterior$s2[beta.index])
+    temp3 = beta.posterior$mu[beta.index] + q.std * sqrt(beta.posterior$s2[beta.index])
+    if((temp2 < 0)&&(temp3 > 0)) temp.cs = c(temp2, temp3)
+    else if(temp2 > 0) temp.cs[1] = 0
+    else temp.cs[2] = 0
+  }
+  
+  return(temp.cs)
+}
+
 vb.beta2.credential.set = function(beta.posterior, confidence){
   # remaining prob excluding the point mass at 0
   re.prob = confidence - 1 + beta.posterior$phi[2]

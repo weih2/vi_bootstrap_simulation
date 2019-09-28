@@ -16,7 +16,10 @@ void generate_latent_pars(simulation_data& sim_data){
 }
 
 void generate_data(simulation_data& sim_data){
-  sim_data.x = new double[sim_data.g_vars.n_samples];
+  if(!sim_data.allocated) {
+    sim_data.x = new double[sim_data.g_vars.n_samples];
+    sim_data.allocated = 1;
+  }
 
   for(int i = 0; i < sim_data.g_vars.n_samples; i++){
     sim_data.l_vars.c[i] = floor(random_uniform() * sim_data.g_vars.K);

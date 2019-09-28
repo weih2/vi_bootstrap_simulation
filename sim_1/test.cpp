@@ -4,13 +4,14 @@ using namespace std;
 #define DELTA 5.
 #define N_EXPERIMENTS 5000
 
-int main(){
+int main(int argc, char **argv){
   simulation_data sim1;
-  sim1.g_vars.n_samples = 100;
+  sim1.g_vars.n_samples = stoi(argv[1]);
   sim1.g_vars.K = 3;
   sim1.g_vars.sigma_2 = 30;
 
   sim1.b_vars.confidence = 0.95;
+  sim1.allocated = 0;
 
   generate_latent_pars(sim1);
   sim1.l_vars.mu[0] = -DELTA;
@@ -21,6 +22,13 @@ int main(){
   for(int k = 0; k < sim1.g_vars.K; k++) s2_mean[k] = 0;
 
   cavi_implementation sim0(sim1, 500);
+
+  double base_ = 5;
+  int n_sample_;
+
+  while(base_ < 8.1){
+    base_ += 0.2;
+  }
 
   for(int n = 0; n < N_EXPERIMENTS; n++){
     generate_data(sim0.data);

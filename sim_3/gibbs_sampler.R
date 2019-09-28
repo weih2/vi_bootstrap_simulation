@@ -20,7 +20,7 @@ gibbs.sample = function(old.sample){
 gibbs.sampler.cxx.body = '
   #define SIGMA_2 25.
   
-  List old_sample = as<List>(oldSample);
+  List old_sample = as<List>(initSample);
   arma::Col<int> old_c = old_sample["cat"];
   arma::rowvec old_mu = old_sample["mu"];
   
@@ -36,60 +36,67 @@ gibbs.sampler.cxx.body = '
   arma::Row<int> cat_k_count(K);
   arma::rowvec cat_k_sum(K);
   
-  int n_iter = as<int>(nSteps);
+  int n_samples = as<int>(nSamples);
+  int n_inter = as<int>(nInter);
+  
+  arma::Mat<int> c_samples(n_samples, N);
+  arma::mat mu_samples(n_samples, K);
   
   arma::colvec ru(N);
   arma::rowvec rn(K);
   double var_mu;
   
-  for(int n_iter_current = 0; n_iter_current < n_iter; n_iter_current++){
-    for(int k = 0; k < K; k ++){
-      prob_mat.col(k) = data_x - new_mu[k];
-    }
-    
-    
-    prob_mat = exp( - prob_mat % prob_mat /2) ;
-    
-    // sample latent
-    ru.randu();
-    for(int n = 0; n < N; n++){
-      prob_mat.row(n) /= sum(prob_mat.row(n));
-      for(int k = 0; k < K; k++){
-        if(ru[n] < prob_mat.at(n,k)){
-          new_c[n] = k;
-          break;
-        }
-        ru[n] -= prob_mat.at(n,k);
+  for(int n_sample_current = 0; n_sample_current < n_samples; n_sample_current++){
+    for(int n_inter_current = 0; n_inter_current < n_inter; n_inter_current++){
+      for(int k = 0; k < K; k ++){
+        prob_mat.col(k) = data_x - new_mu[k];
       }
+      
+      prob_mat = exp( - prob_mat % prob_mat /2) ;
+      
+      // sample latent
+      ru.randu();
+      for(int n = 0; n < N; n++){
+        prob_mat.row(n) /= sum(prob_mat.row(n));
+        for(int k = 0; k < K; k++){
+          if(ru[n] < prob_mat.at(n,k)){
+            new_c[n] = k;
+            break;
+          }
+          ru[n] -= prob_mat.at(n,k);
+        }
+      }
+      
+      for(int k = 0; k < K; k++){
+        cat_k_count[k] = cat_k_sum[k] = 0;
+      }
+      
+      // sample global
+      for(int n = 0; n < N; n++){
+        cat_k_count[new_c[n]] ++;
+        cat_k_sum[new_c[n]] += data_x[n];
+      }
+      
+      rn.randn();
+      for(int k = 0; k < K; k++){
+        var_mu = SIGMA_2 / (1 + cat_k_count[k] * SIGMA_2);
+        new_mu[k] = var_mu * cat_k_sum[k] + rn[k] * sqrt(var_mu);
+      }
+      new_mu = sort(new_mu);
     }
-    
-    for(int k = 0; k < K; k++){
-      cat_k_count[k] = cat_k_sum[k] = 0;
-    }
-    
-    // sample global
-    for(int n = 0; n < N; n++){
-      cat_k_count[new_c[n]] ++;
-      cat_k_sum[new_c[n]] += data_x[n];
-    }
-    
-    rn.randn();
-    for(int k = 0; k < K; k++){
-      var_mu = SIGMA_2 / (1 + cat_k_count[k] * SIGMA_2);
-      new_mu[k] = var_mu * cat_k_sum[k] + rn[k] * sqrt(var_mu);
-    }
-    new_mu = sort(new_mu);
+    c_samples.row(n_sample_current) = new_c.t();
+    mu_samples.row(n_sample_current) = new_mu;
   }
 
   return wrap(List::create(
-    _["cat"] = new_c,
-    _["mu"] = new_mu
+    _["cat"] = c_samples,
+    _["mu"] = mu_samples
   ));
 '
 
 # library(inline)
 gibbs.sampler.cxx = cxxfunction(
-  signature(x = "numeric", oldSample = "ANY", nSteps = "integer"),
+  signature(x = "numeric", initSample = "ANY", nSamples = "integer", nInter = "integer"),
   gibbs.sampler.cxx.body,
   plugin = "RcppArmadillo"
 )
