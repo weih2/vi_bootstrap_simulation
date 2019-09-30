@@ -1,6 +1,6 @@
 #include "../include.h"
 #include "fixed_latent_vars_generation.cpp"
-#define DELTA_COUNT 8
+#define DELTA_COUNT 10
 
 #include<fstream>
 
@@ -33,7 +33,7 @@ int main(){
 
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars,
-        (delta_count + 1) * 1);
+        (delta_count + 1) * 0.5);
 
       bridge bridge_0(dev_settings);
 
@@ -67,6 +67,9 @@ int main(){
           printf("%f ", bridge_0.vwlb_cs_lengths[k * n_experiments + i]);
         }
         printf("\n");
+
+        printf("mean is %f\n", cal_mean(bridge_0.vwlb_cs_lengths, n_experiments));
+        printf("var is %f\n", cal_variance(bridge_0.vwlb_cs_lengths, n_experiments));
       }
       printf("\n vwlb cs2 lengths");
       for(int k = 0; k < K; k++){
