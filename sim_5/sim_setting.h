@@ -1,4 +1,4 @@
-#define K 3
+#define N_CENTERS 3
 
 #define N_OBS 200
 #define N_MCMC_SAMPLES 1000
