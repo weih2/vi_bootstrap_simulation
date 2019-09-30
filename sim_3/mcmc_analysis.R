@@ -104,10 +104,15 @@ coverage2 <- scan()
 945 945 948
 930 954 948
 
+coverage1 = rowMeans(matrix(coverage1, nrow = 51, byrow = T)/1000)
+coverage2 = rowMeans(matrix(coverage2, nrow = 51, byrow = T)/1000)
+
+
+
 coverage1 = as.numeric(matrix(coverage1, nrow = 51, byrow = T))/1000
 coverage2 = as.numeric(matrix(coverage2, nrow = 51, byrow = T))/1000
 
-N = c(rep(100, 153), rep(200, 153))
+N = c(rep("100 obs", 153), rep("200 obs", 153))
 coverage.all = c(coverage1, coverage2)
 
 result.lab = rep( c("cluster 1", "cluster 2", "cluster 3"), each = 51)
