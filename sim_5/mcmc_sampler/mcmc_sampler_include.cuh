@@ -1,6 +1,6 @@
 #define PRIOR_SIGMA2 15.
 
-#include "cuda.h"
+#include <cuda.h>
 // #include <thrust/execution_policy.h>
 // #include <thrust/sort.h>
 
