@@ -2,23 +2,23 @@ class device_mcmc_implementor{
 public:
   __device__ device_mcmc_implementor(double, int);
   int thread_id;
-  double mu[N_CLUSTERS];
+  double mu[N_CENTERS];
 
   ///////////////////////// per experiment
   // random samples
   double obs[N_OBS];
 
-  double mu_samples[K][N_MCMC_SAMPLES];
+  double mu_samples[N_CENTERS][N_MCMC_SAMPLES];
 
   // cridible sets
-  double mcmc_credible_sets[K][2];
-  int covered[K];
+  double mcmc_credible_sets[N_CENTERS][2];
+  int covered[N_CENTERS];
 
   /////////////////////// experiment stats
-  int covered_all[K];
-  double mcmc_credible_sets_lens[K][N_EXPERIMENTS];
-  double mcmc_credible_sets_lens_avg[K];
-  double mcmc_credible_sets_lens_sd[K];
+  int covered_all[N_CENTERS];
+  double mcmc_credible_sets_lens[N_CENTERS][N_EXPERIMENTS];
+  double mcmc_credible_sets_lens_avg[N_CENTERS];
+  double mcmc_credible_sets_lens_sd[N_CENTERS];
 
   ///////////////////// functions
   __device__ void gen_obs();
