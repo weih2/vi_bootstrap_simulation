@@ -14,15 +14,10 @@ public:
   double mcmc_credible_sets[N_CENTERS][2];
   int covered[N_CENTERS];
 
-  /////////////////////// experiment stats
-  int covered_all[N_CENTERS];
-  double mcmc_credible_sets_lens[N_CENTERS][N_EXPERIMENTS];
-  double mcmc_credible_sets_lens_avg[N_CENTERS];
-  double mcmc_credible_sets_lens_sd[N_CENTERS];
-
   ///////////////////// functions
   __device__ void gen_obs();
   __device__ void gen_mcmc_samples();
+  __device__ void print_sample(int &);
 
   __device__ void construct_mcmc_credible_sets();
 };

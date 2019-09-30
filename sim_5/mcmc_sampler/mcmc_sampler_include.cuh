@@ -7,6 +7,5 @@
 #include <curand_kernel.h>
 
 #include "device_mcmc_implementor.cuh"
-
-#include "./mcmc_utils/gen_obs.cu"
-#include "./mcmc_utils/gen_mcmc_samples.cu"
+#include "device_mcmc_init.cu"
+#include "./mcmc_utils/mcmc_utils_include.h"

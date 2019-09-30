@@ -50,7 +50,7 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
       rn = curand_normal_double(&state);
       mu_sample0[k] = rn * sqrt(sample_var) + sample_var * cat_mu_sum[k];
     }
-    // thrust::sort(thrust::device, mu_sample0, mu_sample0 + K);
+    thrust::sort(thrust::device, mu_sample0, mu_sample0 + N_CENTERS);
 
     // take sample if
     if(step >= N_BURN_IN){
