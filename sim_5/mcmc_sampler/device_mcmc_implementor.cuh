@@ -2,7 +2,7 @@ class device_mcmc_implementor{
 public:
   __device__ device_mcmc_implementor(double, int);
   int thread_id;
-  double mu[K];
+  double mu[N_CLUSTERS];
 
   ///////////////////////// per experiment
   // random samples
