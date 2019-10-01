@@ -12,6 +12,7 @@ public:
 
   //// run connection
   void run_mcmc(double);
+  void connector_copy_back();
   //// stats
   double coverage_rates[N_CENTERS];
   double credible_sets_lengths_means[N_CENTERS];
