@@ -52,7 +52,7 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
     }
     thrust::sort(thrust::device, mu_sample0, mu_sample0 + N_CENTERS);
 
-    if(thread_id == 1) printf("%d\n", step);
+    if(thread_id == 1) printf("%d %f\n", step, mu_sample0[0]);
     // take sample if
     if(step >= N_BURN_IN){
       if(step % N_INTER == 0){
