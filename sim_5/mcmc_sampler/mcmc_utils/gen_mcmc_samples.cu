@@ -44,14 +44,10 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
         ru -= cat_prob[k];
       }
     }
-    if(thread_id == 0) {
-      for(int k = 0; k < N_CENTERS; k++) printf("%f ", mu_sample0);
-      printf("\n");
-    }
 
     // sample mu
     for(int k = 0; k < N_CENTERS; k++){
-      sample_var = PRIOR_SIGMA2/(1 + PRIOR_SIGMA2 * cat_mu_count[k]);
+      sample_var = PRIOR_SIGMA2/double(1 + PRIOR_SIGMA2 * cat_mu_count[k]);
       rn = curand_normal_double(&state);
       mu_sample0[k] = rn * sqrt(sample_var) + sample_var * cat_mu_sum[k];
     }
