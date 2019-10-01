@@ -12,6 +12,7 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
   double ru;
   double rn;
 
+  if(thread_id == 1) printf("\n");
   double sample_var;
   int sample_count = 0;
 
