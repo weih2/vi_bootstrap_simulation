@@ -50,7 +50,6 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
       mu_sample0[k] = rn * sqrt(sample_var) + sample_var * cat_mu_sum[k];
     }
     thrust::sort(thrust::device, mu_sample0, mu_sample0 + N_CENTERS);
-    printf("%f \n", mu_sample0[2]);
     // take sample if
     if(step >= N_BURN_IN){
       if(step % N_INTER == 0){
