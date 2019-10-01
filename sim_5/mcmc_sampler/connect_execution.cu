@@ -15,6 +15,6 @@ __global__ void connect_to_execution
   }
 
   if(t_id == 0){
-    printf("%f %f", thread_implementation.mcmc_credible_sets[0][0], thread_implementation.mcmc_credible_sets[0][1])
+    printf("%f %f", thread_implementation.mcmc_credible_sets[0][0], thread_implementation.mcmc_credible_sets[0][1]);
   }
 }
