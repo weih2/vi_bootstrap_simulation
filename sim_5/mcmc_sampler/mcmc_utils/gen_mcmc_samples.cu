@@ -28,12 +28,12 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
     // sample categorical categorical probabilities
     if(thread_id == 1) printf("%d %f\n", step, mu_sample0[0]);
     for(int i = 0; i < N_OBS; i++){
-
       cat_prob_normalizer = 0;
       for(int k = 0; k < N_CENTERS; k++){
         cat_prob_normalizer += ( cat_prob[k] = exp(- (obs[i] - mu_sample0[k]))/2. );
       }
       ru = curand_uniform_double(&state);
+      ru /= cat_prob_normalizer;
       for(int k = 0; k < N_CENTERS; k++){
         if(ru < cat_prob[k]){
           cat_mu_count[k]++;
@@ -55,7 +55,7 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
 
     if(thread_id == 1) printf("%d %f\n", step, mu_sample0[0]);
     // take sample if
-    if(step >= N_BURN_IN){
+    if(0){
       if(step % N_INTER == 0){
         for(int k = 0; k < N_CENTERS; k++){
           mu_samples[k][sample_count] = mu_sample0[k];
