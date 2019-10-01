@@ -2,3 +2,4 @@
 
 #include "./utils/include_utils.h"
 #include "./mcmc_sampler/mcmc_sampler_include.cuh"
+#include "./connector/connector_include.h"
