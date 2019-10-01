@@ -43,7 +43,7 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
         ru -= cat_prob[k];
       }
     }
-  if(thread_id == 1) printf("\n");
+
     // sample mu
     for(int k = 0; k < N_CENTERS; k++){
       sample_var = PRIOR_SIGMA2/(1 + PRIOR_SIGMA2 * cat_mu_count[k]);
@@ -55,6 +55,8 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
     // take sample if
     if(step >= N_BURN_IN){
       if(step % N_INTER == 0){
+
+      if(thread_id == 1) printf("$d\n", step);
         for(int k = 0; k < N_CENTERS; k++){
           mu_samples[k][sample_count] = mu_sample0[k];
         }
