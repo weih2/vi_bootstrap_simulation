@@ -13,8 +13,4 @@ __global__ void connect_to_execution
     dev_credible_sets_lengths[k * N_EXPERIMENTS + t_id] =
     thread_implementation.mcmc_credible_sets[k][1] - thread_implementation.mcmc_credible_sets[k][0];
   }
-
-  if(t_id == 0){
-    printf("%f %f", thread_implementation.mcmc_credible_sets[0][0], thread_implementation.mcmc_credible_sets[0][1]);
-  }
 }
