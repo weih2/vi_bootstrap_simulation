@@ -6,8 +6,6 @@ connector::connector(){
 }
 
 connector::~connector(){
-  for(int k = 0; k < N_CENTERS; k++){
-    cudaFree(device_credible_sets_lengths[k]);
-    cudaFree(device_credible_sets_covered[k]);
-  }
+    cudaFree(device_credible_sets_lengths);
+    cudaFree(device_credible_sets_covered);
 }
