@@ -7,7 +7,7 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
   double cat_prob_normalizer;
 
   double cat_mu_sum[N_CENTERS];
-  double cat_mu_count[N_CENTERS];
+  int cat_mu_count[N_CENTERS];
 
   double ru;
   double rn;
