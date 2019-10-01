@@ -33,6 +33,7 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
       for(int k = 0; k < N_CENTERS; k++){
         cat_prob_normalizer += ( cat_prob[k] = exp(- (obs[i] - mu_sample0[k]))/2. );
       }
+      if((thread_id == 1)&&(i == 0)) printf("%f\n", cat_prob_normalizer);
       ru = curand_uniform_double(&state);
       ru /= cat_prob_normalizer;
       for(int k = 0; k < N_CENTERS; k++){
