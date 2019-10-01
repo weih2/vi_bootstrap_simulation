@@ -8,8 +8,6 @@ __global__ void connect_to_execution
   thread_implementation.gen_mcmc_samples();
   thread_implementation.construct_mcmc_credible_sets();
 
-  if(t_id == 0) thread_implementation.print_sample(N_BURN_IN);
-
   for(int k = 0; k < N_CENTERS; k++){
     dev_credible_sets_covered[k * N_EXPERIMENTS + t_id] = thread_implementation.covered[k];
     dev_credible_sets_lengths[k * N_EXPERIMENTS + t_id] =
