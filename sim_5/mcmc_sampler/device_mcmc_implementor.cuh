@@ -10,7 +10,7 @@ public:
 
   double mu_samples[N_CENTERS][N_MCMC_SAMPLES];
 
-  // cridible sets
+  // cridible sets to send back to host
   double mcmc_credible_sets[N_CENTERS][2];
   int covered[N_CENTERS];
 
