@@ -8,5 +8,4 @@ __device__ void device_mcmc_implementor::construct_mcmc_credible_sets(){
     if((mcmc_credible_sets[k][0] <= mu[k])&&(mcmc_credible_sets[k][1] >= mu[k])) covered[k] = 1;
     else covered[k] = 0;
   }
-  printf("%f \n", mu_samples[2]);
 }
