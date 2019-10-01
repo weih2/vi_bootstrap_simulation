@@ -57,8 +57,7 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
         for(int k = 0; k < N_CENTERS; k++){
           mu_samples[k][sample_count] = mu_sample0[k];
         }
-        sample_count ++;
-        printf("%d\n", sample_count);
+        // sample_count ++;
       }
     }
   }
