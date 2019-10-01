@@ -11,9 +11,7 @@ __global__ void connect_to_execution
   for(int k = 0; k < N_CENTERS; k++){
     printf("%d\n", t_id);
     dev_credible_sets_covered[k * N_EXPERIMENTS + t_id] = thread_implementation.covered[k];
-    printf("%d\n", dev_credible_sets_covered[k][t_id]);
     dev_credible_sets_lengths[k * N_EXPERIMENTS + t_id] =
     thread_implementation.mcmc_credible_sets[k][1] - thread_implementation.mcmc_credible_sets[k][0];
-    printf("%f\n", dev_credible_sets_lengths[k][t_id]);
   }
 }
