@@ -6,6 +6,7 @@ __global__ void connect_to_execution
   if(t_id == 1) printf("\n");
 
   device_mcmc_implementor thread_implementation(delta, t_id);
+  if(t_id == 1) printf("\n");
   thread_implementation.gen_obs();
   thread_implementation.gen_mcmc_samples();
   thread_implementation.construct_mcmc_credible_sets();
