@@ -32,10 +32,10 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
         cat_prob_normalizer += ( cat_prob[k] = exp(- (obs[i] - mu_sample0[k]))/2. );
       }
       ru = curand_uniform_double(&state);
-      ru /= cat_prob_normalizer;
+      ru *= cat_prob_normalizer;
       for(int k = 0; k < N_CENTERS; k++){
         if(ru < cat_prob[k]){
-          cat_mu_count[k] = cat_mu_count[k] + 1;
+          cat_mu_count[k] ++;
           cat_mu_sum[k] += obs[i];
           break;
         }
