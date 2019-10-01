@@ -35,9 +35,8 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
       ru /= cat_prob_normalizer;
       for(int k = 0; k < N_CENTERS; k++){
         if(ru < cat_prob[k]){
-          cat_mu_count[k]++;
+          cat_mu_count[k] = cat_mu_count[k] + 1;
           cat_mu_sum[k] += obs[i];
-          if(thread_id == 0) printf("%d \n", cat_mu_count[2]);
           break;
         }
         ru -= cat_prob[k];
