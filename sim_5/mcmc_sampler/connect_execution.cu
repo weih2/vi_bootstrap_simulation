@@ -1,5 +1,5 @@
 __global__ void connect_to_execution
-(double delta, double *dev_credible_sets_lengths[], int *dev_credible_sets_covered[]){
+(double delta, double *dev_credible_sets_lengths, int *dev_credible_sets_covered){
   int t_id = threadIdx.x + blockIdx.x * blockDim.x;
   if(t_id >= N_EXPERIMENTS) return;
 
