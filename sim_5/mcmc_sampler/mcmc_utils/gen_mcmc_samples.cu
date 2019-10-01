@@ -26,7 +26,6 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
       cat_mu_count[k] = 0;
     }
     // sample categorical categorical probabilities
-    if(thread_id == 1) printf("%d %f\n", step, mu_sample0[0]);
     for(int i = 0; i < N_OBS; i++){
       cat_prob_normalizer = 0;
       for(int k = 0; k < N_CENTERS; k++){
@@ -43,7 +42,6 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
         ru -= cat_prob[k];
       }
     }
-    if(thread_id == 1) printf("%d %f\n", step, mu_sample0[0]);
 
     // sample mu
     for(int k = 0; k < N_CENTERS; k++){
@@ -53,9 +51,9 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
     }
     thrust::sort(thrust::device, mu_sample0, mu_sample0 + N_CENTERS);
 
-    if(thread_id == 1) printf("%d %f\n", step, mu_sample0[0]);
     // take sample if
-    if(0){
+    if(step >= N_BURN_IN){
+      printf("%d", step);
       if(step % N_INTER == 0){
         for(int k = 0; k < N_CENTERS; k++){
           mu_samples[k][sample_count] = mu_sample0[k];
