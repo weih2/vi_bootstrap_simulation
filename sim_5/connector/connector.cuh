@@ -5,10 +5,10 @@ public:
   ~connector();
 
   double credible_sets_lengths[N_CENTERS][N_EXPERIMENTS];
-  double *device_credible_sets_lengths[N_CENTERS];
+  double *device_credible_sets_lengths;
 
   int credible_sets_covered[N_CENTERS][N_EXPERIMENTS];
-  int *device_credible_sets_covered[N_CENTERS];
+  int *device_credible_sets_covered;
 
   //// run connection
   void run_mcmc(double);
