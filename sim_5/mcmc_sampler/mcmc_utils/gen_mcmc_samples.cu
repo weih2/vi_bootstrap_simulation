@@ -49,8 +49,8 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
     for(int k = 0; k < N_CENTERS; k++){
       sample_var = PRIOR_SIGMA2/double(1 + PRIOR_SIGMA2 * cat_mu_count[k]);
       rn = curand_normal_double(&state);
+      printf("%f\n", sample_var);
       mu_sample0[k] = rn * sqrt(sample_var) + sample_var * cat_mu_sum[k];
-      if(thread_id == 0) printf("%f ", mu_sample0[k]);
     }
     thrust::sort(thrust::device, mu_sample0, mu_sample0 + N_CENTERS);
     // take sample if
