@@ -29,7 +29,7 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
     for(int i = 0; i < N_OBS; i++){
       cat_prob_normalizer = 0;
       for(int k = 0; k < N_CENTERS; k++){
-        cat_prob_normalizer += ( cat_prob[k] = exp(- (obs[i] - mu_sample0[k]))/2. );
+        cat_prob_normalizer += ( cat_prob[k] = exp(- (obs[i] - mu_sample0[k]))*(obs[i] - mu_sample0[k]))/2. );
       }
       for(int k = 0; k < N_CENTERS; k++){
         cat_prob[k] /= cat_prob_normalizer;
