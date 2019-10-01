@@ -5,7 +5,6 @@ __device__ void device_mcmc_implementor::gen_obs(){
 
   for(int i = 0; i < N_OBS; i++){
     cat = floor(curand_uniform_double(&state) * N_CENTERS);
-    printf("%d", cat);
     obs[i] = mu[cat] + curand_normal_double(&state);
   }
 }

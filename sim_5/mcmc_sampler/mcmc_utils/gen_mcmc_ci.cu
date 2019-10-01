@@ -5,8 +5,8 @@ __device__ void device_mcmc_implementor::construct_mcmc_credible_sets(){
     sample_quantile_from_sorted_data(mu_samples[k], N_MCMC_SAMPLES, 0.025);
     mcmc_credible_sets[k][1] =
     sample_quantile_from_sorted_data(mu_samples[k], N_MCMC_SAMPLES, 0.975);
-    printf("%f %f\n", mcmc_credible_sets[k][0], mcmc_credible_sets[k][1]);
     if((mcmc_credible_sets[k][0] <= mu[k])&&(mcmc_credible_sets[k][1] >= mu[k])) covered[k] = 1;
     else covered[k] = 0;
   }
+  printf("%f \n", mu_samples[2]);
 }
