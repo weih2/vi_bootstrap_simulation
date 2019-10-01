@@ -9,3 +9,5 @@
 #include "device_mcmc_implementor.cuh"
 #include "device_mcmc_init.cu"
 #include "./mcmc_utils/mcmc_utils_include.h"
+
+#include "connect_execution.cu"
