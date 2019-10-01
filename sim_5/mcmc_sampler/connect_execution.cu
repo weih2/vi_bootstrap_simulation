@@ -7,8 +7,8 @@ __global__ void connect_to_execution
 
   device_mcmc_implementor thread_implementation(delta, t_id);
   thread_implementation.gen_obs();
-  if(t_id == 1) printf("\n");
   thread_implementation.gen_mcmc_samples();
+  if(t_id == 1) printf("\n");
   thread_implementation.construct_mcmc_credible_sets();
 
   if(t_id == 1) {
