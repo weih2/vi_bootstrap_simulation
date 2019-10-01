@@ -33,7 +33,7 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
       }
       for(int k = 0; k < N_CENTERS; k++)
         cat_prob[k] /= cat_prob_normalizer;
-      
+
       ru = curand_uniform_double(&state);
       for(int k = 0; k < N_CENTERS; k++){
         if(ru < cat_prob[k]){
@@ -44,7 +44,10 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
         ru -= cat_prob[k];
       }
     }
-
+    if(thread_id == 0) {
+      for(int k = 0; k < N_CENTERS; k++) printf("%f ", mu_sample0);
+      printf("\n");
+    }
 
     // sample mu
     for(int k = 0; k < N_CENTERS; k++){
