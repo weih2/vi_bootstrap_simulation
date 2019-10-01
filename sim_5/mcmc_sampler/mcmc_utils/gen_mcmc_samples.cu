@@ -42,9 +42,8 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
         ru -= cat_prob[k];
       }
     }
-    if(thread_id == 0) for(int k = 0; k < N_CENTERS){
-      printf("%d \n", cat_mu_count[k]);
-    }
+    if(thread_id == 0) 
+      printf("%d \n", cat_mu_count[2]);
 
     // sample mu
     for(int k = 0; k < N_CENTERS; k++){
