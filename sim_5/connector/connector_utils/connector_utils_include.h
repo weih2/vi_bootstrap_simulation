@@ -2,3 +2,4 @@
 #include "connector_gen_stats.cu"
 #include "connector_copy_back.cu"
 #include "print_stats.cpp"
+#include "run_mcmc.cu"
