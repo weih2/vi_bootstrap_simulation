@@ -17,7 +17,7 @@ public:
   ///////////////////// functions
   __device__ void gen_obs();
   __device__ void gen_mcmc_samples();
-  __device__ void print_sample(int &);
+  __device__ void print_sample(int);
 
   __device__ void construct_mcmc_credible_sets();
 };
