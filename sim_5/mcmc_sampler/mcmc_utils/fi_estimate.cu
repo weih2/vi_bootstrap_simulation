@@ -17,8 +17,8 @@ __device__ void device_mcmc_implementor::fi_estimate(){
   double *ptr[1];
   double *ptr_inv[1];
 
-  ptr[0] = &fi_estimation;
-  ptr_inv[0] = &fi_inv_estimation;
+  ptr[0] = fi_estimation;
+  ptr_inv[0] = fi_inv_estimation;
 
   // fxxking hard to use
   cublasDgetrfBatched(cnpHandle, N_CENTERS, ptr_inv,
