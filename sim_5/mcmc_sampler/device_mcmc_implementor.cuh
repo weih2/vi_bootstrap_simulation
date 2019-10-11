@@ -23,5 +23,5 @@ public:
 
   __device__ void construct_mcmc_credible_sets();
 
-  __device__ void fi_estimate();
+  __device__ void fi_inv_estimate();
 };
