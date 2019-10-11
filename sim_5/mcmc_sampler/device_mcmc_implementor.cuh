@@ -14,7 +14,7 @@ public:
   double mcmc_credible_sets[N_CENTERS][2];
   int covered[N_CENTERS];
   // upper triangular fisher info estimate
-  double fi_estimation[N_CENTERS * N_CENTERS];
+  double fi_inv_estimation[N_CENTERS * N_CENTERS];
 
   ///////////////////// functions
   __device__ void gen_obs();

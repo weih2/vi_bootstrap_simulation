@@ -7,7 +7,7 @@ __global__ void connect_to_execution
   thread_implementation.gen_obs();
   thread_implementation.gen_mcmc_samples();
   thread_implementation.construct_mcmc_credible_sets();
-  thread_implementation.fi_estimate();
+  thread_implementation.fi_inv_estimate();
 
   for(int k = 0; k < N_CENTERS; k++){
     dev_credible_sets_covered[k * N_EXPERIMENTS + t_id] = thread_implementation.covered[k];
