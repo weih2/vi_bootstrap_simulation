@@ -2,3 +2,4 @@
 #include "gen_mcmc_samples.cu"
 #include "gen_mcmc_ci.cu"
 #include "print_sample.cu"
+#include "fi_estimate.cu"

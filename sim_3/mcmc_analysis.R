@@ -124,7 +124,9 @@ result.df.all = data.frame(coverage = coverage.all, cluster = result.lab,
                            delta = test.seq, N = N)
 ggplot(data = result1.df, 
        mapping = aes(x = delta, y = coverage, color = cluster)) + geom_line(aes(linetype = cluster)) +
-  theme_grey(base_size = 25) + scale_color_manual(values=c("#000000", "#0000FF", "#FF0000"))
+  geom_point(aes(shape = cluster)) + theme_grey(base_size = 25) + scale_color_manual(values=c("#000000", "#0000FF", "#FF0000")) +
+  scale_linetype_manual(name = "cluster", values = c("solid", "dashed", "dotted")) +
+  scale_shape_discrete(solid=F)
 
 ggplot(data = result.df.all,
        mapping = aes(x = delta, y = coverage, color = cluster)) + geom_line() +

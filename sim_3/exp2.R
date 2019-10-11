@@ -23,7 +23,7 @@ mcmc.credit.set.wrapper <- function(o){
 }
 
 test.seq = exp(seq(-3, 2, by = 0.1))
-n.test.seq = 0
+  n.test.seq = 0
 
 for(delta in test.seq){
   n.test.seq = n.test.seq + 1

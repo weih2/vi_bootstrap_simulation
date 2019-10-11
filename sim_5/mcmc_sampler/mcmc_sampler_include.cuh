@@ -2,6 +2,7 @@
 
 #include <cuda.h>
 #include <cuda_runtime.h>
+#include "cublas_v2.h"
 #include <thrust/execution_policy.h>
 #include <thrust/sort.h>
 

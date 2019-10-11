@@ -13,6 +13,8 @@ public:
   // cridible sets to send back to host
   double mcmc_credible_sets[N_CENTERS][2];
   int covered[N_CENTERS];
+  // upper triangular fisher info estimate
+  double fi_estimation[N_CENTERS * N_CENTERS];
 
   ///////////////////// functions
   __device__ void gen_obs();
@@ -20,4 +22,6 @@ public:
   __device__ void print_sample(int);
 
   __device__ void construct_mcmc_credible_sets();
+
+  __device__ void fi_estimate();
 };
