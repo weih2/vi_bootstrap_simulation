@@ -16,8 +16,8 @@ __device__ void device_mcmc_implementor::fi_estimate(){
 
   // fxxking hard to use
   cublasDgetrfBatched(cnpHandle, N_CENTERS, &fi_inv_estimation,
-     N_CENTERS, &pivot_arr, &info_cblas, 1);
+     N_CENTERS, pivot_arr, &info_cblas, 1);
 
-  cublasDgetriBatched(cnpHandle, N_CENTERS, &fi_inv_estimation, N_CENTERS, &pivot_arr,
+  cublasDgetriBatched(cnpHandle, N_CENTERS, &fi_inv_estimation, N_CENTERS, pivot_arr,
     &fi_estimation, N_CENTERS, &info_cblas, 1);
 }
