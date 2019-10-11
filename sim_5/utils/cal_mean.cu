@@ -29,4 +29,4 @@ __device__ __host__ inline double cal_covariance(const double *observations1, co
   }
   covariance /= double(n_observations - 1);
   return covariance;
-｝
+}
