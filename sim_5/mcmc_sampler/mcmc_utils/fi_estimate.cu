@@ -1,4 +1,4 @@
-__device__ device_mcmc_implementor::fi_inv_estimate(){
+__device__ device_mcmc_implementor::fi_estimate(){
   double fi_inv_estimation[N_CENTERS * N_CENTERS]
 
   for(int k1 = 0; k1 < N_CENTERS; k1++){
