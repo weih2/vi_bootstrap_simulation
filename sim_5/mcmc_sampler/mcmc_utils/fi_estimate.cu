@@ -14,10 +14,16 @@ __device__ void device_mcmc_implementor::fi_estimate(){
   int pivot_arr[N_CENTERS];
   int info_cblas;
 
+  double *ptr[1];
+  double *ptr_inv[1];
+
+  ptr[0] = &fi_estimation;
+  ptr_inv[0] = &fi_inv_estimation;
+
   // fxxking hard to use
-  cublasDgetrfBatched(cnpHandle, N_CENTERS, &fi_inv_estimation,
+  cublasDgetrfBatched(cnpHandle, N_CENTERS, ptr_inv,
      N_CENTERS, pivot_arr, &info_cblas, 1);
 
-  cublasDgetriBatched(cnpHandle, N_CENTERS, &fi_inv_estimation, N_CENTERS, pivot_arr,
-    &fi_estimation, N_CENTERS, &info_cblas, 1);
+  cublasDgetriBatched(cnpHandle, N_CENTERS, ptr_inv, N_CENTERS, pivot_arr,
+    ptr, N_CENTERS, &info_cblas, 1);
 }
