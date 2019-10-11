@@ -18,8 +18,8 @@ __device__ __host__ inline double cal_variance(const double *observations, int n
   return variance;
 }
 
-__device__ __host__ inline double cal_covariance(const double *observations1,
-  const double *observations2, int n_observations)｛
+__device__ __host__ inline double cal_covariance(const double *observations1, const double *observations2,
+  int n_observations){
   double mean_1 = cal_mean(observations1, n_observations);
   double mean_2 = cal_mean(observations2, n_observations);
 
