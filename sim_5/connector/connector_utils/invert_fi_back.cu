@@ -19,15 +19,14 @@ void connector::invert_fi_back(){
   for(int n = 0; n < N_EXPERIMENTS; n++)
     device_fi[n] = device_fi_ + N_CENTERS * N_CENTERS * n;
 
-  /*
+
   // LU decompositions
   cublasDgetrfBatched(handle, N_CENTERS, dev_fi_inv_,
     N_CENTERS, p_arr, info_arr, N_EXPERIMENTS);
   // inversion
   cublasDgetriBatched(handle, N_CENTERS, dev_fi_inv_, N_CENTERS, p_arr,
     device_fi, N_CENTERS, info_arr, N_EXPERIMENTS);
-  */
-  
+
   // copy back to host
   cudaMemcpy(fi_est, device_fi_,
     N_CENTERS * N_CENTERS * N_EXPERIMENTS * sizeof(double), cudaMemcpyDeviceToHost);
@@ -35,4 +34,5 @@ void connector::invert_fi_back(){
   cudaFree(p_arr);
   cudaFree(info_arr);
   cudaFree(device_fi_);
+  cublasDestroy(handle);
 }
