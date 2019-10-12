@@ -5,7 +5,7 @@ int main(){
   executor.run_mcmc(5);
   executor.gen_stats();
   executor.print_stats();
-  executor.print_cov();
+  // executor.print_cov();
 
   return 0;
 }
