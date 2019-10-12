@@ -11,7 +11,7 @@ void connector::invert_fi_back(){
   double *device_fi[N_EXPERIMENTS], *device_fi_;
 
   cudaMalloc((void**)&p_arr, N_CENTERS * N_EXPERIMENTS * sizeof(int));
-  cudaMalloc((void**)&info_arr, N_CENTERS * N_EXPERIMENTS * sizeof(int));
+  cudaMalloc((void**)&info_arr, N_EXPERIMENTS * sizeof(int));
   // exist in global memory
   cudaMalloc((void**)&device_fi_,
     N_CENTERS * N_CENTERS * N_EXPERIMENTS * sizeof(double));
