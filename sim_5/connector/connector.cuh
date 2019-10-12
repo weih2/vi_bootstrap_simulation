@@ -25,4 +25,5 @@ public:
   //// host side calculate stats
   void gen_stats();
   void print_stats();
+  void print_cov();
 };
