@@ -64,4 +64,5 @@ __device__ void device_mcmc_implementor::gen_mcmc_samples(){
       }
     }
   }
+  if(thread_id == 0) printf("%f\n", mu_samples[0][N_MCMC_SAMPLES - 1]);
 }
