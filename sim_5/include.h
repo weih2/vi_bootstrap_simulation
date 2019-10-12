@@ -1,4 +1,4 @@
-#include <mkl.h>
+#include <lapacke.h>
 
 #include "sim_setting.h"
 
