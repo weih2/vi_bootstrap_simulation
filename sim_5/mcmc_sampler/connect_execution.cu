@@ -1,5 +1,5 @@
 __global__ void connect_to_execution
-(double delta, double *dev_credible_sets_lengths, int *dev_credible_sets_covered){
+(double delta, double *dev_credible_sets_lengths, int *dev_credible_sets_covered, double *dev_fi_inv){
   int t_id = threadIdx.x + blockIdx.x * blockDim.x;
   if(t_id >= N_EXPERIMENTS) return;
 
@@ -8,6 +8,9 @@ __global__ void connect_to_execution
   thread_implementation.gen_mcmc_samples();
   thread_implementation.construct_mcmc_credible_sets();
   thread_implementation.fi_inv_estimate();
+
+  for(int k = 0; k < N_CENTERS * N_CENTERS; k++)
+    dev_fi_inv[k + t_id * N_CENTERS * N_CENTERS] = thread_implementation.fi_inv_estimation[k];
 
   for(int k = 0; k < N_CENTERS; k++){
     dev_credible_sets_covered[k * N_EXPERIMENTS + t_id] = thread_implementation.covered[k];
