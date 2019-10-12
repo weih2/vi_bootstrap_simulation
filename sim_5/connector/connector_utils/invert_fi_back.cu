@@ -21,10 +21,10 @@ void connector::invert_fi_back(){
     device_fi[n] = device_fi_ + N_CENTERS * N_CENTERS;
 
   // LU decompositions
-  cublasDgetrfBatched(handle, N_CENTERS, device_fi_inv_,
+  cublasDgetrfBatched(handle, N_CENTERS, dev_fi_inv_,
     N_CENTERS, p_arr, info_arr, N_EXPERIMENTS);
   // inversion
-  cublasDgetriBatched(handle, N_CENTERS, device_fi_inv_, N_CENTERS, p_arr,
+  cublasDgetriBatched(handle, N_CENTERS, dev_fi_inv_, N_CENTERS, p_arr,
     device_fi, N_CENTERS, info_arr, N_EXPERIMENTS);
 
   // copy back to host
