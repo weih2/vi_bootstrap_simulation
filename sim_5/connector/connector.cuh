@@ -10,10 +10,6 @@ public:
   int credible_sets_covered[N_CENTERS][N_EXPERIMENTS];
   int *device_credible_sets_covered;
 
-  double *dev_fi_inv_[N_EXPERIMENTS];
-  double *dev_fi_inv;
-  double fi_est[N_CENTERS * N_CENTERS * N_EXPERIMENTS]; // point to host
-
   //// run connection
   void run_mcmc(double);
   void connector_copy_back();

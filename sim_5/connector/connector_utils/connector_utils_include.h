@@ -3,4 +3,3 @@
 #include "connector_copy_back.cu"
 #include "print_stats.cpp"
 #include "run_mcmc.cu"
-#include "invert_fi_back.cu"

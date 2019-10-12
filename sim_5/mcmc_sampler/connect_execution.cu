@@ -10,11 +10,6 @@ __global__ void connect_to_execution
   thread_implementation.construct_mcmc_credible_sets();
   thread_implementation.fi_inv_estimate();
 
-  // manually copy the fisher information inverse
-  // back to GPU global memory
-  for(int i = 0; i < N_CENTERS * N_CENTERS; i++)
-    dev_fi_inv[t_id][i] = thread_implementation.fi_inv_estimation[i];
-
   for(int k = 0; k < N_CENTERS; k++){
     dev_credible_sets_covered[k * N_EXPERIMENTS + t_id] = thread_implementation.covered[k];
     dev_credible_sets_lengths[k * N_EXPERIMENTS + t_id] =
