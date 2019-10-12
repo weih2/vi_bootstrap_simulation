@@ -10,7 +10,6 @@ void connector::invert_fi_back(){
   // temporarily store fisher info estimate
   double *device_fi[N_EXPERIMENTS], *device_fi_;
 
-
   cudaMalloc((void**)&p_arr, N_CENTERS * N_EXPERIMENTS * sizeof(int));
   cudaMalloc((void**)&info_arr, N_CENTERS * N_EXPERIMENTS * sizeof(int));
   // exist in global memory
@@ -22,6 +21,7 @@ void connector::invert_fi_back(){
   // LU decompositions
   cublasDgetrfBatched(handle, N_CENTERS, dev_fi_inv_,
     N_CENTERS, p_arr, info_arr, N_EXPERIMENTS);
+    printf("so far so good\n");
   // inversion
   cublasDgetriBatched(handle, N_CENTERS, dev_fi_inv_, N_CENTERS, p_arr,
     device_fi, N_CENTERS, info_arr, N_EXPERIMENTS);
