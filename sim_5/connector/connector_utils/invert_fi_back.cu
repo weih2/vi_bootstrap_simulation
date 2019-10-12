@@ -33,7 +33,5 @@ void connector::invert_fi_back(){
   cudaFree(p_arr);
   cudaFree(info_arr);
   cudaFree(device_fi_);
-  cublasDestroy(handle);
-
-      printf("so far so good\n");
+  // cublasDestroy(handle);
 }
