@@ -1,4 +1,4 @@
-#include <lapacke.h>
+// #include <lapacke.h>
 
 void cov_estimator(double* inv_fi, double* diag_fi){
   LAPACKE_dpotrf(LAPACK_ROW_MAJOR, 'U', N_CENTERS, inv_fi, N_CENTERS);
