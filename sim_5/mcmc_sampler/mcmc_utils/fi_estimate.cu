@@ -7,4 +7,9 @@ __device__ void device_mcmc_implementor::fi_inv_estimate(){
       fi_inv_estimation[k2 * N_CENTERS + k1] = fi_inv_estimation[k1 * N_CENTERS + k2];
     }
   }
+
+  if(thread_id == 0){
+    for(int k = 0; k < N_CENTERS * N_CENTERS; k++)
+    printf("%f ", fi_inv_estimation[k]);
+  }
 }
