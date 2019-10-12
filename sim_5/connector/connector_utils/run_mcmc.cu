@@ -4,6 +4,6 @@ void connector::run_mcmc(double delta){
   cudaDeviceSynchronize();
   connector_copy_back();
   cudaDeviceSynchronize();
-  invert_fi_back();
+  // invert_fi_back();
   cudaDeviceSynchronize();
 }
