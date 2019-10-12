@@ -10,9 +10,13 @@ public:
   int credible_sets_covered[N_CENTERS][N_EXPERIMENTS];
   int *device_credible_sets_covered;
 
+  double *dev_fi_inv_[N_EXPERIMENTS]; // point to thread local memory
+  double fi_est[N_CENTERS][N_EXPERIMENTS]; // point to host
+
   //// run connection
   void run_mcmc(double);
   void connector_copy_back();
+  void invert_fi_back();
   //// stats
   double coverage_rates[N_CENTERS];
   double credible_sets_lengths_means[N_CENTERS];
