@@ -1,4 +1,4 @@
-#include "include.h"
+#include "include.cuh"
 
 int main(){
   connector executor = connector();
