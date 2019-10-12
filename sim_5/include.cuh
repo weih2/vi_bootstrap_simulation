@@ -1,5 +1,3 @@
-// #include <lapacke.h>
-
 #include "sim_setting.h"
 
 #include "./utils/include_utils.cuh"
