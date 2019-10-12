@@ -19,7 +19,7 @@ void connector::invert_fi_back(){
 
   for(int n = 0; n < N_EXPERIMENTS; n++)
     device_fi[n] = device_fi_ + N_CENTERS * N_CENTERS;
-
+  printf("so far so good\n");
   // LU decompositions
   cublasDgetrfBatched(handle, N_CENTERS, dev_fi_inv_,
     N_CENTERS, p_arr, info_arr, N_EXPERIMENTS);
