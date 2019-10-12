@@ -10,7 +10,8 @@ __global__ void connect_to_execution
   thread_implementation.construct_mcmc_credible_sets();
   thread_implementation.fi_inv_estimate();
 
-  dev_fi_inv[t_id] = thread_implementation.fi_inv_estimation;
+  cudaMemcpy( dev_fi_inv[t_id], thread_implementation.fi_inv_estimation
+    N_CENTERS * N_CENTERS * sizeof(double), cudaMemcpyDeviceToDevice);
 
   for(int k = 0; k < N_CENTERS; k++){
     dev_credible_sets_covered[k * N_EXPERIMENTS + t_id] = thread_implementation.covered[k];
