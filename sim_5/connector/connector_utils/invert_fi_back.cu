@@ -30,9 +30,10 @@ void connector::invert_fi_back(){
   cudaMemcpy(fi_est, device_fi_,
     N_CENTERS * N_CENTERS * N_EXPERIMENTS * sizeof(double), cudaMemcpyDeviceToHost);
 
-    printf("so far so good\n");
   cudaFree(p_arr);
   cudaFree(info_arr);
   cudaFree(device_fi_);
   cublasDestroy(handle);
+
+      printf("so far so good\n");
 }
