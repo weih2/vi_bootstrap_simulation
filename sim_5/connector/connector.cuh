@@ -12,7 +12,7 @@ public:
 
   double *dev_fi_inv_[N_EXPERIMENTS];
   double *dev_fi_inv;
-  double fi_est[N_CENTERS][N_EXPERIMENTS]; // point to host
+  double fi_est[N_CENTERS * N_CENTERS * N_EXPERIMENTS]; // point to host
 
   //// run connection
   void run_mcmc(double);
