@@ -6,5 +6,5 @@ void connector::connector_copy_back(){
       sizeof(int) * N_EXPERIMENTS, cudaMemcpyDeviceToHost);
   }
   cudaMemcpy(fi_inv, dev_fi_inv,
-    sizeof(double) * N_CENTERS * N_CENTERS * N_EXPERIMENTS, cudaMemcpyDeviceToHost)
+    sizeof(double) * N_CENTERS * N_CENTERS * N_EXPERIMENTS, cudaMemcpyDeviceToHost);
 }
