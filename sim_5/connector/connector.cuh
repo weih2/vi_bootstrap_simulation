@@ -10,7 +10,7 @@ public:
   int credible_sets_covered[N_CENTERS][N_EXPERIMENTS];
   int *device_credible_sets_covered;
 
-  double *fi_inv[N_CENTERS * N_CENTERS * N_EXPERIMENTS];
+  double fi_inv[N_CENTERS * N_CENTERS * N_EXPERIMENTS];
   double *dev_fi_inv;
 
   //// run connection
