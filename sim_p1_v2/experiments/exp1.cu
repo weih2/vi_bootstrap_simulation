@@ -40,7 +40,7 @@ int main(){
 
       bridge_0.connect_to_execution();
 
-      for(int k = 0; k < K; k++){
+      for(int k = 0; k < N_CLUSTERS; k++){
         vwlb_cs_covered_counts_total[delta_count] = 0;
         vp_cs_covered_counts_total[delta_count] = 0;
         empirical_ci_covered_counts_total[delta_count] = 0;
@@ -49,7 +49,7 @@ int main(){
 
       n_outliers[delta_count] = bridge_0.n_outliers;
 
-      for(int k = 0; k < K; k++){
+      for(int k = 0; k < N_CLUSTERS; k++){
         vwlb_cs_covered_counts_total[delta_count]
          += bridge_0.vwlb_cs_covered_counts[k];
         vp_cs_covered_counts_total[delta_count]
@@ -73,10 +73,10 @@ int main(){
     int n_effective;
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
       n_effective = n_experiments - n_outliers[delta_count];
-      vwlb_cs_covered_counts_total[delta_count] /= double(K * n_effective);
-      vp_cs_covered_counts_total[delta_count] /= double(K * n_effective);
-      empirical_ci_covered_counts_total[delta_count] /= double(K * n_effective);
-      vwlb_cs2_covered_counts_total[delta_count] /= double(K * n_effective);
+      vwlb_cs_covered_counts_total[delta_count] /= double(N_CLUSTERS * n_effective);
+      vp_cs_covered_counts_total[delta_count] /= double(N_CLUSTERS * n_effective);
+      empirical_ci_covered_counts_total[delta_count] /= double(N_CLUSTERS * n_effective);
+      vwlb_cs2_covered_counts_total[delta_count] /= double(N_CLUSTERS * n_effective);
       printf("%f ", vwlb_cs_covered_counts_total[delta_count]);
     }
     printf("\n");

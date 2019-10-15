@@ -6,11 +6,11 @@ device_cavi_implementation::device_weighted_cavi_point_estimate_update(){
   double sum_phi;
   for(int i = 0; i < n_samples; i++){
     sum_phi = 0;
-    for(int k = 0; k < K; k++){
+    for(int k = 0; k < N_CLUSTERS; k++){
       phi_b[i][k] = exp(x[i] * m_b[k] - (s2_b[k] + m_b[k]*m_b[k])/2.);
       sum_phi += phi_b[i][k];
     }
-    for(int k = 0; k < K; k++){
+    for(int k = 0; k < N_CLUSTERS; k++){
       phi_b[i][k] /= sum_phi;
       elbo -= phi_b[i][k] * log(phi_b[i][k]) * weights[i];
     }
@@ -18,7 +18,7 @@ device_cavi_implementation::device_weighted_cavi_point_estimate_update(){
 
   // update posterior of mu
   double product_x_phi;
-  for(int k = 0; k < K; k++){
+  for(int k = 0; k < N_CLUSTERS; k++){
     sum_phi = 0;
     product_x_phi = 0;
 

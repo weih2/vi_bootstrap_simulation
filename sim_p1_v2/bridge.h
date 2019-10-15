@@ -30,13 +30,13 @@ public:
   double *device_vp_cs_lengths;
   double *vp_cs_lengths;
 
-  double empirical_ci[K][2];
+  double empirical_ci[N_CLUSTERS][2];
 
   int n_outliers;
-  int vwlb_cs_covered_counts[K];
-  int vwlb_cs2_covered_counts[K];
-  int vp_cs_covered_counts[K];
-  int empirical_ci_covered_counts[K];
+  int vwlb_cs_covered_counts[N_CLUSTERS];
+  int vwlb_cs2_covered_counts[N_CLUSTERS];
+  int vp_cs_covered_counts[N_CLUSTERS];
+  int empirical_ci_covered_counts[N_CLUSTERS];
 
   void init_device();
   void copy_to_device();

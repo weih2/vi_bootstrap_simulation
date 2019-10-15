@@ -11,7 +11,7 @@ __global__ void cavi_execute(bridge bg, int bootstrap_execution){
     // thread_implementation.device_vwlb_cs2_construct();
     thread_implementation.device_vp_cs_construct();
 
-    for(int k = 0; k < K; k++){
+    for(int k = 0; k < N_CLUSTERS; k++){
       if((thread_implementation.vp_cs[k][0] < thread_implementation.mu[k])
         &&(thread_implementation.vp_cs[k][1] > thread_implementation.mu[k]))
         bg.device_vp_cs_covered[k * n_experiments + t_id] = 1;
@@ -30,7 +30,7 @@ __global__ void cavi_execute(bridge bg, int bootstrap_execution){
   // bg.device_is_outlier[t_id] = thread_implementation.is_outlier;
 
   if(bootstrap_execution == 2){  // consider length
-    for(int k = 0; k < K; k++){
+    for(int k = 0; k < N_CLUSTERS; k++){
       bg.device_vwlb_cs_lengths[k * n_experiments + t_id] =
         thread_implementation.vwlb_cs[k][1] - thread_implementation.vwlb_cs[k][0];
       bg.device_vwlb_cs2_lengths[k * n_experiments + t_id] =
@@ -41,7 +41,7 @@ __global__ void cavi_execute(bridge bg, int bootstrap_execution){
   }
 
   // in a non-bootstrap implementation this is all we need
-  for(int k = 0; k < K; k++){
+  for(int k = 0; k < N_CLUSTERS; k++){
     (bg.device_empirical_mu)[t_id + k * n_experiments] = thread_implementation.m[k];
   }
 }

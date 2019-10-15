@@ -1,6 +1,6 @@
 __device__ device_cavi_implementation::device_cavi_implementation(device_settings dev_settings, int t_id){
   // copy local variables
-  for(int k = 0; k < K; k++){
+  for(int k = 0; k < N_CLUSTERS; k++){
     mu[k] = dev_settings.l_vars.mu[k];
   }
 
@@ -8,7 +8,7 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
     c[i] = dev_settings.l_vars.c[i];
   }
 
-  // sigma_2 = cal_variance(mu, K);
+  // sigma_2 = cal_variance(mu, N_CLUSTERS);
 
   // copy settings
   device_max_n_iter = *dev_settings.max_n_iter;
@@ -26,11 +26,11 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
   if(t_id == 0) (*dev_settings.data_count)++;
 
   // initialize estimates
-  for(int k = 0; k < K; k++){
+  for(int k = 0; k < N_CLUSTERS; k++){
     m[k] = curand_normal_double(&state) * sqrt(double(sigma_2));
     s2[k] = sigma_2;
     for(int i = 0; i < n_samples; i++){
-      phi[i][k] = 1/double(K);
+      phi[i][k] = 1/double(N_CLUSTERS);
     }
   }
 

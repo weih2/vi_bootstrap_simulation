@@ -1,14 +1,14 @@
 void bridge::construct_empirical_ci(){
   cudaMemcpy(host_empirical_mu, device_empirical_mu,
-    sizeof(double) * K * n_experiments, cudaMemcpyDeviceToHost);
+    sizeof(double) * N_CLUSTERS * n_experiments, cudaMemcpyDeviceToHost);
 
   // cudaMemcpy(is_outlier, device_is_outlier,
   //  sizeof(int) * n_experiments, cudaMemcpyDeviceToHost);
 
   // estimate standard deviation
-  double avg_m[K];
-  double sd_m_est[K];
-  for(int k = 0; k < K; k++){
+  double avg_m[N_CLUSTERS];
+  double sd_m_est[N_CLUSTERS];
+  for(int k = 0; k < N_CLUSTERS; k++){
     avg_m[k] = 0;
     sd_m_est[k] = 0;
     for(int n = 0; n < n_experiments; n++){
@@ -31,7 +31,7 @@ void bridge::construct_empirical_ci(){
     // detect outlier
   for(int n = 0; n < n_experiments; n++){
     is_outlier[n] = 0;
-    for(int k = 0; k < K; k++){
+    for(int k = 0; k < N_CLUSTERS; k++){
       if(fabs(host_empirical_mu[k*n_experiments + n] - avg_m[k]) > sd_m_est[k] * 3 ){
         is_outlier[n] = 1;
         n_outliers ++;
@@ -40,7 +40,7 @@ void bridge::construct_empirical_ci(){
     }
   }
 
-  for(int k = 0; k < K; k++){
+  for(int k = 0; k < N_CLUSTERS; k++){
     avg_m[k] = 0;
     sd_m_est[k] = 0;
     for(int n = 0; n < n_experiments; n++){

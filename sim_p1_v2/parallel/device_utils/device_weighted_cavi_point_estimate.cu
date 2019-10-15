@@ -11,10 +11,10 @@ __device__ void device_cavi_implementation::device_weighted_cavi_point_estimate(
       if((elbo - old_elbo) < device_epsilon) break;
     }
 
-    thrust::sort_by_key(thrust::device, m_b, m_b + K, s2_b);
-    // gsl_sort2(est.m, 1, est.s2, 1, data.g_vars.K);
+    thrust::sort_by_key(thrust::device, m_b, m_b + N_CLUSTERS, s2_b);
+    // gsl_sort2(est.m, 1, est.s2, 1, data.g_vars.N_CLUSTERS);
 
-    for(int k = 0; k < K; k++){
+    for(int k = 0; k < N_CLUSTERS; k++){
       map_mu[k][b_count] = m_b[k];
     }
   }

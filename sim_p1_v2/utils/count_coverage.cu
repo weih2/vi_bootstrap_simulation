@@ -1,17 +1,17 @@
 void bridge::count_coverage(){
   // waiting for execution of threads
   cudaMemcpy(vwlb_cs_covered, device_vwlb_cs_covered,
-    sizeof(int) * K * n_experiments, cudaMemcpyDeviceToHost);
+    sizeof(int) * N_CLUSTERS * n_experiments, cudaMemcpyDeviceToHost);
 
   cudaMemcpy(vwlb_cs2_covered, device_vwlb_cs2_covered,
-    sizeof(int) * K * n_experiments, cudaMemcpyDeviceToHost);
+    sizeof(int) * N_CLUSTERS * n_experiments, cudaMemcpyDeviceToHost);
 
   cudaMemcpy(vp_cs_covered, device_vp_cs_covered,
-    sizeof(int) * K * n_experiments, cudaMemcpyDeviceToHost);
+    sizeof(int) * N_CLUSTERS * n_experiments, cudaMemcpyDeviceToHost);
 
   construct_empirical_ci();
 
-  for(int k = 0; k < K; k++){
+  for(int k = 0; k < N_CLUSTERS; k++){
     vp_cs_covered_counts[k] = 0;
     vwlb_cs_covered_counts[k] = 0;
     vwlb_cs2_covered_counts[k] = 0;

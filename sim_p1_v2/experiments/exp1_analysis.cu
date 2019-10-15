@@ -39,14 +39,14 @@ int main(){
 
       bridge_0.connect_to_analysis();
 
-      for(int k = 0; k < K; k++){
+      for(int k = 0; k < N_CLUSTERS; k++){
         vwlb_cs_covered_counts_total[delta_count] = 0;
         vwlb_cs2_covered_counts_total[delta_count] = 0;
         vp_cs_covered_counts_total[delta_count] = 0;
         empirical_ci_covered_counts_total[delta_count] = 0;
       }
 
-      for(int k = 0; k < K; k++){
+      for(int k = 0; k < N_CLUSTERS; k++){
         vwlb_cs_covered_counts_total[delta_count]
          += bridge_0.vwlb_cs_covered_counts[k];
         vwlb_cs2_covered_counts_total[delta_count]
@@ -61,7 +61,7 @@ int main(){
 
       bridge_settings.save_settings(std::cout);
       printf("\n vwlb cs lengths");
-      for(int k = 0; k < K; k++){
+      for(int k = 0; k < N_CLUSTERS; k++){
         for(int i = 0; i < n_experiments/4; i++){
           if(bridge_0.is_outlier[i]) continue;
           printf("%f ", bridge_0.vwlb_cs_lengths[k * n_experiments + i]);
@@ -72,7 +72,7 @@ int main(){
         printf("var is %f\n", cal_variance(bridge_0.vwlb_cs_lengths, n_experiments));
       }
       printf("\n vwlb cs2 lengths");
-      for(int k = 0; k < K; k++){
+      for(int k = 0; k < N_CLUSTERS; k++){
         for(int i = 0; i < n_experiments/4; i++){
           if(bridge_0.is_outlier[i]) continue;
           printf("%f ", bridge_0.vwlb_cs2_lengths[k * n_experiments + i]);
@@ -80,7 +80,7 @@ int main(){
         printf("\n");
       }
       printf("\n vp cs lengths");
-      for(int k = 0; k < K; k++){
+      for(int k = 0; k < N_CLUSTERS; k++){
         for(int i = 0; i < n_experiments/4; i++){
           if(bridge_0.is_outlier[i]) continue;
           printf("%f ", bridge_0.vp_cs_lengths[k * n_experiments + i]);
@@ -88,17 +88,17 @@ int main(){
         printf("\n");
       }
       printf("\n emirical cs lengths");
-      for(int k = 0; k < K; k++){
+      for(int k = 0; k < N_CLUSTERS; k++){
         printf("%f ", bridge_0.empirical_ci[k][1] - bridge_0.empirical_ci[k][0]);
       }
       printf("\nexperiments #%d is done\n", delta_count);
     }
 
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
-      vwlb_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
-      vwlb_cs2_covered_counts_total[delta_count] /= double(K * n_experiments);
-      vp_cs_covered_counts_total[delta_count] /= double(K * n_experiments);
-      empirical_ci_covered_counts_total[delta_count] /= double(K * n_experiments);
+      vwlb_cs_covered_counts_total[delta_count] /= double(N_CLUSTERS * n_experiments);
+      vwlb_cs2_covered_counts_total[delta_count] /= double(N_CLUSTERS * n_experiments);
+      vp_cs_covered_counts_total[delta_count] /= double(N_CLUSTERS * n_experiments);
+      empirical_ci_covered_counts_total[delta_count] /= double(N_CLUSTERS * n_experiments);
       printf("%f ", vwlb_cs_covered_counts_total[delta_count]);
     }
     printf("\n");

@@ -1,4 +1,4 @@
-#define K 3
+#define N_CLUSTERS 3
 #define sigma_2 25.
 #define n_samples 500
 

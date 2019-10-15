@@ -6,7 +6,7 @@ public:
   // double sigma_2;
 
   // local variables
-  double mu[K];
+  double mu[N_CLUSTERS];
   int c[n_samples];
 
   // data
@@ -14,30 +14,30 @@ public:
   double weights[n_samples];
 
   // point estimate
-  double m[K];
-  double s2[K];
-  double phi[n_samples][K];
+  double m[N_CLUSTERS];
+  double s2[N_CLUSTERS];
+  double phi[n_samples][N_CLUSTERS];
 
   // int is_outlier;
 
   // point estimate per bootstrap sample
   int b_count;
-  double m_b[K];
-  double s2_b[K];
-  double phi_b[n_samples][K];
+  double m_b[N_CLUSTERS];
+  double s2_b[N_CLUSTERS];
+  double phi_b[n_samples][N_CLUSTERS];
 
   // historical MAP for mu
-  double map_mu[K][n_bootstrap_samples];
+  double map_mu[N_CLUSTERS][n_bootstrap_samples];
 
   // outliers excluded
   int n_outliers;
   int is_outlier[n_bootstrap_samples];
-  double map_mu_clean[K][n_bootstrap_samples];
+  double map_mu_clean[N_CLUSTERS][n_bootstrap_samples];
 
   // intervals
-  double vwlb_cs[K][2];
-  double vwlb_cs2[K][2];
-  double vp_cs[K][2];
+  double vwlb_cs[N_CLUSTERS][2];
+  double vwlb_cs2[N_CLUSTERS][2];
+  double vp_cs[N_CLUSTERS][2];
 
   // settings
   int device_n_bootstrap_samples;
