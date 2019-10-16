@@ -1,6 +1,6 @@
 #include "../include.h"
 #include "fixed_latent_vars_generation.cpp"
-#define DELTA_COUNT 10
+#define DELTA_COUNT 51
 
 #include<fstream>
 
@@ -33,7 +33,7 @@ int main(){
 
     for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars,
-        (delta_count + 1) * 0.5);
+        exp(-3 + delta_count * 0.1));
 
       bridge bridge_0(dev_settings);
 
@@ -64,18 +64,18 @@ int main(){
       for(int k = 0; k < N_CLUSTERS; k++){
         for(int i = 0; i < n_experiments/4; i++){
           if(bridge_0.is_outlier[i]) continue;
-          printf("%f ", bridge_0.vwlb_cs_lengths[k * n_experiments + i]);
+          // printf("%f ", bridge_0.vwlb_cs_lengths[k * n_experiments + i]);
         }
         printf("\n");
 
-        printf("mean is %f\n", cal_mean(bridge_0.vwlb_cs_lengths, n_experiments));
-        printf("var is %f\n", cal_variance(bridge_0.vwlb_cs_lengths, n_experiments));
+        printf("mean is %f\n", cal_mean(bridge_0.vwlb_cs_lengths + k * n_experiments, n_experiments));
+        printf("var is %f\n", cal_variance(bridge_0.vwlb_cs_lengths + k * n_experiments, n_experiments));
       }
       printf("\n vwlb cs2 lengths");
       for(int k = 0; k < N_CLUSTERS; k++){
         for(int i = 0; i < n_experiments/4; i++){
           if(bridge_0.is_outlier[i]) continue;
-          printf("%f ", bridge_0.vwlb_cs2_lengths[k * n_experiments + i]);
+          // printf("%f ", bridge_0.vwlb_cs2_lengths[k * n_experiments + i]);
         }
         printf("\n");
       }
@@ -83,13 +83,13 @@ int main(){
       for(int k = 0; k < N_CLUSTERS; k++){
         for(int i = 0; i < n_experiments/4; i++){
           if(bridge_0.is_outlier[i]) continue;
-          printf("%f ", bridge_0.vp_cs_lengths[k * n_experiments + i]);
+          // printf("%f ", bridge_0.vp_cs_lengths[k * n_experiments + i]);
         }
         printf("\n");
       }
       printf("\n emirical cs lengths");
       for(int k = 0; k < N_CLUSTERS; k++){
-        printf("%f ", bridge_0.empirical_ci[k][1] - bridge_0.empirical_ci[k][0]);
+        // printf("%f ", bridge_0.empirical_ci[k][1] - bridge_0.empirical_ci[k][0]);
       }
       printf("\nexperiments #%d is done\n", delta_count);
     }
