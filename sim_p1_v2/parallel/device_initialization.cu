@@ -4,10 +4,6 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
     mu[k] = dev_settings.l_vars.mu[k];
   }
 
-  for(int i = 0; i < n_samples; i++){
-    c[i] = dev_settings.l_vars.c[i];
-  }
-
   // sigma_2 = cal_variance(mu, N_CLUSTERS);
 
   // copy settings
@@ -24,6 +20,10 @@ __device__ device_cavi_implementation::device_cavi_implementation(device_setting
   curandState state;
   curand_init((*dev_settings.data_count), thread_id, 0, &state);
   if(t_id == 0) (*dev_settings.data_count)++;
+
+  for(int i = 0; i < n_samples; i++){
+    c[i] = floor(curand_uniform_double(&state) * N_CLUSTERS);
+  }
 
   // initialize estimates
   for(int k = 0; k < N_CLUSTERS; k++){

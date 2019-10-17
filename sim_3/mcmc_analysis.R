@@ -112,6 +112,8 @@ coverage2 = rowMeans(matrix(coverage2, nrow = 51, byrow = T)/1000)
 coverage1 = as.numeric(matrix(coverage1, nrow = 51, byrow = T))/1000
 coverage2 = as.numeric(matrix(coverage2, nrow = 51, byrow = T))/1000
 
+coverage1 = as.numeric(matrix(coverage1, nrow = 51, byrow = F))
+
 N = c(rep("100 obs", 153), rep("200 obs", 153))
 coverage.all = c(coverage1, coverage2)
 
@@ -126,9 +128,9 @@ ggplot(data = result1.df,
        mapping = aes(x = delta, y = coverage, color = cluster)) + geom_line(aes(linetype = cluster)) +
   geom_point(aes(shape = cluster)) + theme_grey(base_size = 25) + scale_color_manual(values=c("#000000", "#0000FF", "#FF0000")) +
   scale_linetype_manual(name = "cluster", values = c("solid", "dashed", "dotted")) +
-  scale_shape_discrete(solid=F)
+  scale_shape_discrete(solid=F) + ylim(0.7, 1)
 
-ggplot(data = result.df.all,
+        ggplot(data = result.df.all,
        mapping = aes(x = delta, y = coverage, color = cluster)) + geom_line() +
   theme_grey(base_size = 25)+ facet_wrap(~N)
 
