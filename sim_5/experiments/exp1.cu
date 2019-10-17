@@ -11,5 +11,6 @@ int main(){
     executor.run_mcmc(test_seq);
     executor.gen_stats();
     executor.print_stats();
+    executor.print_first_center();
   }
 }

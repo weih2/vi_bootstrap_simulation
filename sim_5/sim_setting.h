@@ -1,6 +1,6 @@
 #define N_CENTERS 3
 
-#define N_OBS 1000
+#define N_OBS 500
 #define N_MCMC_SAMPLES 1000
 
 #define N_EXPERIMENTS 1000

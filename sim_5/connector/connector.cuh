@@ -13,6 +13,10 @@ public:
   double fi_inv[N_CENTERS * N_CENTERS * N_EXPERIMENTS];
   double *dev_fi_inv;
 
+  // GIBBS Sampling first center
+  double first_center[N_EXPERIMENTS];
+  double *dev_first_center;
+
   //// run connection
   void run_mcmc(double);
   void connector_copy_back();
@@ -26,4 +30,5 @@ public:
   void gen_stats();
   void print_stats();
   void print_cov();
+  void print_first_center();
 };

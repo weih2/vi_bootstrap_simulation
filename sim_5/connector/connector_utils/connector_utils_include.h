@@ -4,3 +4,4 @@
 #include "print_stats.cpp"
 #include "run_mcmc.cu"
 #include "print_cov.cpp"
+#include "print_first_center.cpp"
