@@ -60,17 +60,8 @@ int main(){
       bridge_0.clean_device();
 
       bridge_settings.save_settings(std::cout);
-      printf("\n vwlb cs lengths");
-      for(int k = 0; k < N_CLUSTERS; k++){
-        for(int i = 0; i < n_experiments/4; i++){
-          if(bridge_0.is_outlier[i]) continue;
-          // printf("%f ", bridge_0.vwlb_cs_lengths[k * n_experiments + i]);
-        }
-        printf("\n");
-
-        printf("mean is %f\n", cal_mean(bridge_0.vwlb_cs_lengths + k * n_experiments, n_experiments));
-        printf("sd is %f\n", sqrt(cal_variance(bridge_0.vwlb_cs_lengths + k * n_experiments, n_experiments)));
-      }
+      bridge_0.print_lengths();
+      
       printf("\nexperiments #%d is done\n", delta_count);
     }
 

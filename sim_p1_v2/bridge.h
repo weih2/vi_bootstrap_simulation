@@ -62,4 +62,5 @@ public:
   // void save_result(std::ostream&);
   void save_result();
   void print_centers();
+  void print_lengths()
 };
