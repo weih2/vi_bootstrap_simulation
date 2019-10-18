@@ -61,5 +61,5 @@ public:
   void save_settings(std::ostream&);
   // void save_result(std::ostream&);
   void save_result();
-  void print_centers()
+  void print_centers();
 };
