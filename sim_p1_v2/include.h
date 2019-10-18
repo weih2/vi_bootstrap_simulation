@@ -51,3 +51,4 @@
 #include "./utils/count_coverage.cu"
 #include "./utils/save_settings.cpp"
 #include "./utils/save_result.cu"
+#include "./utils/print_centers.cpp"
