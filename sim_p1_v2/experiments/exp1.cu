@@ -62,6 +62,7 @@ int main(){
 
       bridge_0.clean_device();
       printf("experiments #%d is done\n", delta_count);
+      bridge_0.print_centers();
     }
 
     printf("number of outliers in each experiment: \n");
