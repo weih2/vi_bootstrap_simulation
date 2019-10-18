@@ -17,6 +17,10 @@ bridge::bridge(device_settings dev_settings){
     empirical_ci_covered_counts[k] = 0;
   }
 
+  vp_first_centers = new double[n_experiments];
+  vwlb_first_centers = new double[n_experiments];
+  vwlb2_first_centers = new double[n_experiments];
+
   n_outliers = 0;
 
   init_device();

@@ -35,9 +35,9 @@ public:
   double *dev_vwlb2_first_centers;
   double *dev_vp_first_centers;
 
-  double vwlb_first_centers[n_experiments];
-  double vwlb2_first_centers[n_experiments];
-  double vp_first_centers[n_experiments];
+  double *vwlb_first_centers;
+  double *vwlb2_first_centers;
+  double *vp_first_centers;
 
   double empirical_ci[N_CLUSTERS][2];
 
