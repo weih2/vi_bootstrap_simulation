@@ -30,6 +30,15 @@ public:
   double *device_vp_cs_lengths;
   double *vp_cs_lengths;
 
+  // first centers
+  double *dev_vwlb_first_centers;
+  double *dev_vwlb2_first_centers;
+  double *dev_vp_first_centers;
+
+  double vwlb_first_centers[n_experiments];
+  double vwlb2_first_centers[n_experiments];
+  double vp_first_centers[n_experiments];
+
   double empirical_ci[N_CLUSTERS][2];
 
   int n_outliers;

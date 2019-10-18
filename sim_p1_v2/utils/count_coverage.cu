@@ -9,6 +9,14 @@ void bridge::count_coverage(){
   cudaMemcpy(vp_cs_covered, device_vp_cs_covered,
     sizeof(int) * N_CLUSTERS * n_experiments, cudaMemcpyDeviceToHost);
 
+  // copy the centers back also
+  cudaMemcpy(vp_first_centers, dev_vp_first_centers,
+    sizeof(double) * n_experiments);
+  cudaMemcpy(vwlb_first_centers, dev_vwlb_first_centers,
+    sizeof(double) * n_experiments);
+  cudaMemcpy(vwlb2_first_centers, dev_vwlb2_first_centers,
+    sizeof(double) * n_experiments);
+
   construct_empirical_ci();
 
   for(int k = 0; k < N_CLUSTERS; k++){
