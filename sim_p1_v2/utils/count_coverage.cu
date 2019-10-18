@@ -11,11 +11,11 @@ void bridge::count_coverage(){
 
   // copy the centers back also
   cudaMemcpy(vp_first_centers, dev_vp_first_centers,
-    sizeof(double) * n_experiments);
+    sizeof(double) * n_experiments, cudaMemcpyDeviceToHost);
   cudaMemcpy(vwlb_first_centers, dev_vwlb_first_centers,
-    sizeof(double) * n_experiments);
+    sizeof(double) * n_experiments, cudaMemcpyDeviceToHost);
   cudaMemcpy(vwlb2_first_centers, dev_vwlb2_first_centers,
-    sizeof(double) * n_experiments);
+    sizeof(double) * n_experiments, cudaMemcpyDeviceToHost);
 
   construct_empirical_ci();
 
