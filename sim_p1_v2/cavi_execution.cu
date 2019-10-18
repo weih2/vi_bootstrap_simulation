@@ -11,11 +11,9 @@ __global__ void cavi_execute(bridge bg, int bootstrap_execution){
     // thread_implementation.device_vwlb_cs2_construct();
     thread_implementation.device_vp_cs_construct();
 
-    /*
     bg.dev_vp_first_centers[t_id] = cal_mean(thread_implementation.vp_cs[0], 2);
     bg.dev_vwlb_first_centers[t_id] = cal_mean(thread_implementation.vwlb_cs[0], 2);
     bg.dev_vwlb2_first_centers[t_id] = cal_mean(thread_implementation.vwlb_cs2[0], 2);
-    */
 
     for(int k = 0; k < N_CLUSTERS; k++){
       if((thread_implementation.vp_cs[k][0] < thread_implementation.mu[k])

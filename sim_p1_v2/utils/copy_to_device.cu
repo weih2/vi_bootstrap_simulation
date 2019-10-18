@@ -17,20 +17,20 @@ void bridge::init_device(){
     sizeof(int) * N_CLUSTERS * n_experiments);
 
   cudaMalloc((void**)&device_vp_cs_lengths,
-    sizeof(double) * n_experiments);
+    sizeof(double) * N_CLUSTERS * n_experiments);
   cudaMalloc((void**)&device_vwlb_cs_lengths,
-    sizeof(double) * n_experiments);
+    sizeof(double) * N_CLUSTERS * n_experiments);
   cudaMalloc((void**)&device_vwlb_cs2_lengths,
-    sizeof(double) * n_experiments);
+    sizeof(double) * N_CLUSTERS * n_experiments);
 
   cudaMalloc((void**)&device_empirical_mu,
     sizeof(double) * n_experiments * N_CLUSTERS);
 
   // cudaMalloc((void**)&device_is_outlier,
   //  sizeof(int) * n_experiments);
-  cudaMalloc((void**)&dev_vp_first_centers, sizeof(double) * n_experiments * N_CLUSTERS);
-  cudaMalloc((void**)&dev_vwlb_first_centers, sizeof(double) * n_experiments * N_CLUSTERS);
-  cudaMalloc((void**)&dev_vwlb2_first_centers, sizeof(double) * n_experiments * N_CLUSTERS);
+  cudaMalloc((void**)&dev_vp_first_centers, sizeof(double) * n_experiments);
+  cudaMalloc((void**)&dev_vwlb_first_centers, sizeof(double) * n_experiments);
+  cudaMalloc((void**)&dev_vwlb2_first_centers, sizeof(double) * n_experiments);
 }
 
 void bridge::clean_device(){
