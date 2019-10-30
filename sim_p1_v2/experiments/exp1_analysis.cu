@@ -1,6 +1,6 @@
 #include "../include.h"
 #include "fixed_latent_vars_generation.cpp"
-#define DELTA_COUNT 51
+#define DELTA_COUNT 5
 
 #include<fstream>
 
@@ -41,7 +41,7 @@ int main(){
 
     for(int delta_count = 0; delta_count < 5; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars,
-        );
+        deltas[delta_count]);
 
       bridge bridge_0(dev_settings);
 
