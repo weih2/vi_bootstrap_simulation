@@ -32,11 +32,11 @@ int main(){
     bridge_settings.clean_device();
 
     double deltas[5] = {
-      exp(-3 + 1 * 0.1),
-      exp(-3 + 31 * 0.1),
-      exp(-3 + 38 * 0.1),
-      exp(-3 + 42 * 0.1),
-      exp(-3 + 47 * 0.1)
+      exp(-3),
+      exp(-3 + 30 * 0.1),
+      exp(-3 + 37 * 0.1),
+      exp(-3 + 41 * 0.1),
+      exp(-3 + 46 * 0.1)
     };
 
     for(int delta_count = 0; delta_count < 5; delta_count++){
