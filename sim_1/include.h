@@ -12,6 +12,7 @@
 #include <gsl/gsl_sort_double.h>
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_cdf.h>
+#include <gsl/gsl_statistics_double.h>
 
 // global setting
 #define BUFF 200.

@@ -1,14 +1,14 @@
 #include "include.h"
 
 using namespace std;
-#define DELTA 5.
-#define N_EXPERIMENTS 5000
+#define DELTA 1.5
+#define N_EXPERIMENTS 500
 
 int main(int argc, char **argv){
   simulation_data sim1;
   sim1.g_vars.n_samples = stoi(argv[1]);
   sim1.g_vars.K = 3;
-  sim1.g_vars.sigma_2 = 30;
+  sim1.g_vars.sigma_2 = 25;
 
   sim1.b_vars.confidence = 0.95;
   sim1.allocated = 0;
@@ -17,6 +17,8 @@ int main(int argc, char **argv){
   sim1.l_vars.mu[0] = -DELTA;
   sim1.l_vars.mu[1] = 0;
   sim1.l_vars.mu[2] = DELTA;
+
+  double s2_samples[3][N_EXPERIMENTS];
 
   double s2_mean[3];
   for(int k = 0; k < sim1.g_vars.K; k++) s2_mean[k] = 0;
@@ -37,13 +39,16 @@ int main(int argc, char **argv){
     int n_steps = 1000;
     sim0.cavi_update(n_steps);
 
-    for(int k = 0; k < sim1.g_vars.K; k++) s2_mean[k] += sim0.est.s2[k];
-    /*
-    if(n % 100 == 0){
+    for(int k = 0; k < sim1.g_vars.K; k++) s2_samples[k][n] = sim0.est.s2[k];
+
+    if(n % 10 == 0){
+      for(int k = 0; k < sim1.g_vars.K; k++) cout << sim0.est.m[k] << " ";
+      cout << endl;
       for(int k = 0; k < sim1.g_vars.K; k++) cout << sim0.est.s2[k] << " ";
       cout << endl;
+      cout << endl;
     }
-    */
+
   }
 
   // sim2.cavi_update(n_steps);
@@ -54,7 +59,14 @@ int main(int argc, char **argv){
   cout << "n obs: " << sim1.g_vars.n_samples << endl;
   cout << "estimated variance: ";
   */
-  for(int k = 0; k < sim1.g_vars.K; k++) cout << s2_mean[k]/double(N_EXPERIMENTS) << " ";
+  for(int k = 0; k < sim1.g_vars.K; k++){
+    cout << gsl_stats_mean(s2_samples[k], 1, N_EXPERIMENTS) << " ";
+  }
+  cout << endl;
+
+  for(int k = 0; k < sim1.g_vars.K; k++){
+    cout << gsl_stats_sd(s2_samples[k], 1, N_EXPERIMENTS) << " ";
+  }
   cout << endl;
 
   // for(int k = 0; k < sim1.g_vars.K; k++) cout << sim0.est.m[k] << " ";

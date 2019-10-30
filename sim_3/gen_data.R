@@ -6,7 +6,7 @@ N = 100
 
 # true parameters
 
-delta = 5
+delta = 0.1
 mu0 = c(- delta, 0, delta)
 
 gen.new.data = function(o){

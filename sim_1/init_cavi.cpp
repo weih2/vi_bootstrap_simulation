@@ -11,8 +11,8 @@ cavi_estimation init_cavi(simulation_data& dat){
 
   // draw from prior
   for(int k = 0; k < dat.g_vars.K; k++){
-    est.m[k] = random_normal() * sqrt(dat.g_vars.sigma_2);
-    est.s2[k] = dat.g_vars.sigma_2;
+    est.m[k] = random_normal();
+    est.s2[k] = 1;
     for(int i = 0; i < dat.g_vars.n_samples; i++){
       est.phi[i][k] = 1/double(dat.g_vars.K);
     }
