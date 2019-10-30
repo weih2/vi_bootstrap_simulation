@@ -31,9 +31,17 @@ int main(){
     bridge bridge_settings(dev_settings);
     bridge_settings.clean_device();
 
-    for(int delta_count = 0; delta_count < DELTA_COUNT; delta_count++){
+    double deltas[5] = {
+      exp(-3 + 1 * 0.1),
+      exp(-3 + 31 * 0.1),
+      exp(-3 + 38 * 0.1),
+      exp(-3 + 42 * 0.1),
+      exp(-3 + 47 * 0.1)
+    };
+
+    for(int delta_count = 0; delta_count < 5; delta_count++){
       fixed_latent_vars_generation(dev_settings.l_vars,
-        exp(-3 + delta_count * 0.1));
+        );
 
       bridge bridge_0(dev_settings);
 
@@ -61,7 +69,7 @@ int main(){
 
       bridge_settings.save_settings(std::cout);
       bridge_0.print_lengths();
-      
+
       printf("\nexperiments #%d is done\n", delta_count);
     }
 
